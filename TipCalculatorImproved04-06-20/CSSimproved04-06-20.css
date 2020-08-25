@@ -1,0 +1,37 @@
+body {
+  background: #8e0e00;
+  /* fallback for old browsers */
+  background: linear-gradient(to left, #8e0e00, #1f1c18);
+}
+
+#container {
+  height: 525px;
+  width: 360px;
+  margin: 100px auto;
+  background: #3118c2;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+}
+
+h1 {
+  padding: 10px 100px;
+  background-color: rgb(230, 189, 28);
+  font-size: x-large;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+#calculator {
+  color: beige;
+}
+
+p {
+  font-weight: bolder;
+  color: beige;
+  padding-left: 10%;
+}
+
+#totalTip {
+  padding-left: 20%;
+}

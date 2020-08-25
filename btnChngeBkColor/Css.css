@@ -1,0 +1,37 @@
+.blueClass {
+  color: white;
+  padding: 25px 75px;
+  background-color: blue;
+  font-size: 20px;
+  margin-top: 30px;
+  height: 100px;
+  width: 200px;
+  
+}
+.redClass {
+  color: white;
+  padding: 25px 75px;
+  background-color: red;
+  font-size: 20px;
+  margin-top: 40px;
+  height: 100px;
+  width: 200px;
+}
+.yellowClass {
+  color: black;
+  padding: 25px 75px;
+  background-color: yellow;
+  font-size: 20px;
+  margin-top: 40px;
+  height: 100px;
+  width: 200px;
+}
+.greenClass {
+  color: white;
+  padding: 25px 75px;
+  background-color: green;
+  font-size: 20px;
+  margin-top: 40px;
+  height: 100px;
+  width: 200px;
+}

@@ -1,0 +1,14 @@
+div{
+    background-color: coral;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;  
+    font-family: 'Shrikhand', cursive;
+    color: rgb(90, 25, 241);
+    
+}
+
+#vegSpacing{
+    margin: 10px;
+}
+
