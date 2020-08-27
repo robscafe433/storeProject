@@ -1,81 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Roberets shop</title>
 
-    <!-- Bootstrap CSS -->
-
+    <!-- Bootstrap -->
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+      integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="CSS.css" type="text/css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap"
-      rel="stylesheet"
-    />
-
-    <title>Hello, world!</title>
+    <link rel="stylesheet" href="index.css" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
   <body>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-4">
-          <img class="img-responsive" src="storeLogo.jpg" />
+    <div class="container">
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button
+              type="button"
+              class="navbar-toggle collapsed"
+              data-toggle="collapse"
+              data-target="#navbar"
+              aria-expanded="false"
+              aria-controls="navbar"
+            >
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Roberets shop</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#">Groceries</a></li>
+              <li><a href="#">Household</a></li>
+              <li><a href="#">Garden</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active">
+                <a href="./">Default <span class="sr-only">(current)</span></a>
+              </li>
+              <li><a href="../navbar-static-top/">Static top</a></li>
+              <li><a href="../navbar-fixed-top/">Fixed top</a></li>
+            </ul>
+          </div>
+          <!--/.nav-collapse -->
         </div>
+        <!--/.container-fluid -->
+      </nav>
 
-        <div class="col-md-4">
-          <br />
-          <br />
-          <br />
-          <br />
-          <h1>Your One-Stop Shop</h1>
-        </div>
-
-
-        <div class="col-md-4">
-            <br>
-            <br>
-            <br>
-            <br>
-            <a class="btn btn-primary" href="nextPage.html" role="button" >   Groceries</a>
-            <br>    
-            <br>
-            <br>
-            <button type="button" class="btn btn-danger">Household</button><br>
-            <br>
-            <br>
-            <br>     
-            <button type="button" class="btn btn-success">Garden</button>   
-        </div>
-
-
-
+      <div class="jumbotron">
+        <h1>Navbar example</h1>
+        <p>
+          This example is a quick exercise to illustrate how the default, static
+          navbar and fixed to top navbar work. It includes the responsive CSS
+          and HTML, so it also adapts to your viewport and device.
+        </p>
+        <p>
+          <a
+            class="btn btn-lg btn-primary"
+            href="../../components/#navbar"
+            role="button"
+            >View navbar docs »</a
+          >
+        </p>
+      </div>
+      <div class="jumbotron">
+        <h1>Navbar example</h1>
+        <p>
+          This example is a quick exercise to illustrate how the default, static
+          navbar and fixed to top navbar work. It includes the responsive CSS
+          and HTML, so it also adapts to your viewport and device.
+        </p>
+        <p>
+          <a
+            class="btn btn-lg btn-primary"
+            href="../../components/#navbar"
+            role="button"
+            >View navbar docs »</a
+          >
+        </p>
+      </div><div class="jumbotron">
+        <h1>Navbar example</h1>
+        <p>
+          This example is a quick exercise to illustrate how the default, static
+          navbar and fixed to top navbar work. It includes the responsive CSS
+          and HTML, so it also adapts to your viewport and device.
+        </p>
+        <p>
+          <a
+            class="btn btn-lg btn-primary"
+            href="../../components/#navbar"
+            role="button"
+            >View navbar docs »</a
+          >
+        </p>
       </div>
     </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">Roberets shop &copy; Copyright 2020</p>
+      </div>
+    </footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      src="https://code.jquery.com/jquery-1.12.4.min.js"
+      integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
       crossorigin="anonymous"
     ></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+      integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
       crossorigin="anonymous"
     ></script>
   </body>
