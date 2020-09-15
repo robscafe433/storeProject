@@ -3,23 +3,23 @@ let fCart = document.querySelectorAll(".add-cart");
 let products = [
   //Groceries list:
   {
-    name: "Lettuce",
-    tag: "produce-lettuce",
-    price: 2,
+    name: "Carrots",
+    tag: "produce-carrots",
+    price: 6.0,
     inCart: 0,
   },
 
   {
-    name: "Carrots",
-    tag: "produce-carrots",
-    price: 1,
+    name: "Lettuce",
+    tag: "produce-lettuce",
+    price: 4.0,
     inCart: 0,
   },
 
   {
     name: "Tomatoes",
     tag: "produce-tomatoes",
-    price: 3,
+    price: 2.5,
     inCart: 0,
   },
 
@@ -78,13 +78,13 @@ for (let i = 0; i < fCart.length; i++) {
 
 // restores count number on cart if page is reloaded.
 
-function onLoadCartNumbers() {
-  let productNumbers = localStorage.getItem("cartNumbers");
+// function onLoadCartNumbers() {
+//   let productNumbers = localStorage.getItem("cartNumbers");
 
-  if (productNumbers) {
-    document.querySelector(".cart span").textContent = productNumbers;
-  }
-}
+//   if (productNumbers) {
+//     document.querySelector(".cart span").textContent = productNumbers;
+//   }
+// }
 
 // Sets number of items in browser's  local Storage starting from 1 when button(s) // is pressed.
 
@@ -96,10 +96,11 @@ function cartNumbers(product) {
   if (productNumbers) {
     localStorage.setItem("cartNumbers", productNumbers + 1);
     // sets home page cart count
-    document.querySelector(".cart span").textContent = productNumbers + 1;
+    //document.querySelector(".cart span").textContent = productNumbers + 1;
   } else {
     localStorage.setItem("cartNumbers", 1);
-    document.querySelector(".cart span").textContent = 1;
+
+    //document.querySelector(".cart span").textContent = 1;
   }
 
   setItems(product);
@@ -110,27 +111,25 @@ function cartNumbers(product) {
 
 function setItems(product) {
   let cartItems = localStorage.getItem("productsInCart");
-  cartItems = JSON.parse("cartItems");
+  cartItems = JSON.parse(cartItems);
 
   if (cartItems != null) {
     if (cartItems[product.tag] == undefined) {
+      console.log("cartItems is now undefined ***");
       cartItems = {
         ...cartItems,
         [product.tag]: product,
       };
     }
+
     cartItems[product.tag].inCart += 1;
   } else {
+    console.log("cartItems is null ***");
     product.inCart = 1;
     cartItems = {
       [product.tag]: product,
     };
   }
-
-  product.cartItems = 1;
-  cartItems = {
-    [product.tag]: product,
-  };
 
   localStorage.setItem("productsInCart", JSON.stringify(cartItems));
 }
@@ -150,28 +149,21 @@ function displayCart() {
   let cartItems = localStorage.getItem("productsInCart");
   cartItems = JSON.parse(cartItems);
   let productContainer = document.querySelector(".products");
+  let cartCost = localStorage.getItem("totalCost");
 
   if (cartItems && productContainer) {
     productContainer.innerHTML = "";
     Object.values(cartItems).map((item) => {
       productContainer.innerHTML += `
-        <div class= "product">${item.name}</div>
-        <div class="price">$${item.price}.00</div>
-      <div class= "quantity">${item.inCart}</div>
-
-    <div class= "total">$${item.inCart * item.price}.00</div>
-    `;
+      <br>
+      <span>${item.name}</span>
+      <span>${item.price}</span>
+      <span>${item.inCart}</span>
+      
+      `;
     });
-
-    productContainer.innerHTML += `
-      <div class="basketTotalContainer">
-        <h4 class="basketTotalTitle">Basket total: </h4>
-        <h4 class= "basketTotal">
-          $${cartCost}.00
-        </h4>
-      </div>
-    `;
   }
 }
 
-onLoadCartNumbers();
+//onLoadCartNumbers();
+displayCart();
