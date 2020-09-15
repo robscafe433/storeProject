@@ -20,7 +20,7 @@
     <title>Robert's one stop shop</title>
   </head>
   <body>
-    <div class="container">
+    <section class="container">
       <nav
         class="navbar navbar-expand-lg navbar-light bg-light rounded fixed-top"
       >
@@ -37,7 +37,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarsExample09">
+        <section class="collapse navbar-collapse" id="navbarsExample09">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
               <a class="nav-link" href="#"
@@ -63,63 +63,103 @@
               aria-label="Search"
             />
           </form> -->
-        </div>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Cart
+          </button>
+        </section>
       </nav>
       <main role="main">
-        <section class="jumbotron">
-          <div class="container">
-            <h1 class="jumbotron-heading">Album example</h1>
-            <p class="lead text-muted">
-              Something short and leading about the collection below—its
-              contents, the creator, etc. Make it short and sweet, but not too
-              short so folks don't simply skip over it entirely.
-            </p>
-          </div>
+        <section class="banner">
+          <!--
+            XL- 1920 * 700
+            lg- 1200 * 700
+            md- 992 * 576
+            sm- 768 * 576
+            xs- 576 * 480 -->
+          <img
+            srcset="
+              Images/indeximage/banner-xs.jpg  576w,
+              Images/indeximage/banner-sm.jpg  768w,
+              Images/indeximage/banner-md.jpg  992w,
+              Images/indeximage/banner-lg.jpg 1200w,
+              Images/indeximage/banner-xl.jpg 1920w
+            "
+            class="img-fluid"
+            sizes="100vw"
+            src="Images/indeximage/banner-xl.jpg"
+            alt="Selecting Exterior door for a modern home for maximum curb appeal"
+          />
+          <section class="top-center-container">
+            <section class="lightText">
+              <h1>Your one stop shop</h1>
+              <h2>At a discount price</h2>
+              <a href="/categories/doors" class="btn btn-dark"
+                >View All Items
+                <i class="fal fa-chevron-right"></i>
+              </a>
+            </section>
+            <!-- .lightText -->
+          </section>
+          <!-- .img-fluid -->
         </section>
-        <div class="album py-5 bg-light">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-4">
-                <div class="card mb-4 box-shadow">
+        <section class="album py-5 bg-light">
+          <section class="container">
+            <section class="row">
+              <section class="col-md-4">
+                <!-- cards 380 * 275 -->
+                <section class="card mb-4 box-shadow">
                   <img
                     class="card-img-top"
                     data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
                     alt="Thumbnail [100%x225]"
                     style="height: 225px; width: 100%; display: block"
-                    src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22348%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20348%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_17442d30347%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A17pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_17442d30347%22%3E%3Crect%20width%3D%22348%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22116.7109375%22%20y%3D%22120.05625%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+                    src="Images/indeximage/groceries-card.jpg"
                     data-holder-rendered="true"
                   />
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="card mb-4 box-shadow">
+                  <section class="top-center-container">
+                    <a href="#"
+                      ><h1 class="darkText card-text">Groceries</h1></a
+                    >
+                  </section>
+                </section>
+              </section>
+              <section class="col-md-4">
+                <section class="card mb-4 box-shadow">
                   <img
                     class="card-img-top"
                     data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
                     alt="Thumbnail [100%x225]"
-                    src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22348%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20348%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_17442d30348%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A17pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_17442d30348%22%3E%3Crect%20width%3D%22348%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22116.7109375%22%20y%3D%22120.05625%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+                    src="Images/indeximage/household-card.jpg"
                     data-holder-rendered="true"
                     style="height: 225px; width: 100%; display: block"
                   />
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="card mb-4 box-shadow">
+                  <section class="top-center-container">
+                    <a href="#">
+                      <h1 class="darkText card-text">Household</h1></a
+                    >
+                  </section>
+                </section>
+              </section>
+              <section class="col-md-4">
+                <section class="card mb-4 box-shadow">
                   <img
                     class="card-img-top"
                     data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
                     alt="Thumbnail [100%x225]"
-                    src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22348%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20348%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_17442d30348%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A17pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_17442d30348%22%3E%3Crect%20width%3D%22348%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22116.7109375%22%20y%3D%22120.05625%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+                    src="Images/indeximage/garden-card.jpg"
                     data-holder-rendered="true"
                     style="height: 225px; width: 100%; display: block"
                   />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                  <section class="top-center-container">
+                    <a href="#"> <h1 class="darkText card-text">Garden</h1></a>
+                  </section>
+                </section>
+              </section>
+            </section>
+          </section>
+        </section>
       </main>
-    </div>
+    </section>
     <footer class="blog-footer">
       <p>© 2020 Robert's one stop shop</p>
       <p>
