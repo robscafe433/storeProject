@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS only -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <title>Robert's One Stop Shop | Groceries</title>
+  </head>
+  <style>
+    body {
+      padding-top: 4.5rem;
+    }
+
+    .container .text-muted {
+      margin: 20px 0;
+    }
+
+    .blog-footer {
+      padding: 2.5rem 0;
+      color: #999;
+      text-align: center;
+      background-color: #f9f9f9;
+      border-top: 0.05rem solid #e5e5e5;
+    }
+
+    .blog-footer p:last-child {
+      margin-bottom: 0;
+    }
+
+    .grocery-gallery {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-evenly;
+      align-content: space-around;
+      max-width: 1800px;
+      margin: 0 auto;
+    }
+
+    .grocery-gallery .grocery-card {
+      max-width: 300px;
+      max-height: 500px;
+      align-items: center;
+    }
+  </style>
+
+  <body>
+    <div class="container">
+      <nav
+        class="navbar navbar-expand-lg navbar-light bg-light rounded fixed-top"
+      >
+        <a class="navbar-brand" href="#">Robert's One Stop Shop</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarsExample09"
+          aria-controls="navbarsExample09"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExample09">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#"
+                >Groceries<span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./household.html">Household</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./garden.html">Garden</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/storeProject/cart.html">Cart</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <header>
+        <section class="jumbotron text-center">
+          <div class="container">
+            <h1 class="jumbotron-heading">Album example</h1>
+            <p class="lead text-muted">
+              Something short and leading about the collection below—its
+              contents, the creator, etc. Make it short and sweet, but not too
+              short so folks don't simply skip over it entirely.
+            </p>
+          </div>
+        </section>
+      </header>
+    </div>
+
+    <main class="grocery-gallery"></main>
+
+    <footer class="blog-footer">
+      <p>© 2020 Robert's one stop shop</p>
+      <p>
+        <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      let groceries = `
+        <div class="card m-4 grocery-card">
+            <img class="card-img-top" src="../Images/carrots.jpg" alt="carrots">
+            <div class="card-body">
+                <h5 class="card-title text-center">Carrots</h5>
+                <p class="card-text text-center">$6.00</p>
+                <a class="add-cart" href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+        <div class="card m-4 grocery-card">
+            <img class="card-img-top" src="../Images/lettuce.jpg" alt="carrots">
+            <div class="card-body">
+                <h5 class="card-title text-center">Lettuce</h5>
+                <p class="card-text text-center">$4.00</p>
+                <a class="add-cart" href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+        <div class="card m-4 grocery-card">
+            <img class="card-img-top" src="../Images/tomatoes.jpg" alt="carrots">
+            <div class="card-body">
+                <h5 class="card-title text-center">Tomatoes</h5>
+                <p class="card-text text-center">$2.50</p>
+                <a class="add-cart" href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+        `;
+      // for (let i = 0; i < 2; i++) {
+      //     groceries += groceries;
+      // }
+      let gallery = document.getElementsByClassName("grocery-gallery")[0];
+      console.log(gallery);
+      gallery.innerHTML = groceries;
+    </script>
+    <script src="/storeProject/JS.js"></script>
+  </body>
+</html>
