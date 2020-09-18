@@ -78,13 +78,13 @@ for (let i = 0; i < fCart.length; i++) {
 
 // restores count number on cart if page is reloaded.
 
-// function onLoadCartNumbers() {
-//   let productNumbers = localStorage.getItem("cartNumbers");
+function onLoadCartNumbers() {
+  let productNumbers = localStorage.getItem("cartNumbers");
 
-//   if (productNumbers) {
-//     document.querySelector(".cart span").textContent = productNumbers;
-//   }
-// }
+  if (productNumbers) {
+    document.querySelector(".cart span").textContent = productNumbers;
+  }
+}
 
 // Sets number of items in browser's  local Storage starting from 1 when button(s) // is pressed.
 
@@ -92,15 +92,26 @@ function cartNumbers(product) {
   let productNumbers = localStorage.getItem("cartNumbers");
 
   productNumbers = parseInt(productNumbers);
+  //console.log("display null???", productNumbers); //displays =NaN
 
   if (productNumbers) {
     localStorage.setItem("cartNumbers", productNumbers + 1);
     // sets home page cart count
-    //document.querySelector(".cart span").textContent = productNumbers + 1;
+    document.querySelector(".cart span").textContent = productNumbers + 1;
   } else {
     localStorage.setItem("cartNumbers", 1);
 
-    //document.querySelector(".cart span").textContent = 1;
+    document.querySelector(".cart span").textContent = 1;
+
+    //Above:
+    //**********************************Line 104 was getting bug:
+    //"Button" was recently added to index.html but had not been updated to
+    //groceries.html nor on my page cart.html.
+    //* So I had to add it manually to the nav bar of both pages and also
+    //had to include "cart(inside class)" and "span" to the "button",
+    //*Note that also the cart page
+    //was now not displaying the data, but once I also added the button
+    //to nav bar of cart page it worked nicely-rs
   }
 
   setItems(product);
@@ -180,5 +191,5 @@ function displayCart() {
   }
 }
 
-//onLoadCartNumbers();
+onLoadCartNumbers();
 displayCart();
