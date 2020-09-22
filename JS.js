@@ -4,21 +4,21 @@ let products = [
   //Groceries list:
   {
     name: "Carrots",
-    tag: "produce-carrots",
+    tag: "carrots",
     price: 6.0,
     inCart: 0,
   },
 
   {
     name: "Lettuce",
-    tag: "produce-lettuce",
+    tag: "lettuce",
     price: 4.0,
     inCart: 0,
   },
 
   {
     name: "Tomatoes",
-    tag: "produce-tomatoes",
+    tag: "tomatoes",
     price: 2.5,
     inCart: 0,
   },
@@ -26,21 +26,21 @@ let products = [
   // Garden list:
   {
     name: "Shovel",
-    tag: "garden-shovel",
-    price: 4,
+    tag: "shovel",
+    price: 4.0,
     inCart: 0,
   },
 
   {
     name: "Fertilizer",
-    tag: "garden-fertilizer",
+    tag: "fertilizer",
     price: 5,
     inCart: 0,
   },
 
   {
     name: "Rake",
-    tag: "garden-rake",
+    tag: "rake",
     price: 6,
     inCart: 0,
   },
@@ -48,22 +48,22 @@ let products = [
   // Household list
 
   {
-    name: "Napkins",
-    tag: "household-napkins",
+    name: "Clorox",
+    tag: "clorox",
     price: 2,
     inCart: 0,
   },
 
   {
-    name: "Plates",
-    tag: "household-plates",
+    name: "Paper Towels",
+    tag: "paper-towels",
     price: 3,
     inCart: 0,
   },
 
   {
-    name: "Spoons",
-    tag: "household-spoons",
+    name: "Batteries",
+    tag: "batteries",
     price: 2,
     inCart: 0,
   },
@@ -78,13 +78,13 @@ for (let i = 0; i < fCart.length; i++) {
 
 // restores count number on cart if page is reloaded.
 
-// function onLoadCartNumbers() {
-//   let productNumbers = localStorage.getItem("cartNumbers");
+function onLoadCartNumbers() {
+  let productNumbers = localStorage.getItem("cartNumbers");
 
-//   if (productNumbers) {
-//     document.querySelector(".cart span").textContent = productNumbers;
-//   }
-// }
+  if (productNumbers) {
+    document.querySelector(".cart span").textContent = productNumbers;
+  }
+}
 
 // Sets number of items in browser's  local Storage starting from 1 when button(s) // is pressed.
 
@@ -92,15 +92,26 @@ function cartNumbers(product) {
   let productNumbers = localStorage.getItem("cartNumbers");
 
   productNumbers = parseInt(productNumbers);
+  //console.log("display null???", productNumbers); //displays =NaN
 
   if (productNumbers) {
     localStorage.setItem("cartNumbers", productNumbers + 1);
     // sets home page cart count
-    //document.querySelector(".cart span").textContent = productNumbers + 1;
+    document.querySelector(".cart span").textContent = productNumbers + 1;
   } else {
     localStorage.setItem("cartNumbers", 1);
 
-    //document.querySelector(".cart span").textContent = 1;
+    document.querySelector(".cart span").textContent = 1;
+
+    //Above:
+    //**********************************Line 104 was getting bug:
+    //"Button" was recently added to index.html but had not been updated to
+    //groceries.html nor on my page cart.html.
+    //* So I had to add it manually to the nav bar of both pages and also
+    //had to include "cart(inside class)" and "span" to the "button",
+    //*Note that also the cart page
+    //was now not displaying the data, but once I also added the button
+    //to nav bar of cart page it worked nicely-rs
   }
 
   setItems(product);
@@ -124,7 +135,6 @@ function setItems(product) {
 
     cartItems[product.tag].inCart += 1;
   } else {
-    console.log("cartItems is null ***");
     product.inCart = 1;
     cartItems = {
       [product.tag]: product,
@@ -138,32 +148,48 @@ function totalCost(product) {
   let cartCost = localStorage.getItem("totalCost");
 
   if (cartCost != null) {
-    cartCost = parseInt(cartCost);
+    cartCost = parseFloat(cartCost);
     localStorage.setItem("totalCost", cartCost + product.price);
   } else {
     localStorage.setItem("totalCost", product.price);
+    console.log(localStorage.getItem("totalCost", product.price));
+    console.log(typeof localStorage.getItem("totalCost", product.price));
   }
 }
 
 function displayCart() {
   let cartItems = localStorage.getItem("productsInCart");
   cartItems = JSON.parse(cartItems);
-  let productContainer = document.querySelector(".products");
-  let cartCost = localStorage.getItem("totalCost");
 
-  if (cartItems && productContainer) {
-    productContainer.innerHTML = "";
+  let secondRow = document.querySelector(".row-products-rs");
+
+  let cartCost = localStorage.getItem("totalCost");
+  cartCost = parseFloat(cartCost);
+
+  if (cartItems && secondRow) {
     Object.values(cartItems).map((item) => {
-      productContainer.innerHTML += `
-      <br>
-      <span>${item.name}</span>
-      <span>${item.price}</span>
-      <span>${item.inCart}</span>
+      secondRow.innerHTML += `
+      <div class="row two-rs font-size-rs">
+      <div class="col-2"><img src="Images/${item.tag}.jpg" height="40"></div>
+      <div class="col-3">${item.name}</div>
+      <div class="col-2">${item.price.toFixed(2)}</div>
+      <div class="col-2">${item.inCart}</div>
+      <div class="col-3">${(item.price * item.inCart).toFixed(2)}</div>
+    </div>
       
       `;
     });
+    secondRow.innerHTML += `
+    <div class="row three-rs font-size-rs">
+    <div class="col-7"></h4></div>
+    <div class="col-2">Basket Total:</div>
+    <div class="col-3">$${cartCost.toFixed(2)}</div>
+    
+    </div>
+    
+    `;
   }
 }
 
-//onLoadCartNumbers();
+onLoadCartNumbers();
 displayCart();
