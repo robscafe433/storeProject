@@ -20,7 +20,7 @@
     <title>Robert's one stop shop</title>
   </head>
   <body>
-    <section class="container">
+    <div class="container">
       <nav
         class="navbar navbar-expand-lg navbar-light bg-light rounded fixed-top"
       >
@@ -37,7 +37,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <section class="collapse navbar-collapse" id="navbarsExample09">
+        <div class="collapse navbar-collapse" id="navbarsExample09">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
               <a class="nav-link" href="#"
@@ -63,13 +63,17 @@
               aria-label="Search"
             />
           </form> -->
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-            Cart
+          <button
+            onclick="document.location.href='cart.html'"
+            class="cart btn btn-outline-success my-2 my-sm-0"
+            type="submit"
+          >
+            Cart <span>0</span>
           </button>
-        </section>
+        </div>
       </nav>
       <main role="main">
-        <section class="banner">
+        <div class="banner">
           <!--
             XL- 1920 * 700
             lg- 1200 * 700
@@ -89,25 +93,25 @@
             src="Images/indeximage/banner-xl.jpg"
             alt="Selecting Exterior door for a modern home for maximum curb appeal"
           />
-          <section class="top-center-container">
-            <section class="lightText">
+          <div class="top-center-container">
+            <div class="lightText">
               <h1>Your one stop shop</h1>
               <h2>At a discount price</h2>
               <a href="/categories/doors" class="btn btn-dark"
                 >View All Items
                 <i class="fal fa-chevron-right"></i>
               </a>
-            </section>
+            </div>
             <!-- .lightText -->
-          </section>
+          </div>
           <!-- .img-fluid -->
-        </section>
-        <section class="album py-5 bg-light">
-          <section class="container">
-            <section class="row">
-              <section class="col-md-4">
+        </div>
+        <div class="album py-5 bg-light">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4">
                 <!-- cards 380 * 275 -->
-                <section class="card mb-4 box-shadow">
+                <div class="card mb-4 box-shadow">
                   <img
                     class="card-img-top"
                     data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
@@ -116,15 +120,15 @@
                     src="Images/indeximage/groceries-card.jpg"
                     data-holder-rendered="true"
                   />
-                  <section class="top-center-container">
+                  <div class="top-center-container">
                     <a href="#"
                       ><h1 class="darkText card-text">Groceries</h1></a
                     >
-                  </section>
-                </section>
-              </section>
-              <section class="col-md-4">
-                <section class="card mb-4 box-shadow">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
                   <img
                     class="card-img-top"
                     data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
@@ -133,15 +137,15 @@
                     data-holder-rendered="true"
                     style="height: 225px; width: 100%; display: block"
                   />
-                  <section class="top-center-container">
+                  <div class="top-center-container">
                     <a href="#">
                       <h1 class="darkText card-text">Household</h1></a
                     >
-                  </section>
-                </section>
-              </section>
-              <section class="col-md-4">
-                <section class="card mb-4 box-shadow">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
                   <img
                     class="card-img-top"
                     data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
@@ -150,16 +154,16 @@
                     data-holder-rendered="true"
                     style="height: 225px; width: 100%; display: block"
                   />
-                  <section class="top-center-container">
+                  <div class="top-center-container">
                     <a href="#"> <h1 class="darkText card-text">Garden</h1></a>
-                  </section>
-                </section>
-              </section>
-            </section>
-          </section>
-        </section>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
-    </section>
+    </div>
     <footer class="blog-footer">
       <p>© 2020 Robert's one stop shop</p>
       <p>
@@ -168,6 +172,7 @@
     </footer>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="JS.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
