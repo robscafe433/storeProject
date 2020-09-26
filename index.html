@@ -20,7 +20,7 @@
     <title>Robert's one stop shop</title>
   </head>
   <body>
-    <div class="container">
+    <div id="body" class="container">
       <nav
         class="navbar navbar-expand-lg navbar-light bg-light rounded fixed-top"
       >
@@ -48,7 +48,7 @@
               <a class="nav-link" href="categories/groceries.html">Groceries</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Household</a>
+              <a class="nav-link" href="categories/groceries.html">Household</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="categories/groceries.html">Garden</a>
@@ -114,15 +114,11 @@
                 <div class="card mb-4 box-shadow">
                   <img
                     class="card-img-top"
-                    data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
-                    alt="Thumbnail [100%x225]"
-                    style="height: 225px; width: 100%; display: block"
                     src="Images/indeximage/groceries-card.jpg"
-                    data-holder-rendered="true"
                   />
-                  <div class="top-center-container">
-                    <a href="#"
-                      ><h1 class="darkText card-text">Groceries</h1></a
+                  <div class="image-overlay">
+                    <a href="categories/groceries.html"
+                      ><h1 class="card-text">Groceries</h1></a
                     >
                   </div>
                 </div>
@@ -131,15 +127,11 @@
                 <div class="card mb-4 box-shadow">
                   <img
                     class="card-img-top"
-                    data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
-                    alt="Thumbnail [100%x225]"
                     src="Images/indeximage/household-card.jpg"
-                    data-holder-rendered="true"
-                    style="height: 225px; width: 100%; display: block"
                   />
-                  <div class="top-center-container">
-                    <a href="#">
-                      <h1 class="darkText card-text">Household</h1></a
+                  <div class="image-overlay">
+                    <a href="categories/household.html">
+                      <h1 class="card-text">Household</h1></a
                     >
                   </div>
                 </div>
@@ -148,14 +140,12 @@
                 <div class="card mb-4 box-shadow">
                   <img
                     class="card-img-top"
-                    data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
-                    alt="Thumbnail [100%x225]"
                     src="Images/indeximage/garden-card.jpg"
-                    data-holder-rendered="true"
-                    style="height: 225px; width: 100%; display: block"
                   />
-                  <div class="top-center-container">
-                    <a href="#"> <h1 class="darkText card-text">Garden</h1></a>
+                  <div class="image-overlay">
+                    <a href="categories/garden.html">
+                      <h1 class="card-text">Garden</h1></a
+                    >
                   </div>
                 </div>
               </div>
@@ -167,7 +157,7 @@
     <footer class="blog-footer">
       <p>© 2020 Robert's one stop shop</p>
       <p>
-        <a href="#">Back to top</a>
+        <a href="index.html">Back to top</a>
       </p>
     </footer>
     <!-- Optional JavaScript -->
