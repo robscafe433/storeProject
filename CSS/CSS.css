@@ -1,26 +1,28 @@
-div {
-  background-color: coral;
-  border-style: solid;
-  border-color: black;
-  border-width: 1px;
-  font-family: "Shrikhand", cursive;
-  color: rgb(90, 25, 241);
-}
-
-#vegSpacing {
-  margin: 10px;
-}
-
-.blog-footer {
+.blog-footer-rs {
   padding: 2.5rem 0;
   color: #999;
   text-align: center;
   background-color: #f9f9f9;
   border-top: 0.05rem solid #e5e5e5;
-  margin-bottom: 0;
 }
 
-.blog-footer p:last-child {
-  margin-bottom: 0;
+.main-rs {
+  max-width: 1050px;
+  justify-content: space-around;
+  margin: 0 auto;
+  margin-top: 50px;
 }
 
+.row-products-rs {
+  max-width: 1050px;
+  justify-content: space-around;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.one-rs {
+  padding-top: 20px;
+}
+.font-size-rs {
+  font-size: x-large;
+}
