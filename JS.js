@@ -79,7 +79,7 @@ for (let i = 0; i < fCart.length; i++) {
 // restores count number on cart if page is reloaded.
 
 function onLoadCartNumbers() {
-  let productNumbers = localStorage.getItem("cartNumbers");
+  let productNumbers = sessionStorage.getItem("cartNumbers");
 
   if (productNumbers) {
     document.querySelector(".cart span").textContent = productNumbers;
@@ -89,17 +89,17 @@ function onLoadCartNumbers() {
 // Sets number of items in browser's  local Storage starting from 1 when button(s) // is pressed.
 
 function cartNumbers(product) {
-  let productNumbers = localStorage.getItem("cartNumbers");
+  let productNumbers = sessionStorage.getItem("cartNumbers");
 
   productNumbers = parseInt(productNumbers);
   //console.log("display null???", productNumbers); //displays =NaN
 
   if (productNumbers) {
-    localStorage.setItem("cartNumbers", productNumbers + 1);
+    sessionStorage.setItem("cartNumbers", productNumbers + 1);
     // sets home page cart count
     document.querySelector(".cart span").textContent = productNumbers + 1;
   } else {
-    localStorage.setItem("cartNumbers", 1);
+    sessionStorage.setItem("cartNumbers", 1);
 
     document.querySelector(".cart span").textContent = 1;
 
@@ -121,7 +121,7 @@ function cartNumbers(product) {
 //(key) and sets cartItems which is the array/product.
 
 function setItems(product) {
-  let cartItems = localStorage.getItem("productsInCart");
+  let cartItems = sessionStorage.getItem("productsInCart");
   cartItems = JSON.parse(cartItems);
 
   if (cartItems != null) {
@@ -141,29 +141,29 @@ function setItems(product) {
     };
   }
 
-  localStorage.setItem("productsInCart", JSON.stringify(cartItems));
+  sessionStorage.setItem("productsInCart", JSON.stringify(cartItems));
 }
 
 function totalCost(product) {
-  let cartCost = localStorage.getItem("totalCost");
+  let cartCost = sessionStorage.getItem("totalCost");
 
   if (cartCost != null) {
     cartCost = parseFloat(cartCost);
-    localStorage.setItem("totalCost", cartCost + product.price);
+    sessionStorage.setItem("totalCost", cartCost + product.price);
   } else {
-    localStorage.setItem("totalCost", product.price);
-    console.log(localStorage.getItem("totalCost", product.price));
-    console.log(typeof localStorage.getItem("totalCost", product.price));
+    sessionStorage.setItem("totalCost", product.price);
+    console.log(sessionStorage.getItem("totalCost", product.price));
+    console.log(typeof sessionStorage.getItem("totalCost", product.price));
   }
 }
 
 function displayCart() {
-  let cartItems = localStorage.getItem("productsInCart");
+  let cartItems = sessionStorage.getItem("productsInCart");
   cartItems = JSON.parse(cartItems);
 
   let secondRow = document.querySelector(".row-products-rs");
 
-  let cartCost = localStorage.getItem("totalCost");
+  let cartCost = sessionStorage.getItem("totalCost");
   cartCost = parseFloat(cartCost);
 
   if (cartItems && secondRow) {
