@@ -170,11 +170,15 @@ function displayCart() {
     Object.values(cartItems).map((item) => {
       secondRow.innerHTML += `
       <div class="row two-rs font-size-rs">
-      <div class="col-2"><img src="Images/${item.tag}.jpg" height="40"></div>
-      <div class="col-3">${item.name}</div>
-      <div class="col-2">${item.price.toFixed(2)}</div>
-      <div class="col-2">${item.inCart}</div>
-      <div class="col-3">${(item.price * item.inCart).toFixed(2)}</div>
+      <div class="col-2 border"><ion-icon name="close-circle"></ion-icon> <img src="Images/${
+        item.tag
+      }.jpg" height="40"></div>
+      <div class="col-3 border">${item.name}</div>      
+      <div class="col-2 border">${item.price.toFixed(2)}</div>
+      <div class="col-2 border"><ion-icon name="add-circle-outline"></ion-icon> ${
+        item.inCart
+      } <ion-icon name="remove-circle-outline"></div>
+      <div class="col-3 border">${(item.price * item.inCart).toFixed(2)}</div>
     </div>
       
       `;
