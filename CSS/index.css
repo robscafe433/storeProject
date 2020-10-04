@@ -47,6 +47,24 @@ body {
   font-size: 4.5rem;
 }
 
+@media screen and (max-width: 400px) {
+  .banner h1 {
+    font-size: 3rem;
+  }
+  .top-center-container{
+    top: 5%;
+  }
+}
+
+@media screen and (max-width: 1200px)and (min-width: 401px) {
+  .banner h1 {
+    font-size: 3.5rem;
+  }
+  .top-center-container{
+    top: 15%;
+  }
+}
+
 .card{
   position: relative;
 }
