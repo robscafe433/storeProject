@@ -47,23 +47,6 @@ body {
   font-size: 4.5rem;
 }
 
-@media screen and (max-width: 400px) {
-  .banner h1 {
-    font-size: 3rem;
-  }
-  .top-center-container{
-    top: 5%;
-  }
-}
-
-@media screen and (max-width: 1200px)and (min-width: 401px) {
-  .banner h1 {
-    font-size: 3.5rem;
-  }
-  .top-center-container{
-    top: 15%;
-  }
-}
 
 .card{
   position: relative;
@@ -97,3 +80,31 @@ body {
 }
 
 
+@media screen and (max-width: 1200px)and (min-width: 401px) {
+  .banner h1 {
+    font-size: 3.5rem;
+  }
+  .top-center-container{
+    top: 15%;
+  }
+  .image-overlay{
+    opacity: 1;
+    background: rgba(0, 0, 0, .3);
+  }
+  .card-text{
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .banner h1 {
+    font-size: 3rem;
+  }
+  .top-center-container{
+    top: 5%;
+  }
+  .image-overlay {
+    opacity: 1;
+    background: rgba(0, 0, 0, .4);
+  }
+}
