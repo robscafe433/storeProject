@@ -69,10 +69,19 @@ let products = [
   },
 ];
 
+// document.querySelector("body").onclick = (e) => {
+//   console.log("---------------------------------");
+//   console.log(e.target);
+// };
+//console.log(fCart); //this displays the number of links/buttons individually-rs
+//                    // because there is a binding to html page on top ->buttons
+//                    //let fCart = document.querySelectorAll(".add-cart");
 for (let i = 0; i < fCart.length; i++) {
   fCart[i].addEventListener("click", () => {
     cartNumbers(products[i]);
     totalCost(products[i]);
+    //sessionStorageCountIndex();
+    //console.log(i);  -> This gets the Index-rs
   });
 }
 
@@ -126,13 +135,12 @@ function setItems(product) {
 
   if (cartItems != null) {
     if (cartItems[product.tag] == undefined) {
-      console.log("cartItems is now undefined ***");
+      //console.log("cartItems is now undefined ***");
       cartItems = {
         ...cartItems,
         [product.tag]: product,
       };
     }
-
     cartItems[product.tag].inCart += 1;
   } else {
     product.inCart = 1;
@@ -142,6 +150,9 @@ function setItems(product) {
   }
 
   sessionStorage.setItem("productsInCart", JSON.stringify(cartItems));
+  cartItems = sessionStorage.getItem("productsInCart");
+  //   //cartItems = JSON.parse(cartItems);
+  console.log(JSON.parse(cartItems)[1]);
 }
 
 function totalCost(product) {
@@ -152,8 +163,8 @@ function totalCost(product) {
     sessionStorage.setItem("totalCost", cartCost + product.price);
   } else {
     sessionStorage.setItem("totalCost", product.price);
-    console.log(sessionStorage.getItem("totalCost", product.price));
-    console.log(typeof sessionStorage.getItem("totalCost", product.price));
+    //console.log(sessionStorage.getItem("totalCost", product.price));
+    //console.log(typeof sessionStorage.getItem("totalCost", product.price));
   }
 }
 
@@ -170,10 +181,13 @@ function displayCart() {
     Object.values(cartItems).map((item) => {
       secondRow.innerHTML += `
       <div class="row two-rs font-size-rs">
-      <div class="col-2 border"><ion-icon name="close-circle"></ion-icon> <img src="Images/${
+      <div class="col-2 border"><img src="Images/${
         item.tag
       }.jpg" height="40"></div>
-      <div class="col-3 border">${item.name}</div>      
+      <div class="col-3 border">
+      <ion-icon class="test1 remove" data-name="${
+        item.name
+      }"  name="close-circle-outline"></ion-icon>${item.name}</div>      
       <div class="col-2 border">${item.price.toFixed(2)}</div>
       <div class="col-2 border"><ion-icon name="add-circle-outline"></ion-icon> ${
         item.inCart
@@ -183,6 +197,13 @@ function displayCart() {
       
       `;
     });
+
+    secondRow.onclick = function (e) {
+      if (e.target && e.target.classList.contains("remove")) {
+        console.log("onclick remove - Yeah");
+      }
+    };
+
     secondRow.innerHTML += `
     <div class="row three-rs font-size-rs">
     <div class="col-7"></h4></div>
@@ -195,5 +216,9 @@ function displayCart() {
   }
 }
 
+
+
 onLoadCartNumbers();
 displayCart();
+
+

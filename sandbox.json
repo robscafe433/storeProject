@@ -1,0 +1,97 @@
+[
+    
+
+    {
+        
+        "category" : "groceries",
+        "items" : [
+            {
+                "name" : "Carrots",
+                "tag" : "carrots",
+                "price": 6.0,
+                "inCart ": 0,
+                "image" : "../Images/carrots.jpg"
+                
+            },
+
+            {
+                "name" : "Lettuce",
+                "tag" : "lettuce",
+                "price": 4.99,
+                "inCart ": 0,
+                "image" : "../Images/carrots.jpg"
+            },
+
+            {
+                "name" : "Tomatoes",
+                "tag" : "tomatoes",
+                "price": 2.5,
+                "inCart ": 0,
+                "image" : "../Images/carrots.jpg"
+            }
+            
+        ]
+        
+     
+    },
+
+    {
+        
+        "category" : "garden",
+        "items" : [
+            {
+                "name" : "Shovel",
+                "tag" : "shovel",
+                "price": 4.75,
+                "inCart ": 0
+            },
+
+            {
+                "name" : "Fertilizer",
+                "tag" : "fertilizer",
+                "price": 4.99,
+                "inCart ": 0
+            },
+
+            {
+                "name" : "Rake",
+                "tag" : "rake",
+                "price": 2.5,
+                "inCart ": 0
+            }
+            
+        ]
+        
+     
+    },
+
+    {
+        
+        "category" : "household",
+        "items" : [
+            {
+                "name" : "Clorox",
+                "tag" : "clorox",
+                "price": 2,
+                "inCart ": 0
+            },
+
+            {
+                "name" : "Paper Towels",
+                "tag" : "paper-towels",
+                "price": 3,
+                "inCart ": 0
+            },
+
+            {
+                "name" : "Batteries",
+                "tag" : "batteries",
+                "price": 2.25,
+                "inCart ": 0
+            }
+            
+        ]
+        
+     
+    }
+]
