@@ -76,15 +76,26 @@ let products = [
 //console.log(fCart); //this displays the number of links/buttons individually-rs
 //                    // because there is a binding to html page on top ->buttons
 //                    //let fCart = document.querySelectorAll(".add-cart");
-for (let i = 0; i < fCart.length; i++) {
-  fCart[i].addEventListener("click", () => {
-    cartNumbers(products[i]);
-    totalCost(products[i]);
-    //sessionStorageCountIndex();
-    //console.log(i);  -> This gets the Index-rs
-  });
-}
+// for (let i = 0; i < fCart.length; i++) {
+//   fCart[i].addEventListener("click", () => {
+//     cartNumbers(products[i]);
+//     totalCost(products[i]);
+//     //sessionStorageCountIndex();
+//     //console.log(i);  -> This gets the Index-rs
+//   });
+// }
 
+fetch("sandbox.json")
+  .then((response) => response.json())
+  .then((data) => {
+    //console.log(data[1].items[0].name);
+    let t = data[1].items[0].name;
+    const {name,tag,price,incart,image} = data;
+    console.log(name);
+    // console.log("It's refreshed");
+  });
+
+  
 // restores count number on cart if page is reloaded.
 
 function onLoadCartNumbers() {
@@ -216,9 +227,5 @@ function displayCart() {
   }
 }
 
-
-
 onLoadCartNumbers();
 displayCart();
-
-
