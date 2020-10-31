@@ -69,33 +69,57 @@ let products = [
   },
 ];
 
-// document.querySelector("body").onclick = (e) => {
-//   console.log("---------------------------------");
-//   console.log(e.target);
-// };
+// ------------------begin PA ----------------------
+
+let cartPA = [];
+
+class ProductsPS {
+  async getProducts() {
+    try {
+      let result = await fetch("../sandbox2.json");
+      let data = await result.json();
+      let productspa = data.items;
+      productspa = productspa.map((item) => {
+        const { title, price } = item.fields;
+        const { id } = item.sys;
+        return { title, price, id };
+      });
+      return productspa;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
+
+class UIPA {}
+
+class StoragePA {}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const uipa = new UIPA();
+  const productspa = new ProductsPS();
+
+  productspa.getProducts().then((data) => console.log(data));
+});
+
+//-----------------------end PA -------------------------------
+
+document.querySelector("body").onclick = (e) => {
+  //console.log("---------------------------------");
+  //console.log(e.target);
+};
 //console.log(fCart); //this displays the number of links/buttons individually-rs
-//                    // because there is a binding to html page on top ->buttons
-//                    //let fCart = document.querySelectorAll(".add-cart");
-// for (let i = 0; i < fCart.length; i++) {
-//   fCart[i].addEventListener("click", () => {
-//     cartNumbers(products[i]);
-//     totalCost(products[i]);
-//     //sessionStorageCountIndex();
-//     //console.log(i);  -> This gets the Index-rs
-//   });
-// }
-
-fetch("sandbox.json")
-  .then((response) => response.json())
-  .then((data) => {
-    //console.log(data[1].items[0].name);
-    let t = data[1].items[0].name;
-    const {name,tag,price,incart,image} = data;
-    console.log(name);
-    // console.log("It's refreshed");
+// because there is a binding to html page on top ->buttons
+//let fCart = document.querySelectorAll(".add-cart");
+for (let i = 0; i < fCart.length; i++) {
+  fCart[i].addEventListener("click", () => {
+    cartNumbers(products[i]);
+    totalCost(products[i]);
+    //sessionStorageCountIndex();
+    //console.log(i);  -> This gets the Index-rs
   });
+}
 
-  
 // restores count number on cart if page is reloaded.
 
 function onLoadCartNumbers() {
@@ -163,7 +187,7 @@ function setItems(product) {
   sessionStorage.setItem("productsInCart", JSON.stringify(cartItems));
   cartItems = sessionStorage.getItem("productsInCart");
   //   //cartItems = JSON.parse(cartItems);
-  console.log(JSON.parse(cartItems)[1]);
+  //console.log(JSON.parse(cartItems)[1]);
 }
 
 function totalCost(product) {
