@@ -76,9 +76,19 @@ let cartPA = [];
 class ProductsPS {
   async getProducts() {
     try {
-      let result = await fetch("../sandbox2.json");
+      let result = await fetch("../items.json");
       let data = await result.json();
       let productspa = data.items;
+
+      /* Filter Example
+      console.log(">>>", productspa);
+      let selectedCategory = "household";
+      let test = productspa.filter((el, i) => {
+        return el.category === selectedCategory;
+      });
+      console.log(">>>", test);
+      */
+
       productspa = productspa.map((item) => {
         const { title, price } = item.fields;
         const { id } = item.sys;
@@ -91,9 +101,9 @@ class ProductsPS {
   }
 }
 
-class UIPA {}
+class UIPA { }
 
-class StoragePA {}
+class StoragePA { }
 
 document.addEventListener("DOMContentLoaded", () => {
   const uipa = new UIPA();
@@ -216,17 +226,14 @@ function displayCart() {
     Object.values(cartItems).map((item) => {
       secondRow.innerHTML += `
       <div class="row two-rs font-size-rs">
-      <div class="col-2 border"><img src="Images/${
-        item.tag
-      }.jpg" height="40"></div>
+      <div class="col-2 border"><img src="Images/${item.tag
+        }.jpg" height="40"></div>
       <div class="col-3 border">
-      <ion-icon class="test1 remove" data-name="${
-        item.name
-      }"  name="close-circle-outline"></ion-icon>${item.name}</div>      
+      <ion-icon class="test1 remove" data-name="${item.name
+        }"  name="close-circle-outline"></ion-icon>${item.name}</div>      
       <div class="col-2 border">${item.price.toFixed(2)}</div>
-      <div class="col-2 border"><ion-icon name="add-circle-outline"></ion-icon> ${
-        item.inCart
-      } <ion-icon name="remove-circle-outline"></div>
+      <div class="col-2 border"><ion-icon name="add-circle-outline"></ion-icon> ${item.inCart
+        } <ion-icon name="remove-circle-outline"></div>
       <div class="col-3 border">${(item.price * item.inCart).toFixed(2)}</div>
     </div>
       
