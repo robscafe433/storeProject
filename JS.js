@@ -79,6 +79,16 @@ class ProductsPS {
       let result = await fetch("../items.json");
       let data = await result.json();
       let productspa = data.items;
+
+      /* Filter Example
+      console.log(">>>", productspa);
+      let selectedCategory = "household";
+      let test = productspa.filter((el, i) => {
+        return el.category === selectedCategory;
+      });
+      console.log(">>>", test);
+      */
+
       productspa = productspa.map((item) => {
         const { title, price } = item.fields;
         const { id } = item.sys;
