@@ -21,10 +21,12 @@ body {
   display: inline-block;
   padding-bottom: 30px;
   width: 100%;
+  height: 300px;
+  background-image: url("../Images/indeximage/banner-xs.jpg");
 }
 
 .top-center-container {
-  top: 25%;
+  top: 20%;
   left: 5%;
   width: 90%;
   position: absolute;
@@ -78,20 +80,8 @@ body {
   color: #dcdcdc;
 }
 
-@media screen and (max-width: 1200px) and (min-width: 401px) {
-  .banner h1 {
-    font-size: 3.5rem;
-  }
-  .top-center-container {
-    top: 15%;
-  }
-  .image-overlay {
-    opacity: 1;
-    background: rgba(0, 0, 0, 0.3);
-  }
-  .card-text {
-    font-size: 2rem;
-  }
+.priceText {
+  font-size: 20px;
 }
 
 @media screen and (max-width: 400px) {
@@ -104,5 +94,31 @@ body {
   .image-overlay {
     opacity: 1;
     background: rgba(0, 0, 0, 0.4);
+  }
+}
+
+@media screen and (min-width: 401px) and (max-width: 1200px) {
+  .banner {
+    background-image: url(" ../Images/indeximage/banner-md.jpg");
+    height: 350px;
+  }
+  .banner h1 {
+    font-size: 3.5rem;
+  }
+  .top-center-container {
+    top: 10%;
+  }
+  .image-overlay {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.3);
+  }
+  .card-text {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (min-width: 1201px) {
+  .banner {
+    background-image: url("../Images/indeximage/banner-lg.jpg");
   }
 }
