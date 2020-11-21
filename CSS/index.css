@@ -100,17 +100,13 @@ body {
 @media screen and (min-width: 401px) and (max-width: 1200px) {
   .banner {
     background-image: url(" ../Images/indeximage/banner-md.jpg");
-    height: 350px;
+    height: 320px;
   }
   .banner h1 {
     font-size: 3.5rem;
   }
   .top-center-container {
     top: 10%;
-  }
-  .image-overlay {
-    opacity: 1;
-    background: rgba(0, 0, 0, 0.3);
   }
   .card-text {
     font-size: 2rem;
