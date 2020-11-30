@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS only -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../CSS/categories.css" />
+    <title>Robert's One Stop Shop | Groceries</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <nav
+        class="navbar navbar-expand-lg navbar-light bg-light rounded fixed-top"
+      >
+        <a class="navbar-brand" href="../index.html">Robert's One Stop Shop</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarsExample09"
+          aria-controls="navbarsExample09"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExample09">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#"
+                >Groceries<span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./household.html">Household</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./garden.html">Garden</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../cart.html">Cart</a>
+            </li>
+          </ul>
+          <button
+            onclick="document.location.href='../cart.html'"
+            class="cart btn btn-outline-success my-2 my-sm-0"
+            type="submit"
+          >
+            Cart<span>0</span>
+          </button>
+        </div>
+      </nav>
+
+      <header>
+        <section class="banner">
+          <!--
+                  XL- 1920 * 700
+                  lg- 1200 * 700
+                  md- 992 * 576
+                  sm- 768 * 576
+                  xs- 576 * 480 -->
+          <img
+            srcset="
+              ../Images/indeximage/banner-xs.jpg  576w,
+              ../Images/indeximage/banner-sm.jpg  768w,
+              ../Images/indeximage/banner-md.jpg  992w,
+              ../Images/indeximage/banner-lg.jpg 1200w,
+              ../Images/indeximage/banner-xl.jpg 1920w
+            "
+            class="img-fluid"
+            sizes="100vw"
+            src="../Images/indeximage/banner-xl.jpg"
+            alt="store image"
+          />
+          <section class="top-center-container">
+            <section class="lightText">
+              <h1>Your one stop shop</h1>
+              <h2>At a discount price</h2>
+              <a href="#" class="btn btn-dark">View All Items </a>
+            </section>
+          </section>
+        </section>
+      </header>
+    </div>
+
+    <main class="household-gallery"></main>
+    <!-- Populated by JS for now-->
+
+    <footer class="blog-footer">
+      <p>© 2020 Robert's one stop shop</p>
+      <p>
+        <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      //   let groceries = `
+      //       <div class="card m-4 grocery-card">
+      //           <img class="card-img-top" src="../Images/carrots.jpg" alt="carrots">
+      //           <div class="card-body">
+      //               <h5 class="card-title text-center">Carrots</h5>
+      //               <p class="card-text text-center">$6.00</p>
+      //               <a class="add-cart" href="#" class="btn btn-primary">Add to Cart</a>
+      //           </div>
+      //       </div>
+      //       <div class="card m-4 grocery-card">
+      //           <img class="card-img-top" src="../Images/lettuce.jpg" alt="lettuce">
+      //           <div class="card-body">
+      //               <h5 class="card-title text-center">Lettuce</h5>
+      //               <p class="card-text text-center">$4.00</p>
+      //               <a class="add-cart" href="#" class="btn btn-primary">Add to Cart</a>
+      //           </div>
+      //       </div>
+      //       <div class="card m-4 grocery-card">
+      //           <img class="card-img-top" src="../Images/tomatoes.jpg" alt="tomatoes">
+      //           <div class="card-body">
+      //               <h5 class="card-title text-center">Tomatoes</h5>
+      //               <p class="card-text text-center">$2.50</p>
+      //               <a class="add-cart" href="#" class="btn btn-primary">Add to Cart</a>
+      //           </div>
+      //       </div>
+      //       `;
+      //   for (let i = 0; i < 2; i++) {
+      //     //groceries += groceries;
+      //   }
+      //let gallery = document.getElementsByClassName("grocery-gallery")[0];
+      //gallery.innerHTML = groceries;
+    </script>
+    <script src="../JS.js"></script>
+  </body>
+</html>
