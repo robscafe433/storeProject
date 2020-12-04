@@ -2,7 +2,7 @@
   "items": [
     {
       "category": "groceries",
-      "items": [
+      "products": [
         {
           "id": 1,
           "name": "Carrots",
@@ -17,7 +17,7 @@
           "tag": "lettuce",
           "price": 4.99,
           "inCart ": 0,
-          "image": "../Images/carrots.jpg"
+          "image": "../Images/lettuce.jpg"
         },
         {
           "id": 3,
@@ -25,59 +25,73 @@
           "tag": "tomatoes",
           "price": 2.5,
           "inCart ": 0,
-          "image": "../Images/carrots.jpg"
+          "image": "../Images/tomatoes.jpg"
         }
       ]
     },
     {
       "category": "garden",
-      "items": [
+      "products": [
         {
           "id": 4,
           "name": "Shovel",
           "tag": "shovel",
           "price": 4.75,
-          "inCart ": 0
+          "inCart ": 0,
+          "image": "../Images/carrots.jpg"
         },
         {
           "id": 5,
           "name": "Fertilizer",
           "tag": "fertilizer",
           "price": 4.99,
-          "inCart ": 0
+          "inCart ": 0,
+          "image": "../Images/carrots.jpg"
         },
         {
           "id": 6,
           "name": "Rake",
           "tag": "rake",
           "price": 2.5,
-          "inCart ": 0
+          "inCart ": 0,
+          "image": "../Images/carrots.jpg"
         }
       ]
     },
     {
       "category": "household",
-      "items": [
+      "products": [
         {
           "id": 7,
           "name": "Clorox",
           "tag": "clorox",
-          "price": 2,
-          "inCart ": 0
+          "price": 234.0,
+          "inCart ": 0,
+          "image": "../Images/clorox.jpg"
         },
         {
           "id": 8,
           "name": "Paper Towels",
           "tag": "paper-towels",
-          "price": 3,
-          "inCart ": 0
+          "price": 5,
+          "inCart ": 0,
+          "image": "../Images/paper-towels.jpg"
         },
         {
           "id": 9,
           "name": "Batteries",
           "tag": "batteries",
           "price": 2.25,
-          "inCart ": 0
+          "inCart ": 0,
+          "image": "../Images/batteries.jpg"
+        },
+        {
+          "id": 10,
+          "name": "Mop",
+          "tag": "mop",
+          "price": 16.25,
+          "inCart ": 0,
+          "image": "../Images/mop.jpg"
         }
       ]
     }
