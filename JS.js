@@ -72,8 +72,9 @@ let products = [
 //-------below code now uses .json instead of above list ----------------------
 
 let cartPA = [];
-
 let buttonsDOM = [];
+let masterId = "";
+
 class ProductsPS {
   async getProducts() {
     try {
@@ -87,7 +88,7 @@ class ProductsPS {
         return el.category === selectedCategory; // el means element and then.key
         // which the key is "category"
       });
-      console.log(">>>Line 90", results);
+      //console.log(">>>Line 90", results);
 
       // for (let i = 0; i < 2; i++) {
       //   return products2[i].products;
@@ -100,34 +101,112 @@ class ProductsPS {
 }
 class UIPA {
   displayProducts(products) {
-    console.log("Line 103 Inside displayProducts function", products);
+    //console.log("Line 103 Inside displayProducts function", products);
 
+    //debugger;  - debugger example
     let results = "";
     let idmaster = "";
 
     products.forEach((prod) => {
-      console.log(">>>Now inside for each", prod);
+      //console.log(">>>Now inside for each", prod);
       results += `
       <div class="card m-4 grocery-card">
           <img class="card-img-top" src=${prod.image}>
           <div class="card-body">
               <h5 class="card-title text-center">${prod.name}</h5>
               <p class="card-text text-center">$${prod.price}</p>
-              <a class="add-cart" href="#" class="" data-id=${prod.id} class="btn btn-primary">Add to Cart</a>
+              <a class="add-cart" href="#" class="" data-id=${prod.id} class="btn btn-primary">Add to Cart</a>  
           </div>
       </div>
       `;
 
       idmaster = prod.id;
-      console.log("Idmaster is: ", idmaster);
+      //console.log("Idmaster is: ", idmaster);
+
+      //
     });
 
-    const productsDOM = document.querySelector(".household-gallery");
-    productsDOM.innerHTML = results;
+    let productsDOM = document.querySelector(".household-gallery");
+    if (productsDOM) {
+      productsDOM.innerHTML = results;
+    }
+  }
+
+  getBagButtons() {
+    let cartdisplay = "";
+    const buttons = [...document.querySelectorAll(".add-cart")];
+
+    //console.log("Line 131", buttons);
+
+    buttonsDOM = buttons;
+    buttons.forEach((button) => {
+      let id = button.dataset.id;
+
+      //console.log("line 143 - showing id: ", id, "Type of id", typeof id);
+      //Note above line shows all ids in the array passed, because displaying id only
+
+      button.addEventListener("click", (event) => {
+        console.log(event); //*** Notice that this is event specific to button
+        // clicked event, specific to element clicked-rs so gives me
+        // ALL the info on "ONLY" that element clicked.
+        //
+
+        console.log(">>>", id);
+        //This block of code is rerun every time click event occurs
+        //............get product from products
+        Storage.getProducts(id);
+      });
+    });
   }
 }
 
 //
+class Storage {
+  static saveProducts(prod) {
+    cartPA = prod; //saves filtered array into global variable cartPA.
+    //console.log(cartPA);
+  }
+
+  static getProducts(id) {
+    let results = "";
+    //console.log("Line 169", cartPA, "The id is", id);
+    //
+    //
+    let inCartpa = cartPA.find((item) => item.id == id);
+    //console.log("now showing inCartpa line 179", inCartpa);
+
+    //  Below code displays object details in console.
+    //
+    console.log(inCartpa.name);
+    console.log("The price is: $", inCartpa.price);
+    console.log("The id is: ", inCartpa.id);
+
+    results += `
+      <div>
+      <h5>This is the item name: ${inCartpa.name}</h5> 
+      
+      
+      `;
+
+    // const productsDOM2 = document.querySelector(".row-products-rs");
+    // if (productsDOM2) {
+    //   productsDOM2.innerHTML = results;
+    //}
+    const productsDOM2 = document.querySelector(".row-products-rs");
+    console.log("Cart page loaded ***");
+    if (productsDOM2) {
+      productsDOM2.innerHTML = results;
+    }
+
+    // function init() {
+    //   const productsDOM2 = document.querySelector(".row-products-rs");
+    //   if (productsDOM2) {
+    //     productsDOM2.innerHTML = results;
+    //   }
+    //}
+    //window.onload = init; // youtube vid uses this code to avoid error message.
+  }
+}
 
 //
 document.addEventListener("DOMContentLoaded", () => {
@@ -136,13 +215,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // below .getProducts() function call returns filtered array, passes array to displayProducts() function.
 
-  productspa.getProducts().then((products) => {
-    //console.log("Line 176 immediately after .then", products);
+  productspa
+    .getProducts()
+    .then((products) => {
+      //console.log("Line 176 immediately after .then", products);
 
-    //below displayProducts function uses "template-literals (tilda `` ) to dynamically code".
+      //below displayProducts function uses "template-literals (tilda `` ) to dynamically code".
 
-    uipa.displayProducts(products);
-  });
+      uipa.displayProducts(products);
+
+      Storage.saveProducts(products);
+    })
+    .then(() => {
+      uipa.getBagButtons();
+    });
 });
 
 //
@@ -261,7 +347,7 @@ function displayCart() {
   let cartItems = sessionStorage.getItem("productsInCart");
   cartItems = JSON.parse(cartItems);
 
-  let secondRow = document.querySelector(".row-products-rs");
+  //let secondRow = document.querySelector(".row-products-rs");
 
   let cartCost = sessionStorage.getItem("totalCost");
   cartCost = parseFloat(cartCost);
