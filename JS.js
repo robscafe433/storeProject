@@ -69,17 +69,71 @@ let products = [
   },
 ];
 
+// ------------------begin PA ----------------------
+
+let cartPA = [];
+
+class ProductsPS {
+  async getProducts() {
+    try {
+      let result = await fetch("../items.json");
+      let data = await result.json();
+      let productspa = data.items;
+
+      /* Filter Example
+      console.log(">>>", productspa);
+      let selectedCategory = "household";
+      let test = productspa.filter((el, i) => {
+        return el.category === selectedCategory;
+      });
+      console.log(">>>", test);
+      */
+
+      productspa = productspa.map((item) => {
+        const { title, price } = item.fields;
+        const { id } = item.sys;
+        return { title, price, id };
+      });
+      return productspa;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
+
+class UIPA { }
+
+class StoragePA { }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const uipa = new UIPA();
+  const productspa = new ProductsPS();
+
+  productspa.getProducts().then((data) => console.log(data));
+});
+
+//-----------------------end PA -------------------------------
+
+document.querySelector("body").onclick = (e) => {
+  //console.log("---------------------------------");
+  //console.log(e.target);
+};
+//console.log(fCart); //this displays the number of links/buttons individually-rs
+// because there is a binding to html page on top ->buttons
+//let fCart = document.querySelectorAll(".add-cart");
 for (let i = 0; i < fCart.length; i++) {
   fCart[i].addEventListener("click", () => {
     cartNumbers(products[i]);
     totalCost(products[i]);
+    //sessionStorageCountIndex();
+    //console.log(i);  -> This gets the Index-rs
   });
 }
 
 // restores count number on cart if page is reloaded.
 
 function onLoadCartNumbers() {
-  let productNumbers = localStorage.getItem("cartNumbers");
+  let productNumbers = sessionStorage.getItem("cartNumbers");
 
   if (productNumbers) {
     document.querySelector(".cart span").textContent = productNumbers;
@@ -89,17 +143,17 @@ function onLoadCartNumbers() {
 // Sets number of items in browser's  local Storage starting from 1 when button(s) // is pressed.
 
 function cartNumbers(product) {
-  let productNumbers = localStorage.getItem("cartNumbers");
+  let productNumbers = sessionStorage.getItem("cartNumbers");
 
   productNumbers = parseInt(productNumbers);
   //console.log("display null???", productNumbers); //displays =NaN
 
   if (productNumbers) {
-    localStorage.setItem("cartNumbers", productNumbers + 1);
+    sessionStorage.setItem("cartNumbers", productNumbers + 1);
     // sets home page cart count
     document.querySelector(".cart span").textContent = productNumbers + 1;
   } else {
-    localStorage.setItem("cartNumbers", 1);
+    sessionStorage.setItem("cartNumbers", 1);
 
     document.querySelector(".cart span").textContent = 1;
 
@@ -121,18 +175,17 @@ function cartNumbers(product) {
 //(key) and sets cartItems which is the array/product.
 
 function setItems(product) {
-  let cartItems = localStorage.getItem("productsInCart");
+  let cartItems = sessionStorage.getItem("productsInCart");
   cartItems = JSON.parse(cartItems);
 
   if (cartItems != null) {
     if (cartItems[product.tag] == undefined) {
-      console.log("cartItems is now undefined ***");
+      //console.log("cartItems is now undefined ***");
       cartItems = {
         ...cartItems,
         [product.tag]: product,
       };
     }
-
     cartItems[product.tag].inCart += 1;
   } else {
     product.inCart = 1;
@@ -141,44 +194,58 @@ function setItems(product) {
     };
   }
 
-  localStorage.setItem("productsInCart", JSON.stringify(cartItems));
+  sessionStorage.setItem("productsInCart", JSON.stringify(cartItems));
+  cartItems = sessionStorage.getItem("productsInCart");
+  //   //cartItems = JSON.parse(cartItems);
+  //console.log(JSON.parse(cartItems)[1]);
 }
 
 function totalCost(product) {
-  let cartCost = localStorage.getItem("totalCost");
+  let cartCost = sessionStorage.getItem("totalCost");
 
   if (cartCost != null) {
     cartCost = parseFloat(cartCost);
-    localStorage.setItem("totalCost", cartCost + product.price);
+    sessionStorage.setItem("totalCost", cartCost + product.price);
   } else {
-    localStorage.setItem("totalCost", product.price);
-    console.log(localStorage.getItem("totalCost", product.price));
-    console.log(typeof localStorage.getItem("totalCost", product.price));
+    sessionStorage.setItem("totalCost", product.price);
+    //console.log(sessionStorage.getItem("totalCost", product.price));
+    //console.log(typeof sessionStorage.getItem("totalCost", product.price));
   }
 }
 
 function displayCart() {
-  let cartItems = localStorage.getItem("productsInCart");
+  let cartItems = sessionStorage.getItem("productsInCart");
   cartItems = JSON.parse(cartItems);
 
   let secondRow = document.querySelector(".row-products-rs");
 
-  let cartCost = localStorage.getItem("totalCost");
+  let cartCost = sessionStorage.getItem("totalCost");
   cartCost = parseFloat(cartCost);
 
   if (cartItems && secondRow) {
     Object.values(cartItems).map((item) => {
       secondRow.innerHTML += `
       <div class="row two-rs font-size-rs">
-      <div class="col-2"><img src="Images/${item.tag}.jpg" height="40"></div>
-      <div class="col-3">${item.name}</div>
-      <div class="col-2">${item.price.toFixed(2)}</div>
-      <div class="col-2">${item.inCart}</div>
-      <div class="col-3">${(item.price * item.inCart).toFixed(2)}</div>
+      <div class="col-2 border"><img src="Images/${item.tag
+        }.jpg" height="40"></div>
+      <div class="col-3 border">
+      <ion-icon class="test1 remove" data-name="${item.name
+        }"  name="close-circle-outline"></ion-icon>${item.name}</div>      
+      <div class="col-2 border">${item.price.toFixed(2)}</div>
+      <div class="col-2 border"><ion-icon name="add-circle-outline"></ion-icon> ${item.inCart
+        } <ion-icon name="remove-circle-outline"></div>
+      <div class="col-3 border">${(item.price * item.inCart).toFixed(2)}</div>
     </div>
       
       `;
     });
+
+    secondRow.onclick = function (e) {
+      if (e.target && e.target.classList.contains("remove")) {
+        console.log("onclick remove - Yeah");
+      }
+    };
+
     secondRow.innerHTML += `
     <div class="row three-rs font-size-rs">
     <div class="col-7"></h4></div>

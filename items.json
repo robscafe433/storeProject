@@ -1,48 +1,85 @@
 {
-  "shoppingItems": [
+  "items": [
     {
-      "tag": "carrots",
-      "name": "Carrots",
-      "price": 6.0,
-      "inCart": 0,
-      "pic": "carrots.jpg"
+      "category": "groceries",
+      "items": [
+        {
+          "id": 1,
+          "name": "Carrots",
+          "tag": "carrots",
+          "price": 6.0,
+          "inCart ": 0,
+          "image": "../Images/carrots.jpg"
+        },
+        {
+          "id": 2,
+          "name": "Lettuce",
+          "tag": "lettuce",
+          "price": 4.99,
+          "inCart ": 0,
+          "image": "../Images/carrots.jpg"
+        },
+        {
+          "id": 3,
+          "name": "Tomatoes",
+          "tag": "tomatoes",
+          "price": 2.5,
+          "inCart ": 0,
+          "image": "../Images/carrots.jpg"
+        }
+      ]
     },
     {
-      "tag": "lettuce",
-      "name": "Lettuce",
-      "price": 4.0,
-      "inCart": 0,
-      "pic": "lettuce.jpg"
+      "category": "garden",
+      "items": [
+        {
+          "id": 4,
+          "name": "Shovel",
+          "tag": "shovel",
+          "price": 4.75,
+          "inCart ": 0
+        },
+        {
+          "id": 5,
+          "name": "Fertilizer",
+          "tag": "fertilizer",
+          "price": 4.99,
+          "inCart ": 0
+        },
+        {
+          "id": 6,
+          "name": "Rake",
+          "tag": "rake",
+          "price": 2.5,
+          "inCart ": 0
+        }
+      ]
     },
     {
-      "tag": "tomatoes",
-      "name": "Tomatoes",
-      "price": 2.5,
-      "inCart": 0,
-      "pic": "tomatoes.jpg"
-    },
-    {
-      "name": "Clorox",
-      "tag": "clorox",
-      "price": 2,
-      "inCart": 0,
-      "pic": "tomatoes.jpg"
-    },
-
-    {
-      "tag": "paper-towels",
-      "name": "Paper Towels",
-      "price": 3,
-      "inCart": 0,
-      "pic": "tomatoes.jpg"
-    },
-
-    {
-      "tag": "batteries",
-      "name": "Batteries",
-      "price": 2,
-      "inCart": 0,
-      "pic": "tomatoes.jpg"
+      "category": "household",
+      "items": [
+        {
+          "id": 7,
+          "name": "Clorox",
+          "tag": "clorox",
+          "price": 2,
+          "inCart ": 0
+        },
+        {
+          "id": 8,
+          "name": "Paper Towels",
+          "tag": "paper-towels",
+          "price": 3,
+          "inCart ": 0
+        },
+        {
+          "id": 9,
+          "name": "Batteries",
+          "tag": "batteries",
+          "price": 2.25,
+          "inCart ": 0
+        }
+      ]
     }
   ]
 }
