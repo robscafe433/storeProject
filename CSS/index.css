@@ -16,6 +16,9 @@ body {
 .blog-footer p:last-child {
   margin-bottom: 0;
 }
+.blog-footer p #scrollup {
+  color: red;
+}
 .banner {
   position: relative;
   display: inline-block;
@@ -93,7 +96,6 @@ body {
   .banner h1 {
     font-size: 3rem;
   }
- 
 }
 
 /* between 401 and 900 px */
