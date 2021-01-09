@@ -1,56 +1,70 @@
 body {
-    padding-top: 4.5rem;
+  padding-top: 4.5rem;
 }
 
 .grocery-gallery {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
-    align-content: space-around;
-    max-width: 1800px;
-    margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-content: space-around;
+  margin: 0 auto;
 }
 
 .grocery-gallery .grocery-card {
-    max-width: 300px;
-    max-height: 500px;
-    align-items: center;
+  max-width: 300px;
+  max-height: 500px;
+  align-items: center;
+}
+
+.household-gallery {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-content: space-around;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+.household-gallery .grocery-card {
+  max-width: 300px;
+  max-height: 500px;
+  align-items: center;
 }
 
 .blog-footer {
-    padding: 2.5rem 0;
-    color: #999;
-    text-align: center;
-    background-color: #f9f9f9;
-    border-top: 0.05rem solid #e5e5e5;
+  padding: 2.5rem 0;
+  color: #999;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-top: 0.05rem solid #e5e5e5;
 }
 
 .blog-footer p:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .banner {
-    position: relative;
-    display: inline-block;
-    padding-bottom: 30px;
-    width: 100%;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 30px;
+  width: 100%;
 }
 
 .banner h1 {
-    font-size: 4.5rem;
+  font-size: 4.5rem;
 }
 
 .top-center-container {
-    top: 25%;
-    left: 5%;
-    width: 90%;
-    position: absolute;
-    text-align: center;
+  top: 25%;
+  left: 5%;
+  width: 90%;
+  position: absolute;
+  text-align: center;
 }
 
 .lightText {
-    color: white;
-    margin: 0;
-    text-shadow: 2px 2px 16px #666;
-    font-family: robotobold, verdana, arial, helvetica, sans-serif;
+  color: white;
+  margin: 0;
+  text-shadow: 2px 2px 16px #666;
+  font-family: robotobold, verdana, arial, helvetica, sans-serif;
 }
