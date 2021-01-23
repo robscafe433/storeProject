@@ -607,3 +607,4 @@ function totalCost(product) {
 
 //onLoadCartNumbers();
 //displayCart();
+
