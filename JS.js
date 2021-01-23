@@ -92,12 +92,21 @@ class ProductsPS {
         return el.category === selectedCategory; // el means element and then.key
         // which the key is "category"
       });
+      //return results[0].products;
       //console.log(">>>Line 90", results);
 
       // for (let i = 0; i < 2; i++) {
       //   return products2[i].products;
       // }
-      return results[0].products;
+
+      // new code goes here 01/02/21
+
+      if (!sessionStorage.getItem("products")) {
+        return results[0].products;
+        console.log(results[0].products);
+      } else {
+        return JSON.parse(sessionStorage.getItem("products"));
+      }
     } catch (error) {
       console.log(error);
     }
@@ -107,7 +116,6 @@ class UIPA {
   displayProducts(products) {
     //console.log("Line 103 Inside displayProducts function", products);
 
-    //debugger;  - debugger example
     let results = "";
     let idmaster = "";
 
@@ -167,28 +175,32 @@ class UIPA {
 
         // get product from products
         let individualCartItem = Storage.getProducts(id);
+
         /////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////
-        console.log("Individual cart items: ", individualCartItem);
 
         ////////////////////////////////////////////////////////////////////
         //////////////////////////////////////////////////////////////////
         if (individualCartItem != null) {
+          //individualCartItem.inCart += 1;
+
           let cartItem = { ...individualCartItem, amount: 1 };
           //console.log("The id is:  ", id);
           //console.log("This is Line 178 : ", cartItem); // cartItem stores individual objects one at a time, so another click of button will send the object that corresponds to that click and cartItem will be overwritten.
           //console.log("Line 162 cartPA is: ", cartPA);
           if (sessionStorage.getItem("ChosenProducts")) {
             console.log("We now have Chosen Products ********");
-            //    ***    Important: the next code was needed so as to not override data
+            //    ***    Important: the next code was needed so as to not overwrite data
             cartPA = sessionStorage.getItem("ChosenProducts");
             cartPA = JSON.parse(cartPA);
             cartPA = [...cartPA, cartItem];
-            console.log("This is line 185", cartPA);
+            //console.log("This is line 185", cartPA);
             this.setCartValues(cartPA);
+
             //
           } else {
             console.log("There is NOTHING in the Local Storage yet: 000");
+            //individualCartItem.inCart += 1;
             cartPA = [...cartPA, cartItem];
             this.setCartValues(cartPA);
           }
@@ -215,12 +227,12 @@ class UIPA {
     });
   }
   setCartValues(cartPA2) {
-    console.log("How many objects in cartPA : ", cartPA2); // cartPA receives
+    //console.log("How many objects in cartPA : ", cartPA2); // cartPA receives
     // an array of one or more objects, but it is an array: [{...}]
     // second click of item I get : (2) [{...},{...}]  for cartPA-rs
     //console.log("Line 188", ...cartPA2);
-    let tempTotal = 0;
-    let itemsTotal = 0;
+    let masterTotal = 0;
+    let totalCartItems = 0;
     //let counter = 1;
 
     // try using a function that sends data to global variables or to
@@ -228,17 +240,23 @@ class UIPA {
     cartPA2.map((item) => {
       // So this is like a for loop which iterates number of times as the objects in the array.
       //console.log("counter is: ", counter);
-      item.inCart = item.inCart + item.amount;
-      //console.log(item);
+      //item.inCart = item.inCart + item.amount;
+      console.log(item);
       //counter++;
 
-      tempTotal += item.price * item.amount;
-      //console.log("tempTotal inside loop is: ", tempTotal);
+      masterTotal += item.price * item.inCart;
+      sessionStorage.setItem(
+        "masterTotalCartAmount",
+        JSON.stringify(masterTotal)
+      );
+      totalCartItems += item.inCart;
+      console.log("tempTotal inside loop is: ", masterTotal);
     });
-    //  console.log("Now Outside of item Loop ??? ");
+    console.log("Now Outside of item Loop ??? ");
 
     // console.log(tempTotal);
-    // console.log(itemsTotal);
+    console.log(totalCartItems);
+    sessionStorage.setItem("totalCartItems", JSON.stringify(totalCartItems));
     //localStorage.setItem("NumberOfItems", itemsTotal);
     // console.log("Line 198", itemsTotal);
     //console.log("Line 198 Typeof is: ", typeof itemsTotal);
@@ -263,7 +281,24 @@ class Storage {
     //   products
     // );
 
-    let findReturn = products.find((products) => products.id == id);
+    let specificFoundProduct = products.find((products) => products.id == id);
+
+    //below cods are to show that individual object is pulled from array with click event id and adds 1 to that specific object's "inCart":
+
+    //testing before and after:
+
+    console.log(specificFoundProduct, specificFoundProduct.inCart);
+
+    // This is where 1 is added to the specific object:
+    specificFoundProduct.inCart += 1;
+
+    //Replaces original BLS "products" array with new data:
+    sessionStorage.setItem("products", JSON.stringify(products));
+
+    console.log(specificFoundProduct, specificFoundProduct.inCart);
+    console.log(products);
+
+    //code to determine if product already chosen, if so then return null.
 
     if (sessionStorage.getItem("ChosenProducts")) {
       let itemAlreadyChosen = ChosenProducts.find(
@@ -271,13 +306,16 @@ class Storage {
       );
       if (itemAlreadyChosen) {
         console.log("Found Something");
-        console.log(itemAlreadyChosen);
-        return null;
+
+        //This does not return object.
+        return itemAlreadyChosen;
       } else {
-        return findReturn;
+        return specificFoundProduct;
       }
     } else {
-      return findReturn;
+      // findReturn.inCart += 1;
+
+      return specificFoundProduct;
     }
   }
 
@@ -337,18 +375,43 @@ document.addEventListener("DOMContentLoaded", () => {
   let cartTotalPA = document.querySelector(".cart-totalPA");
   let secondRowPA = document.querySelector(".second-row-PA");
   let thirdRowPA = document.querySelector(".third-row-PA");
-  let cartMasterCount = document.querySelector(".cart-master-count");
+  let totalCartItemsDisplay = document.querySelector(".cart");
+
+  if (totalCartItemsDisplay) {
+    let totalCartItems = sessionStorage.getItem("totalCartItems");
+    totalCartItems = JSON.parse(totalCartItems);
+
+    totalCartItemsDisplay.innerHTML = `
+    ${totalCartItems}
+    `;
+  }
   //
   //
   // If I am in the cart.html page then displays with below code
   if (cartTotalPA) {
     //
-    let cartItemsPA = sessionStorage.getItem("ChosenProducts");
+    let cartItemsPA = sessionStorage.getItem("products");
     cartItemsPA = JSON.parse(cartItemsPA);
+    let masterTotalCartAmount = sessionStorage.getItem("masterTotalCartAmount");
+    masterTotalCartAmount = JSON.parse(masterTotalCartAmount);
 
+    //Trying filter to display only items that have been chosen:
+    console.log(cartItemsPA);
+    let results = cartItemsPA.filter((el) => {
+      return el.inCart > 0; // el means element and then.key
+      // which the key is "category"
+    });
+
+    let masterTotalItemCount = cartItemsPA.filter((el) => {
+      return el.inCart > 0; // el means element and then.key
+      // which the key is "category"
+    });
+
+    console.log(results);
+    console.log(masterTotalItemCount);
     //  The below displays the cart items in the cart.html page
-
-    Object.values(cartItemsPA).map((items) => {
+    //debugger;
+    Object.values(results).map((items) => {
       secondRowPA.innerHTML += `
             <div class="row two-rs font-size-rs">
             <div class="col-2 border"><img src="${
@@ -360,7 +423,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }"  name="close-circle-outline"></ion-icon>${items.name}</div>
             <div class="col-2 border">${items.price.toFixed(2)}</div>
             <div class="col-2 border"><ion-icon name="add-circle-outline"></ion-icon> ${
-              items.inCart + 1
+              items.inCart
             } <ion-icon name="remove-circle-outline"></div>
             <div class="col-3 border">${(items.price * items.inCart).toFixed(
               2
@@ -373,22 +436,13 @@ document.addEventListener("DOMContentLoaded", () => {
     thirdRowPA.innerHTML += `
     <div class="row three-rs font-size-rs">
     <div class="col-7"></h4></div>
-    <div class="col-2">Basket Total:</div>
-    <div class="col-3">$</div>
+    <div class="col-2">Basket Total: </div>
+    <div class="col-3">$ ${masterTotalCartAmount.toFixed(2)}</div>
 
     </div>
 
     `;
   }
-  // if (cartMasterCount) {
-  //   let cartItemsPA = sessionStorage.getItem("ChosenProducts");
-  //   cartItemsPA = JSON.parse(cartItemsPA);
-  //   Object.values(cartItemsPA).map((items) => {
-  //     cartMasterCount.innerHTML = `
-  //   ${items.inCart + 1}
-  //   `;
-  //   });
-  // }
 });
 
 //
@@ -458,7 +512,7 @@ function cartNumbers(product) {
     //to nav bar of cart page it worked nicely-rs
   }
 
-  setItems(product);
+  //setItems(product);
 }
 
 //Creates the browser local storage  "productsInCart"(which is the
@@ -476,9 +530,9 @@ function setItems(product) {
         [product.tag]: product,
       };
     }
-    cartItems[product.tag].inCart += 1;
+    //cartItems[product.tag].inCart += 1;
   } else {
-    product.inCart = 1;
+    //product.inCart = 1;
     cartItems = {
       [product.tag]: product,
     };
@@ -551,5 +605,5 @@ function totalCost(product) {
 //   }
 // }
 
-onLoadCartNumbers();
+//onLoadCartNumbers();
 //displayCart();
