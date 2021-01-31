@@ -8,7 +8,7 @@
           "name": "Carrots",
           "tag": "carrots",
           "price": 6.0,
-          "inCart ": 0,
+          "inCart ": 0.0,
           "image": "../Images/carrots.jpg"
         },
         {
@@ -16,7 +16,7 @@
           "name": "Lettuce",
           "tag": "lettuce",
           "price": 4.99,
-          "inCart ": 0,
+          "inCart ": 0.0,
           "image": "../Images/lettuce.jpg"
         },
         {
@@ -24,7 +24,7 @@
           "name": "Tomatoes",
           "tag": "tomatoes",
           "price": 2.5,
-          "inCart ": 0,
+          "inCart ": 0.0,
           "image": "../Images/tomatoes.jpg"
         }
       ]
@@ -65,8 +65,8 @@
           "id": 7,
           "name": "Clorox",
           "tag": "clorox",
-          "price": 234.0,
-          "inCart ": 0,
+          "price": 14.99,
+          "inCart": 0,
           "image": "../Images/clorox.jpg"
         },
         {
@@ -74,7 +74,7 @@
           "name": "Paper Towels",
           "tag": "paper-towels",
           "price": 5,
-          "inCart ": 0,
+          "inCart": 0,
           "image": "../Images/paper-towels.jpg"
         },
         {
@@ -82,7 +82,7 @@
           "name": "Batteries",
           "tag": "batteries",
           "price": 2.25,
-          "inCart ": 0,
+          "inCart": 0,
           "image": "../Images/batteries.jpg"
         },
         {
@@ -90,7 +90,7 @@
           "name": "Mop",
           "tag": "mop",
           "price": 16.25,
-          "inCart ": 0,
+          "inCart": 0,
           "image": "../Images/mop.jpg"
         }
       ]

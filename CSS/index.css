@@ -7,7 +7,7 @@ body {
 }
 
 .blog-footer {
-  padding: 2.5rem 0;
+  padding: 1.5rem 0;
   color: #999;
   text-align: center;
   background-color: #f9f9f9;
@@ -17,8 +17,20 @@ body {
   margin-bottom: 0;
 }
 .blog-footer p #scrollup {
+  display: block;
+  z-index: 99;
+  border: none;
+  outline: none;
   color: red;
+  cursor: pointer;
+  -webkit-transition: color 0.5s;
+  transition: color 0.5s;
 }
+
+.blog-footer p #scrollup:hover {
+  color: #0f3280;
+}
+
 .banner {
   position: relative;
   display: inline-block;
