@@ -8,7 +8,7 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
-    <!-- Bootstrap CSS s-->
+    <!-- Bootstrap CSS V4.0-->
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -20,7 +20,7 @@
     <title>Robert's one stop shop</title>
   </head>
   <body>
-    <div id="body" class="container">
+    <header>
       <nav
         class="navbar navbar-expand-lg navbar-light bg-light rounded fixed-top"
       >
@@ -72,117 +72,150 @@
           </button>
         </div>
       </nav>
-      <main role="main">
-        <div class="banner">
-          <div class="top-center-container">
-            <div class="lightText">
-              <h1>Your one stop shop</h1>
-              <h2>At a discount price</h2>
-              <a href="../index.html" class="btn btn-dark"
-                > Home
-                <i class="fal fa-chevron-right"></i>
-              </a>
+    </header>
+    <main id="main" class="container" role="main">
+      <div class="banner">
+        <!--
+              XL- 1450 * 720
+              lg- 950 * 350
+              md- 992 * 576
+              sm- 768 * 576
+               -->
+        <div class="top-center-container">
+          <div class="lightText">
+            <h1>Your one stop shop</h1>
+            <h2>At a discount price</h2>
+            <a href="../index.html" class="btn btn-dark">
+              Home
+              <i class="fal fa-chevron-right"></i>
+            </a>
+          </div>
+          <!-- .lightText -->
+        </div>
+        <!-- .img-fluid -->
+      </div>
+      <!-- banner -->
+      <div class="album py-5 bg-light">
+        <div class="container">
+          <div class="row">
+            <!-- card s tart -->
+            <div class="col-12 col-md-6 col-lg-4 my-3 px-5 px-md-3 shadow-lg">
+              <div class="card booking-card">
+                <!-- Card image -->
+                <div class="view overlay shadow-lg">
+                  <img
+                    class="card-img-top w-100 shadow-lg"
+                    src="https://mdbootstrap.com/img/Photos/Horizontal/Food/8-col/img (5).jpg"
+                    alt="Card image cap"
+                  />
+                  <a href="">
+                    <div class=" "></div>
+                  </a>
+                </div>
+
+                <!-- Card content -->
+                <div class="card-body text-center">
+                  <!-- Title -->
+                  <h2 class="card-title font-weight-bold">
+                    <a id="card-title">"Title here"</a>
+                  </h2>
+                  <!-- Data -->
+                  <ul class="list-unstyled list-inline rating mb-0">
+                    <li class="list-inline-item">
+                      <p class="priceText">"price"</p>
+                    </li>
+                  </ul>
+                  <!-- Text -->
+                  <a class="add-cart" href="#">Add to Cart</a>
+                </div>
+              </div>
             </div>
-            <!-- .lightText -->
-          </div>
-          <!-- .img-fluid -->
-        </div>
-        <div class="row py-4">
-        <!-- card s tart -->
-        <div class="col-12 col-md-6 col-lg-4 my-3 px-5 px-md-3 shadow-lg" >
-          <div class="card booking-card">
 
-          <!-- Card image -->
-          <div class="view overlay shadow-lg ">
-            <img class="card-img-top w-100 shadow-lg " src="https://mdbootstrap.com/img/Photos/Horizontal/Food/8-col/img (5).jpg" alt="Card image cap">
-            <a href="">
-              <div class=" "></div>
-            </a>
-          </div>
-    
-          <!-- Card content -->
-          <div class="card-body text-center">
-    
-            <!-- Title -->
-            <h2 class="card-title font-weight-bold"><a id="card-title">"Title here"</a></h4>
-            <!-- Data -->
-            <ul class="list-unstyled list-inline rating mb-0">
-              
-              <li class="list-inline-item"><p class="priceText">"price"</p></li>
-            </ul>
-            <!-- Text -->
-            <a class="add-cart" href="#">Add to Cart</a>
-          </div>
-          </div>
-        </div>
+            <!-- card start -->
+            <div class="col-12 col-md-6 col-lg-4 my-3 px-5 px-md-3 shadow-lg">
+              <div class="card booking-card">
+                <!-- Card image -->
+                <div class="view overlay">
+                  <img
+                    class="card-img-top w-100"
+                    src="https://mdbootstrap.com/img/Photos/Horizontal/Food/8-col/img (5).jpg"
+                    alt="Card image cap"
+                  />
+                  <a href="">
+                    <div class=" "></div>
+                  </a>
+                </div>
 
-        <!-- card start -->
-        <div class="col-12 col-md-6 col-lg-4 my-3 px-5 px-md-3 shadow-lg" >
-          <div class="card booking-card">
+                <!-- Card content -->
+                <div class="card-body text-center">
+                  <!-- Title -->
+                  <h2 class="card-title font-weight-bold">
+                    <a id="card-title">"Title here"</a>
+                  </h2>
+                  <!-- Data -->
+                  <ul class="list-unstyled list-inline rating mb-0">
+                    <li class="list-inline-item">
+                      <p class="priceText">"price"</p>
+                    </li>
+                  </ul>
+                  <!-- Text -->
+                  <a class="add-cart" href="#">Add to Cart</a>
+                </div>
+              </div>
+            </div>
 
-          <!-- Card image -->
-          <div class="view overlay">
-            <img class="card-img-top w-100" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/8-col/img (5).jpg" alt="Card image cap">
-            <a href="">
-              <div class=" "></div>
-            </a>
-          </div>
-    
-          <!-- Card content -->
-          <div class="card-body text-center">
-    
-            <!-- Title -->
-            <h2 class="card-title font-weight-bold"><a id="card-title">"Title here"</a></h4>
-            <!-- Data -->
-            <ul class="list-unstyled list-inline rating mb-0">
-              
-              <li class="list-inline-item"><p class="priceText">"price"</p></li>
-            </ul>
-            <!-- Text -->
-            <a class="add-cart" href="#">Add to Cart</a>
-          </div>
-          </div>
-        </div>
+            <!-- card start -->
+            <div class="col-12 col-md-6 col-lg-4 my-3 px-5 px-md-3 shadow-lg">
+              <div class="card booking-card">
+                <!-- Card image -->
+                <div class="view overlay">
+                  <img
+                    class="card-img-top w-100"
+                    src="https://mdbootstrap.com/img/Photos/Horizontal/Food/8-col/img (5).jpg"
+                    alt="Card image cap"
+                  />
+                  <a href="">
+                    <div class=" "></div>
+                  </a>
+                </div>
 
-        <!-- card start -->
-        <div class="col-12 col-md-6 col-lg-4 my-3 px-5 px-md-3 shadow-lg" >
-          <div class="card booking-card">
-
-          <!-- Card image -->
-          <div class="view overlay">
-            <img class="card-img-top w-100" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/8-col/img (5).jpg" alt="Card image cap">
-            <a href="">
-              <div class=" "></div>
-            </a>
-          </div>
-    
-          <!-- Card content -->
-          <div class="card-body text-center">
-    
-            <!-- Title -->
-            <h2 class="card-title font-weight-bold"><a id="card-title">"Title here"</a></h4>
-            <!-- Data -->
-            <ul class="list-unstyled list-inline rating mb-0">
-              
-              <li class="list-inline-item"><p class="priceText">"price"</p></li>
-            </ul>
-            <!-- Text -->
-            <a class="add-cart" href="#">Add to Cart</a>
-          </div>
+                <!-- Card content -->
+                <div class="card-body text-center">
+                  <!-- Title -->
+                  <h2 class="card-title font-weight-bold">
+                    <a id="card-title">"Title here"</a>
+                  </h2>
+                  <!-- Data -->
+                  <ul class="list-unstyled list-inline rating mb-0">
+                    <li class="list-inline-item">
+                      <p class="priceText">"price"</p>
+                    </li>
+                  </ul>
+                  <!-- Text -->
+                  <a class="add-cart" href="#">Add to Cart</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      </main>
-        
+    </main>
+
     <footer class="blog-footer">
       <p>© 2020 Robert's one stop shop</p>
-      <p>
-        <a href="index.html">Back to top</a>
-      </p>
-    </footer>
+      <button
+        type="button"
+        class="btn btn-dark"
+        onclick="topFunction()"
+        id="scrollup"
+        title="Go to top"
+      >
+        Back to top
+      </button>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="JS.js"></script>
+    <script src="../JS.js"></script>
+    <script src="../UX.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -195,7 +228,7 @@
     ></script>
     <script
       src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      integrity="sha384-JZR6Spejh2U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
   </body>
