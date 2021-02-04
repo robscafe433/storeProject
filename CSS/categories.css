@@ -1,6 +1,3 @@
-body {
-  padding-top: 4.5rem;
-}
 
 .grocery-gallery {
   display: flex;
@@ -31,7 +28,7 @@ body {
   align-items: center;
 }
 
-.blog-footer {
+/* .blog-footer {
   padding: 2.5rem 0;
   color: #999;
   text-align: center;
@@ -41,7 +38,7 @@ body {
 
 .blog-footer p:last-child {
   margin-bottom: 0;
-}
+} */
 
 .banner {
   position: relative;

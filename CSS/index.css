@@ -3,7 +3,7 @@ body {
   height: 100%;
   margin: 0;
 }
-#body {
+#main {
   min-height: calc(100vh - 140px);
 }
 
@@ -75,7 +75,7 @@ body {
 .card {
   position: relative;
 }
-.card-img-top {
+.card-hoverImg{
   display: block;
   width: 100%;
   height: 250px;
@@ -97,7 +97,7 @@ body {
 .image-overlay:hover {
   opacity: 1;
 }
-.card-text {
+.card-hoverText {
   font-size: 3rem;
   font-weight: bold;
   color: #dcdcdc;
