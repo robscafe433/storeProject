@@ -38,23 +38,23 @@
           "tag": "shovel",
           "price": 4.75,
           "inCart ": 0,
-          "image": "../Images/carrots.jpg"
+          "image": "https://media.tractorsupply.com/is/image/TractorSupplyCompany/1023426?$456$"
         },
         {
           "id": 5,
-          "name": "Fertilizer",
-          "tag": "fertilizer",
+          "name": "Plant",
+          "tag": "plant",
           "price": 4.99,
           "inCart ": 0,
-          "image": "../Images/carrots.jpg"
+          "image": "https://images.homedepot-static.com/productImages/428c6b4e-ff07-4bda-89ec-f3fb4714df1d/svn/nearly-natural-artificial-trees-6585-64_600.jpg"
         },
         {
           "id": 6,
-          "name": "Rake",
-          "tag": "rake",
+          "name": "Fertilizer",
+          "tag": "fertilizer",
           "price": 2.5,
           "inCart ": 0,
-          "image": "../Images/carrots.jpg"
+          "image": "https://images.homedepot-static.com/productImages/37fdb432-2c29-4f58-add7-4c5af651cae2/svn/vigoro-lawn-fertilizers-52203pm-64_1000.jpg"
         }
       ]
     },
