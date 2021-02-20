@@ -55,11 +55,11 @@
                             <a class="nav-link" href="./garden.html">Garden</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../cart.html">Cart</a>
+                            <a class="nav-link" href="./cart.html">Cart</a>
                         </li>
                     </ul>
                     <button
-                        onclick="document.location.href='../cart.html'"
+                        onclick="document.location.href='./cart.html'"
                         class="cart btn btn-outline-success my-2 my-sm-0"
                         type="submit"
                     >
@@ -93,7 +93,7 @@
             <!-- banner -->
             <div class="album py-5 bg-light">
                 <div class="container">
-                    <div class="row grocery-gallery"></div>
+                    <div class="row gallery"></div>
                     <!-- Populated by JS for now-->
                 </div>
             </div>
@@ -128,40 +128,8 @@
             crossorigin="anonymous"
         ></script>
 
-        <script>
-            let groceries = `
-        <div class="card m-4 grocery-card">
-            <img class="card-img-top" src="../Images/carrots.jpg" alt="carrots">
-            <div class="card-body">
-                <h5 class="card-title text-center">Carrots</h5>
-                <p class="card-text text-center">$6.00</p>
-                <a class="add-cart" href="#" class="btn btn-primary">Add to Cart</a>
-            </div>
-        </div>
-        <div class="card m-4 grocery-card">
-            <img class="card-img-top" src="../Images/lettuce.jpg" alt="lettuce">
-            <div class="card-body">
-                <h5 class="card-title text-center">Lettuce</h5>
-                <p class="card-text text-center">$4.00</p>
-                <a class="add-cart" href="#" class="btn btn-primary">Add to Cart</a>
-            </div>
-        </div>
-        <div class="card m-4 grocery-card">
-            <img class="card-img-top" src="../Images/tomatoes.jpg" alt="tomatoes">
-            <div class="card-body">
-                <h5 class="card-title text-center">Tomatoes</h5>
-                <p class="card-text text-center">$2.50</p>
-                <a class="add-cart" href="#" class="btn btn-primary">Add to Cart</a>
-            </div>
-        </div>
-        `;
-            // for (let i = 0; i < 2; i++) {
-            //     groceries += groceries;
-            // }
-            let gallery = document.getElementsByClassName("grocery-gallery")[0];
-            gallery.innerHTML = groceries;
-        </script>
         <script src="../JS.js"></script>
         <script src="../UX.js"></script>
+        <script src="../loadPageData.js"></script>
     </body>
 </html>

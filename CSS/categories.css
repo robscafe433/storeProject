@@ -13,7 +13,7 @@
   align-items: center;
 }
 
-.household-gallery {
+.gallery {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
@@ -22,7 +22,7 @@
   margin: 0 auto;
 }
 
-.household-gallery .grocery-card {
+.gallery .gallery-card {
   max-width: 300px;
   max-height: 500px;
   align-items: center;
