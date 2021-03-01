@@ -1,99 +1,99 @@
 {
-  "items": [
-    {
-      "category": "groceries",
-      "products": [
+    "items": [
         {
-          "id": 1,
-          "name": "Carrots",
-          "tag": "carrots",
-          "price": 6.0,
-          "inCart ": 0.0,
-          "image": "../Images/carrots.jpg"
+            "category": "groceries",
+            "products": [
+                {
+                    "id": 1,
+                    "name": "Carrots",
+                    "tag": "carrots",
+                    "price": 6.0,
+                    "inCart": 0,
+                    "image": "../Images/carrots.jpg"
+                },
+                {
+                    "id": 2,
+                    "name": "Lettuce",
+                    "tag": "lettuce",
+                    "price": 4.99,
+                    "inCart": 0,
+                    "image": "../Images/lettuce.jpg"
+                },
+                {
+                    "id": 3,
+                    "name": "Tomatoes",
+                    "tag": "tomatoes",
+                    "price": 2.5,
+                    "inCart": 0,
+                    "image": "../Images/tomatoes.jpg"
+                }
+            ]
         },
         {
-          "id": 2,
-          "name": "Lettuce",
-          "tag": "lettuce",
-          "price": 4.99,
-          "inCart ": 0.0,
-          "image": "../Images/lettuce.jpg"
+            "category": "garden",
+            "products": [
+                {
+                    "id": 4,
+                    "name": "Shovel",
+                    "tag": "shovel",
+                    "price": 4.75,
+                    "inCart": 0,
+                    "image": "https://media.tractorsupply.com/is/image/TractorSupplyCompany/1023426?$456$"
+                },
+                {
+                    "id": 5,
+                    "name": "Plant",
+                    "tag": "plant",
+                    "price": 4.99,
+                    "inCart": 0,
+                    "image": "https://images.homedepot-static.com/productImages/428c6b4e-ff07-4bda-89ec-f3fb4714df1d/svn/nearly-natural-artificial-trees-6585-64_600.jpg"
+                },
+                {
+                    "id": 6,
+                    "name": "Fertilizer",
+                    "tag": "fertilizer",
+                    "price": 2.5,
+                    "inCart": 0,
+                    "image": "https://images.homedepot-static.com/productImages/37fdb432-2c29-4f58-add7-4c5af651cae2/svn/vigoro-lawn-fertilizers-52203pm-64_1000.jpg"
+                }
+            ]
         },
         {
-          "id": 3,
-          "name": "Tomatoes",
-          "tag": "tomatoes",
-          "price": 2.5,
-          "inCart ": 0.0,
-          "image": "../Images/tomatoes.jpg"
+            "category": "household",
+            "products": [
+                {
+                    "id": 7,
+                    "name": "Clorox",
+                    "tag": "clorox",
+                    "price": 14.99,
+                    "inCart": 0,
+                    "image": "../Images/clorox.jpg"
+                },
+                {
+                    "id": 8,
+                    "name": "Paper Towels",
+                    "tag": "paper-towels",
+                    "price": 5,
+                    "inCart": 0,
+                    "image": "../Images/paper-towels.jpg"
+                },
+                {
+                    "id": 9,
+                    "name": "Batteries",
+                    "tag": "batteries",
+                    "price": 2.25,
+                    "inCart": 0,
+                    "image": "../Images/batteries.jpg"
+                },
+                {
+                    "id": 10,
+                    "name": "Mop",
+                    "tag": "mop",
+                    "price": 16.25,
+                    "inCart": 0,
+                    "image": "../Images/mop.jpg"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "category": "garden",
-      "products": [
-        {
-          "id": 4,
-          "name": "Shovel",
-          "tag": "shovel",
-          "price": 4.75,
-          "inCart ": 0,
-          "image": "https://media.tractorsupply.com/is/image/TractorSupplyCompany/1023426?$456$"
-        },
-        {
-          "id": 5,
-          "name": "Plant",
-          "tag": "plant",
-          "price": 4.99,
-          "inCart ": 0,
-          "image": "https://images.homedepot-static.com/productImages/428c6b4e-ff07-4bda-89ec-f3fb4714df1d/svn/nearly-natural-artificial-trees-6585-64_600.jpg"
-        },
-        {
-          "id": 6,
-          "name": "Fertilizer",
-          "tag": "fertilizer",
-          "price": 2.5,
-          "inCart ": 0,
-          "image": "https://images.homedepot-static.com/productImages/37fdb432-2c29-4f58-add7-4c5af651cae2/svn/vigoro-lawn-fertilizers-52203pm-64_1000.jpg"
-        }
-      ]
-    },
-    {
-      "category": "household",
-      "products": [
-        {
-          "id": 7,
-          "name": "Clorox",
-          "tag": "clorox",
-          "price": 14.99,
-          "inCart": 0,
-          "image": "../Images/clorox.jpg"
-        },
-        {
-          "id": 8,
-          "name": "Paper Towels",
-          "tag": "paper-towels",
-          "price": 5,
-          "inCart": 0,
-          "image": "../Images/paper-towels.jpg"
-        },
-        {
-          "id": 9,
-          "name": "Batteries",
-          "tag": "batteries",
-          "price": 2.25,
-          "inCart": 0,
-          "image": "../Images/batteries.jpg"
-        },
-        {
-          "id": 10,
-          "name": "Mop",
-          "tag": "mop",
-          "price": 16.25,
-          "inCart": 0,
-          "image": "../Images/mop.jpg"
-        }
-      ]
-    }
-  ]
+    ]
 }
