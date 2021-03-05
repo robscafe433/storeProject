@@ -6,6 +6,7 @@ let tempProducts = "";
 class Products {
     async getJsonData(pageName) {
         try {
+            let cartPage = document.querySelector(".cart-Page");
             let result = await fetch("../items.json");
             let data = await result.json();
             let products = data.items;
@@ -15,7 +16,9 @@ class Products {
                 return el.category === selectedCategory;
             });
 
-            return results[0].products;
+            if (!cartPage) {
+                return results[0].products;
+            }
 
             /*** TODO: Need to store data with session storage. ***/
             if (!sessionStorage.getItem("products")) {
@@ -32,7 +35,6 @@ class Products {
 class MainClass {
     displayProducts(products) {
         let results = "";
-        let idmaster = "";
         let cartPage = document.querySelector(".cart-Page");
 
         if (!cartPage) {
@@ -47,8 +49,6 @@ class MainClass {
               </div>
           </div>
           `;
-
-                idmaster = prod.id;
             });
         }
 
@@ -60,40 +60,46 @@ class MainClass {
     }
 
     getBagButtons() {
-        let cartdisplay = "";
-        const buttons = [...document.querySelectorAll(".add-cart")];
+        let cartTotalPA = document.querySelector(".cart-totalPA");
+        if (!cartTotalPA) {
+            let cartdisplay = "";
+            const buttons = [...document.querySelectorAll(".add-cart")];
+            console.log(buttons);
+            buttonsDOM = buttons;
+            buttons.forEach((button) => {
+                let id = button.dataset.id;
 
-        buttonsDOM = buttons;
-        buttons.forEach((button) => {
-            let id = button.dataset.id;
+                button.addEventListener("click", (event) => {
+                    console.log(id);
+                    event.target.innerText = "In Cart";
 
-            button.addEventListener("click", (event) => {
-                event.target.innerText = "In Cart";
+                    let individualCartItem = Storage.getProducts(id);
 
-                let individualCartItem = Storage.getProducts(id);
+                    let cartItem = { ...individualCartItem };
 
-                let cartItem = { ...individualCartItem };
+                    //***    Important: the next code was needed so as to not overwrite data in the local storage when going back to the household.html page. This was needed because the global variable "chosenItemsArray" starts at zero EVERY TIME the page is loaded.
 
-                //***    Important: the next code was needed so as to not overwrite data in the local storage when going back to the household.html page. This was needed because the global variable "chosenItemsArray" starts at zero EVERY TIME the page is loaded.
+                    if (sessionStorage.getItem("ChosenProducts")) {
+                        console.log("We now have Chosen Products ********");
 
-                if (sessionStorage.getItem("ChosenProducts")) {
-                    console.log("We now have Chosen Products ********");
+                        chosenItemsArray = sessionStorage.getItem(
+                            "ChosenProducts"
+                        );
+                        chosenItemsArray = JSON.parse(chosenItemsArray);
+                        chosenItemsArray = [...chosenItemsArray, cartItem];
 
-                    chosenItemsArray = sessionStorage.getItem("ChosenProducts");
-                    chosenItemsArray = JSON.parse(chosenItemsArray);
-                    chosenItemsArray = [...chosenItemsArray, cartItem];
+                        this.setCartValues(chosenItemsArray);
+                    } else {
+                        console.log(
+                            "There is NOTHING in the Local Storage yet: 000"
+                        );
 
-                    this.setCartValues(chosenItemsArray);
-                } else {
-                    console.log(
-                        "There is NOTHING in the Local Storage yet: 000"
-                    );
-
-                    chosenItemsArray = [...chosenItemsArray, cartItem];
-                    this.setCartValues(chosenItemsArray);
-                }
+                        chosenItemsArray = [...chosenItemsArray, cartItem];
+                        this.setCartValues(chosenItemsArray);
+                    }
+                });
             });
-        });
+        }
     }
 
     // The below function uses all objects in the global variable "chosenItemsArray" (an array which holds all the objects clicked on and uses all to calculate total items and total amount).
@@ -121,9 +127,80 @@ class MainClass {
 
         Storage.itemsChosen(chosenItemsArray);
     }
+
+    deleteCartItem() {
+        let products = JSON.parse(sessionStorage.getItem("products"));
+        const deleteButtons = [...document.querySelectorAll(".delete-btn")];
+        console.log(deleteButtons);
+        deleteButtons.forEach((button) => {
+            let id = button.dataset.id;
+
+            button.addEventListener("click", (e) => {
+                console.log(id);
+
+                let specificFoundProduct = products.find(
+                    (products) => products.id == id
+                );
+
+                specificFoundProduct.inCart = 0;
+
+                sessionStorage.setItem("products", JSON.stringify(products));
+                location.reload();
+            });
+        });
+    }
+
+    addItemToCart() {
+        let products = JSON.parse(sessionStorage.getItem("products"));
+        const addItemBtn = [...document.querySelectorAll(".add-btn")];
+
+        addItemBtn.forEach((button) => {
+            console.log(button);
+            let id = button.dataset.id;
+            console.log(id);
+            button.addEventListener("click", (e) => {
+                console.log(id);
+
+                let specificFoundProduct = products.find(
+                    (products) => products.id == id
+                );
+
+                console.log(specificFoundProduct);
+                specificFoundProduct.inCart += 1;
+                console.log(products);
+
+                sessionStorage.setItem("products", JSON.stringify(products));
+
+                location.reload();
+            });
+        });
+    }
+
+    subtractItemFromCart() {
+        let products = JSON.parse(sessionStorage.getItem("products"));
+        const subtractItemBtn = [...document.querySelectorAll(".subtract-btn")];
+
+        subtractItemBtn.forEach((button) => {
+            console.log(button);
+            let id = button.dataset.id;
+            console.log(id);
+            button.addEventListener("click", (e) => {
+                console.log(id);
+
+                let specificFoundProduct = products.find(
+                    (products) => products.id == id
+                );
+
+                console.log(specificFoundProduct);
+                specificFoundProduct.inCart -= 1;
+
+                sessionStorage.setItem("products", JSON.stringify(products));
+                location.reload();
+            });
+        });
+    }
 }
 
-//
 class Storage {
     static saveProducts(prod) {
         let cartPage = document.querySelector(".cart-Page");
@@ -132,8 +209,9 @@ class Storage {
                 console.log("Hello");
                 tempProducts = JSON.parse(sessionStorage.getItem("products"));
                 console.log(tempProducts);
-                console.log(prod);
+                console.log("Here are products", prod);
                 let iterations = 0;
+
                 let found = tempProducts.some((obj, index) => {
                     iterations++;
                     if (obj.id === prod[0].id) {

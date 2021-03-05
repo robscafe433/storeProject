@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const mainclass = new MainClass();
 
     // below .getJsonData() function call returns filtered array, passes array to displayProducts() function.
+
     productspa
         .getJsonData(pageName)
         .then((products) => {
@@ -16,6 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .then(() => {
             mainclass.getBagButtons();
+            mainclass.deleteCartItem();
+            mainclass.addItemToCart();
+            mainclass.subtractItemFromCart();
         });
 
     let cartTotalPA = document.querySelector(".cart-totalPA");
@@ -54,17 +58,27 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(masterTotalItemCount);
 
         Object.values(results).map((items) => {
+            //console.log(items);
             secondRowPA.innerHTML += `
           <div class="row two-rs font-size-rs">
           <div class="col-2 border"><img src="${items.image}" height="40"></div>
           <div class="col-3 border">
-          <ion-icon class="test1 remove" data-name="${
-              items.name
-          }"  name="close-circle-outline"></ion-icon>${items.name}</div>
+          <ion-icon class="delete-btn" data-id=${items.id} data-name="${
+                items.name
+            }" name="close-circle-outline"></ion-icon>${items.name} 
+          </div>
           <div class="col-2 border">${items.price.toFixed(2)}</div>
-          <div class="col-2 border"><ion-icon name="add-circle-outline"></ion-icon> ${
-              items.inCart
-          } <ion-icon name="remove-circle-outline"></div>
+          <div class="col-2 border">
+          <ion-icon class="add-btn" data-id=${items.id} data-name="${
+                items.name
+            }"  name="add-circle-outline">
+          </ion-icon>
+
+          ${items.inCart}
+
+          <ion-icon class="subtract-btn" data-id=${items.id} data-name="${
+                items.name
+            }" name="remove-circle-outline"></div>
           <div class="col-3 border">${(items.price * items.inCart).toFixed(
               2
           )}</div>
