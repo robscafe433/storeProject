@@ -1,111 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- CSS only -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-      crossorigin="anonymous"
-    />
-    <title>Robert's One Stop Shop | Cart</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- CSS only -->
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+            crossorigin="anonymous"
+        />
+        <title>Robert's One Stop Shop | Cart</title>
 
-    <link rel="stylesheet" href="../CSS/CSS.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div class="container">
-      <nav
-        class="navbar navbar-expand-lg navbar-light bg-light rounded fixed-top"
-      >
-        <a class="navbar-brand" href="#">Robert's One Stop Shop</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarsExample09"
-          aria-controls="navbarsExample09"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarsExample09">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="./index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="categories/groceries.html">Groceries</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./household.html">Household</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="categories/garden.html">Garden</a>
-            </li>
+        <link rel="stylesheet" href="../CSS/CSS.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <nav
+                class="navbar navbar-expand-lg navbar-light bg-light rounded fixed-top"
+            >
+                <a class="navbar-brand" href="#">Robert's One Stop Shop</a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarsExample09"
+                    aria-controls="navbarsExample09"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarsExample09">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./groceries.html"
+                                >Groceries</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./household.html"
+                                >Household</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./garden.html">Garden</a>
+                        </li>
 
-            <!-- Added "Cart" link for checkout page -->
-            <li class="nav-item">
-              <a class="nav-link" href="#">Cart</a>
-            </li>
-          </ul>
-          <button
-            onclick="document.location.href='cart.html'"
-            class="cart btn btn-outline-success my-2 my-sm-0"
-            type="submit"
-          >
-            Cart <span>0</span>
-          </button>
+                        <!-- Added "Cart" link for checkout page -->
+                        <li class="nav-item cart-Page">
+                            <a class="nav-link" href="#">Cart</a>
+                        </li>
+                    </ul>
+                    <button
+                        onclick="document.location.href='cart.html'"
+                        class="cart btn btn-outline-success my-2 my-sm-0 cart-Page"
+                        type="submit"
+                    >
+                        Cart <span>0</span>
+                    </button>
+                </div>
+            </nav>
+            <div class="main-rs">
+                <div class="row one-rs">
+                    <div class="col-2 border"></div>
+                    <div class="col-3 border">Product</div>
+                    <div class="col-2 border">Price</div>
+                    <div class="col-2 border">Quantity</div>
+                    <div class="col-3 border">Total:</div>
+                </div>
+                <div class="row-products-rs"></div>
+                <div class="second-row-PA"></div>
+                <div class="third-row-PA"></div>
+                <div class="cart-totalPA"></div>
+                <div class="cart-itemsPA"></div>
+            </div>
         </div>
-      </nav>
-      <div class="main-rs">
-        <div class="row one-rs">
-          <div class="col-2 border"></div>
-          <div class="col-3 border">Product</div>
-          <div class="col-2 border">Price</div>
-          <div class="col-2 border">Quantity</div>
-          <div class="col-3 border">Total:</div>
-        </div>
-        <div class="row-products-rs"></div>
-        <div class="second-row-PA"></div>
-        <div class="third-row-PA"></div>
-        <div class="cart-totalPA"></div>
-        <div class="cart-itemsPA"></div>
 
-      </div>
-    </div>
+        <footer class="blog-footer-rs">
+            <p>© 2020 Robert's one stop shop</p>
+            <p>
+                <a href="#">Back to top</a>
+            </p>
+        </footer>
 
-    <footer class="blog-footer-rs">
-      <p>© 2020 Robert's one stop shop</p>
-      <p>
-        <a href="#">Back to top</a>
-      </p>
-    </footer>
+        <!-- JS, Popper.js, and jQuery -->
+        <script
+            src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"
+        ></script>
+        <script src="../JS.js"></script>
+        <script src="../loadPageData.js"></script>
 
-    <!-- JS, Popper.js, and jQuery -->
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-      crossorigin="anonymous"
-    ></script>
-    <script src="../JS.js"></script>
-    <script src="UX.js"></script>
-    <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
-  </body>
+        <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+    </body>
 </html>
