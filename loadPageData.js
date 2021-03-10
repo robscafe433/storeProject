@@ -59,32 +59,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
         Object.values(results).map((items) => {
             //console.log(items);
-            secondRowPA.innerHTML += `
-          <div class="row two-rs font-size-rs">
-          <div class="col-2 border"><img src="${items.image}" height="40"></div>
-          <div class="col-3 border">
-          <ion-icon class="delete-btn" data-id=${items.id} data-name="${
-                items.name
-            }" name="close-circle-outline"></ion-icon>${items.name} 
-          </div>
-          <div class="col-2 border">${items.price.toFixed(2)}</div>
-          <div class="col-2 border">
-          <ion-icon class="add-btn" data-id=${items.id} data-name="${
-                items.name
-            }"  name="add-circle-outline">
-          </ion-icon>
-
-          ${items.inCart}
-
-          <ion-icon class="subtract-btn" data-id=${items.id} data-name="${
-                items.name
-            }" name="remove-circle-outline"></div>
-          <div class="col-3 border">${(items.price * items.inCart).toFixed(
-              2
-          )}</div>
+            secondRowPA.innerHTML += ` <div class="col-3">
+            <img
+                class="p-4 card-hoverImg"
+                src="${items.image}"
+            />
         </div>
-    
-          `;
+        <div class="col-3 align-self-center">
+            <h4>${items.name}</h4>
+        </div>
+        <div class="col-3 align-self-center">
+            <div class="input-group w-75 px-1 mb-1">
+                <div class="input-group-prepend">
+                    <button
+                        class="subtract-btn btn btn-outline-secondary px-2"
+                        data-id=${items.id}
+                        data-name="${
+                            items.name
+                        }"
+                        type="button"
+                        name="remove-circle-outline"
+                    >
+                        -
+                    </button>
+                </div>
+                <input
+                    type="text"
+                    class="form-control"
+                    placeholder="${items.inCart}"
+                    aria-label="Quantity"
+                    aria-describedby="basic-addon1"
+                />
+                <div class="input-group-prepend">
+                    <button
+                        class="add-btn btn btn-outline-secondary px-2"
+                        type="button"
+                        data-id=${items.id}
+                        data-name="${items.name}"
+                        name="add-circle-outline"
+                    >
+                        +
+                    </button>
+                </div>
+            </div>
+        </div>
+        `;
         });
 
         thirdRowPA.innerHTML += `
