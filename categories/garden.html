@@ -56,11 +56,11 @@
                             >
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../cart.html">Cart</a>
+                            <a class="nav-link" href="./cart.html">Cart</a>
                         </li>
                     </ul>
                     <button
-                        onclick="document.location.href='../cart.html'"
+                        onclick="document.location.href='./cart.html'"
                         class="cart btn btn-outline-success my-2 my-sm-0"
                         type="submit"
                     >
@@ -95,7 +95,7 @@
             <!-- banner -->
             <div class="album py-5 bg-light">
                 <div class="container">
-                    <div class="row grocery-gallery"></div>
+                    <div class="row gallery"></div>
                     <!-- Populated by JS for now-->
                 </div>
             </div>
@@ -130,40 +130,8 @@
             crossorigin="anonymous"
         ></script>
 
-        <script>
-            let groceries = `
-        <div class="card m-4 grocery-card">
-            <img class="card-img-top" src="https://www.gardenersedge.com/images/500/AMLA30.jpg?v=100000231917-2" alt="shovel">
-            <div class="card-body">
-                <h5 class="card-title text-center">Shovel</h5>
-                <p class="card-text text-center">$6.00</p>
-                <a class="add-cart" href="#" class="btn btn-primary">Add to Cart</a>
-            </div>
-        </div>
-        <div class="card m-4 grocery-card">
-            <img class="card-img-top" src="https://images.homedepot-static.com/productImages/428c6b4e-ff07-4bda-89ec-f3fb4714df1d/svn/nearly-natural-artificial-trees-6585-64_600.jpg" alt="plant">
-            <div class="card-body">
-                <h5 class="card-title text-center">Plant</h5>
-                <p class="card-text text-center">$4.00</p>
-                <a class="add-cart" href="#" class="btn btn-primary">Add to Cart</a>
-            </div>
-        </div>
-        <div class="card m-4 grocery-card">
-            <img class="card-img-top" src="https://images.homedepot-static.com/productImages/37fdb432-2c29-4f58-add7-4c5af651cae2/svn/vigoro-lawn-fertilizers-52203pm-64_1000.jpg" alt="fertilizer">
-            <div class="card-body">
-                <h5 class="card-title text-center">Fertilizer</h5>
-                <p class="card-text text-center">$2.50</p>
-                <a class="add-cart" href="#" class="btn btn-primary">Add to Cart</a>
-            </div>
-        </div>
-        `;
-            // for (let i = 0; i < 2; i++) {
-            //     groceries += groceries;
-            // }
-            let gallery = document.getElementsByClassName("grocery-gallery")[0];
-            gallery.innerHTML = groceries;
-        </script>
         <script src="../JS.js"></script>
         <script src="../UX.js"></script>
+        <script src="../loadPageData.js"></script>
     </body>
 </html>
