@@ -39,30 +39,30 @@
                 <div class="collapse navbar-collapse" id="navbarsExample09">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="./index.html">Home</a>
+                            <a class="nav-link" href="/index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./groceries.html"
+                            <a class="nav-link" href="groceries.html"
                                 >Groceries</a
                             >
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./household.html"
+                            <a class="nav-link" href="household.html"
                                 >Household</a
                             >
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./garden.html">Garden</a>
+                            <a class="nav-link" href="garden.html">Garden</a>
                         </li>
 
                         <!-- Added "Cart" link for checkout page -->
-                        <li class="nav-item cart-Page">
+                        <li class="nav-item">
                             <a class="nav-link" href="#">Cart</a>
                         </li>
                     </ul>
                     <button
                         onclick="document.location.href='cart.html'"
-                        class="cart btn btn-outline-success my-2 my-sm-0 cart-Page"
+                        class="cart btn btn-outline-success my-2 my-sm-0"
                         type="submit"
                     >
                         Cart <span>0</span>
@@ -92,7 +92,6 @@
                 <div id="cart-body" class="container rounded white">
                     <div class="row">
                         <div class="col-8">
-                            <div class="row-products-rs"></div>
                             <div
                                 class="row mx-2 p-3 pb-5 border-bottom border-secondary"
                             >
@@ -103,8 +102,44 @@
                                     3 items
                                 </div>
                             </div>
-                            <div class="row-products-rs row mx-2 border-bottom">
-                                <div class="second-row-PA"></div>
+                            <div class="row mx-2 border-bott second-row-PA">
+                                <div class="col-3 cart-Page"></div>
+                                <div class="col-3 align-self-center">
+                                    <h4>lettuce</h4>
+                                </div>
+                                <div class="col-3 align-self-center">
+                                    <div class="input-group w-75 px-1 mb-1">
+                                        <div class="input-group-prepend">
+                                            <button
+                                                class="btn btn-outline-secondary px-2"
+                                                type="button"
+                                            >
+                                                -
+                                            </button>
+                                        </div>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            placeholder="Qty"
+                                            aria-label="Quantity"
+                                            aria-describedby="basic-addon1"
+                                        />
+                                        <div class="input-group-prepend">
+                                            <button
+                                                class="btn btn-outline-secondary px-2"
+                                                type="button"
+                                            >
+                                                +
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-2 align-self-center">
+                                    <h5>$1.00</h5>
+                                </div> -->
+                                <div class="col-1 align-self-center">
+                                    <h4>X</h4>
+                                </div>
                             </div>
                         </div>
                         <div class="col-4 blk">
@@ -204,7 +239,6 @@
         <script src="../JS.js"></script>
         <script src="../UX.js"></script>
         <script src="../loadPageData.js"></script>
-
         <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
     </body>
 </html>

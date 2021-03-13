@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
             mainclass.subtractItemFromCart();
         });
 
+    let cartPage = document.querySelector(".cart-Page");
     let cartTotalPA = document.querySelector(".cart-totalPA");
     let secondRowPA = document.querySelector(".second-row-PA");
     let thirdRowPA = document.querySelector(".third-row-PA");
@@ -36,20 +37,21 @@ document.addEventListener("DOMContentLoaded", () => {
   `;
     }
 
-    if (cartTotalPA) {
-        let cartItemsPA = sessionStorage.getItem("products");
-        cartItemsPA = JSON.parse(cartItemsPA);
+    if (cartPage) {
+        console.log("SecondRowPA is working ***");
+        let ssproducts = sessionStorage.getItem("products");
+        ssproducts = JSON.parse(ssproducts);
         let masterTotalCartAmount = sessionStorage.getItem(
             "masterTotalCartAmount"
         );
         masterTotalCartAmount = JSON.parse(masterTotalCartAmount);
 
-        let results = cartItemsPA.filter((el) => {
+        let results = ssproducts.filter((el) => {
             return el.inCart > 0; // el means element and then.key
             // which the key is "category"
         });
 
-        let masterTotalItemCount = cartItemsPA.filter((el) => {
+        let masterTotalItemCount = ssproducts.filter((el) => {
             return el.inCart > 0; // el means element and then.key
             // which the key is "category"
         });
@@ -58,60 +60,37 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(masterTotalItemCount);
 
         Object.values(results).map((items) => {
-            //console.log(items);
-            secondRowPA.innerHTML += ` <div class="col-3">
-            <img
-                class="p-4 card-hoverImg"
-                src="${items.image}"
-            />
-        </div>
-        <div class="col-3 align-self-center">
-            <h4>${items.name}</h4>
-        </div>
-        <div class="col-3 align-self-center">
-            <div class="input-group w-75 px-1 mb-1">
-                <div class="input-group-prepend">
-                    <button
-                        class="subtract-btn btn btn-outline-secondary px-2"
-                        data-id=${items.id}
-                        data-name="${
-                            items.name
-                        }"
-                        type="button"
-                        name="remove-circle-outline"
-                    >
-                        -
-                    </button>
-                </div>
-                <input
-                    type="text"
-                    class="form-control"
-                    placeholder="${items.inCart}"
-                    aria-label="Quantity"
-                    aria-describedby="basic-addon1"
-                />
-                <div class="input-group-prepend">
-                    <button
-                        class="add-btn btn btn-outline-secondary px-2"
-                        type="button"
-                        data-id=${items.id}
-                        data-name="${items.name}"
-                        name="add-circle-outline"
-                    >
-                        +
-                    </button>
+            console.log("Inside MAP ***", items, items.name);
+            secondRowPA.innerHTML += ` 
+            <div class="col-3 second-row-PA  ">
+                <img src="${items.image}" height="40">
+            </div>
+            <div class="col-3 second-row-PA ">
+                <h4>${items.name}</h4>
+            </div>
+            <div class="col-3 align-self-center second-row-PA ">
+                <div class="input-group w-75 px-1 mb-1">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary px-2" type="button">
+                            -
+                        </button>
+                    </div>
+
+                    <input type="text" class="form-control" placeholder="Qty" value="${items.inCart}" aria-label="Quantity" aria-describedby="basic-addon1">
+
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary px-2" type="button">
+                            +
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
-        `;
+                                
+            <div class="col-3 second-row-PA">
+                <h4>X</h4>
+            </div>
+                               
+            `;
         });
-
-        thirdRowPA.innerHTML += `
-  <div class="row three-rs font-size-rs">
-  <div class="col-7"></h4></div>
-  <div class="col-2">Basket Total: </div>
- 
-  </div>
-  `;
     }
 });
