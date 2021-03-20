@@ -38,29 +38,3 @@
 .blog-footer p:last-child {
   margin-bottom: 0;
 } */
-
-.banner {
-  position: relative;
-  display: inline-block;
-  padding-bottom: 30px;
-  width: 100%;
-}
-
-.banner h1 {
-  font-size: 4.5rem;
-}
-
-.top-center-container {
-  top: 25%;
-  left: 5%;
-  width: 90%;
-  position: absolute;
-  text-align: center;
-}
-
-.lightText {
-  color: white;
-  margin: 0;
-  text-shadow: 2px 2px 16px #666;
-  font-family: robotobold, verdana, arial, helvetica, sans-serif;
-}
