@@ -99,21 +99,6 @@ body {
   }
 }
 
-/* between 901 and 1200 px */
-@media screen and (min-width: 901px) and (max-width: 1200px) {
-  .banner {
-    background-image: url("../Images/indeximage/storebanner-lg.jpg");
-  }
-}
-
-/* bigger than 1201 px */
-@media screen and (min-width: 1201px) {
-  .banner {
-    background-image: url("../Images/indeximage/storebanner-xl.jpg");
-  }
-}
-
-
 .blk {
 background-color: rgb(230, 230, 230);
 }
