@@ -64,7 +64,7 @@ class MainClass {
         if (!cartTotalPA) {
             let cartdisplay = "";
             const buttons = [...document.querySelectorAll(".add-cart")];
-            console.log(buttons);
+            //console.log(buttons);
             buttonsDOM = buttons;
             buttons.forEach((button) => {
                 let id = button.dataset.id;
@@ -131,7 +131,7 @@ class MainClass {
     deleteCartItem() {
         let products = JSON.parse(sessionStorage.getItem("products"));
         const deleteButtons = [...document.querySelectorAll(".delete-btn")];
-        console.log(deleteButtons);
+        //console.log(deleteButtons);
         deleteButtons.forEach((button) => {
             let id = button.dataset.id;
 

@@ -13,13 +13,14 @@
         <title>Robert's One Stop Shop | Cart</title>
 
         <link rel="stylesheet" href="../CSS/CSS.css" />
+        <link rel="stylesheet" href="../CSS/index.css" />
         <link
             href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
             rel="stylesheet"
         />
     </head>
     <body>
-        <div class="container">
+        <header>
             <nav
                 class="navbar navbar-expand-lg navbar-light bg-light rounded fixed-top"
             >
@@ -41,54 +42,182 @@
                             <a class="nav-link" href="../index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./groceries.html"
+                            <a class="nav-link" href="groceries.html"
                                 >Groceries</a
                             >
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./household.html"
+                            <a class="nav-link" href="household.html"
                                 >Household</a
                             >
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./garden.html">Garden</a>
+                            <a class="nav-link" href="garden.html">Garden</a>
                         </li>
 
                         <!-- Added "Cart" link for checkout page -->
-                        <li class="nav-item cart-Page">
+                        <li class="nav-item">
                             <a class="nav-link" href="#">Cart</a>
                         </li>
                     </ul>
                     <button
                         onclick="document.location.href='cart.html'"
-                        class="cart btn btn-outline-success my-2 my-sm-0 cart-Page"
+                        class="cart btn btn-outline-success my-2 my-sm-0"
                         type="submit"
                     >
                         Cart <span>0</span>
                     </button>
                 </div>
             </nav>
-            <div class="main-rs">
-                <div class="row one-rs">
-                    <div class="col-2 border"></div>
-                    <div class="col-3 border">Product</div>
-                    <div class="col-2 border">Price</div>
-                    <div class="col-2 border">Quantity</div>
-                    <div class="col-3 border">Total:</div>
+        </header>
+        <main id="main" class="container-fluid" role="main">
+            <!-- <div class="container">
+                <div class="main-rs">
+                    <div class="row one-rs">
+                        <div class="col-2 border"></div>
+                        <div class="col-3 border">Product</div>
+                        <div class="col-2 border">Price</div>
+                        <div class="col-2 border">Quantity</div>
+                        <div class="col-3 border">Total:</div>
+                    </div>
+                    <div class="row-products-rs"></div>
+                    <div class="second-row-PA"></div>
+                    <div class="third-row-PA"></div>
+                    <div class="cart-totalPA"></div>
+                    <div class="cart-itemsPA"></div>
                 </div>
-                <div class="row-products-rs"></div>
-                <div class="second-row-PA"></div>
-                <div class="third-row-PA"></div>
-                <div class="cart-totalPA"></div>
-                <div class="cart-itemsPA"></div>
-            </div>
-        </div>
+            </div> -->
 
-        <footer class="blog-footer-rs">
+            <div id="main-cart" class="album py-5 bg-light rounded">
+                <div id="cart-body" class="container rounded white">
+                    <div class="row">
+                        <div class="col-8">
+                            <div
+                                class="row mx-2 p-3 pb-5 border-bottom border-secondary"
+                            >
+                                <div class="col-9 align-self-center">
+                                    <h2>Shopping cart</h2>
+                                </div>
+                                <div class="col-3 align-self-center">
+                                    3 items
+                                </div>
+                            </div>
+                            <div class="row mx-2 border-bott second-row-PA">
+                                <div class="col-3 cart-Page"></div>
+                                <div class="col-3 align-self-center">
+                                    <h4>lettuce</h4>
+                                </div>
+                                <div class="col-3 align-self-center">
+                                    <div class="input-group w-75 px-1 mb-1">
+                                        <div class="input-group-prepend">
+                                            <button
+                                                class="btn btn-outline-secondary px-2"
+                                                type="button"
+                                            >
+                                                -
+                                            </button>
+                                        </div>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            placeholder="Qty"
+                                            aria-label="Quantity"
+                                            aria-describedby="basic-addon1"
+                                        />
+                                        <div class="input-group-prepend">
+                                            <button
+                                                class="btn btn-outline-secondary px-2"
+                                                type="button"
+                                            >
+                                                +
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-2 align-self-center">
+                                    <h5>$1.00</h5>
+                                </div> -->
+                                <div class="col-1 align-self-center">
+                                    <h4>X</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 blk">
+                            <div
+                                class="row mx-2 p-3 pb-5 border-bottom border-secondary"
+                            >
+                                <div class="col-12">
+                                    <h3>Summary</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-9">
+                                    <p class="p-4">Items 3</p>
+                                </div>
+                                <div class="col-3">
+                                    <p class="p-4">$200</p>
+                                </div>
+                            </div>
+                            <div class="row pb-5">
+                                <div class="col-12 px-5 align-self-center">
+                                    <div class="form-group">
+                                        <label for="SHIPPING">SHIPPING</label>
+                                        <select
+                                            class="form-control"
+                                            id="exampleFormControlSelect1"
+                                        >
+                                            <option>
+                                                5-6 Business Days - Free
+                                            </option>
+                                            <option>
+                                                3-4 Business Days - $13.98
+                                            </option>
+                                            <option>
+                                                2 Business Days - $22.98
+                                            </option>
+                                            <option>
+                                                1 Business Days - $32.98
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="row mx-2 mt-4 border-top border-secondary"
+                            >
+                                <div class="col-9">
+                                    <p class="p-1">TOTAL PRICE</p>
+                                </div>
+                                <div class="col-3">
+                                    <p class="p-1">$2000</p>
+                                </div>
+                            </div>
+                            <div class="row m-4">
+                                <div class="col-12 text-center">
+                                    <button
+                                        type="button"
+                                        class="btn btn-dark btn-lg btn-block"
+                                    >
+                                        Checkout
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="blog-footer">
             <p>© 2020 Robert's one stop shop</p>
-            <p>
-                <a href="#">Back to top</a>
-            </p>
+            <button
+                type="button"
+                class="btn btn-dark"
+                onclick="topFunction()"
+                id="scrollup"
+                title="Go to top"
+            >
+                Back to top
+            </button>
         </footer>
 
         <!-- JS, Popper.js, and jQuery -->
@@ -108,8 +237,8 @@
             crossorigin="anonymous"
         ></script>
         <script src="../JS.js"></script>
+        <script src="../UX.js"></script>
         <script src="../loadPageData.js"></script>
-
         <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
     </body>
 </html>
