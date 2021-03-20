@@ -134,10 +134,6 @@ class MainClass {
         //console.log(deleteButtons);
         deleteButtons.forEach((button) => {
             let id = button.dataset.id;
-            console.log(
-                "These are the local variable id=button.dataset.id = ",
-                id
-            );
 
             button.addEventListener("click", (e) => {
                 console.log(id);

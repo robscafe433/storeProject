@@ -75,11 +75,9 @@ document.addEventListener("DOMContentLoaded", () => {
                             -
                         </button>
                     </div>
-
                     <input type="text" class="form-control" placeholder="Qty" value="${items.inCart}" aria-label="Quantity" aria-describedby="basic-addon1">
-
                     <div class="input-group-prepend">
-                        <button class="btn btn-outline-secondary px-2 add-btn" data-id=${items.id} data-name=${items.name} type="button">
+                        <button class="btn btn-outline-secondary px-2 add-btn" data-id=${items.id} data-name=${items.name}type="button">
                             +
                         </button>
                     </div>
@@ -87,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
                                 
             <div class="col-3 second-row-PA">
-                <h4 class="delete-btn" data-id= ${items.id} data-name= ${items.name}>X</h4>
+                <h4 class="delete-btn" data-id=${items.id} data-name=${items.name}>X</h4>
             </div>
                                
             `;
