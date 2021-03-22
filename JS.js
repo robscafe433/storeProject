@@ -97,6 +97,7 @@ class MainClass {
                         chosenItemsArray = [...chosenItemsArray, cartItem];
                         this.setCartValues(chosenItemsArray);
                     }
+                    location.reload();
                 });
             });
         }

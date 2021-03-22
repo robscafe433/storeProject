@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let path = window.location.pathname;
   let pageFile = path.split("/").pop();
   let pageName = pageFile.split(".")[0];
+  let totalCartItems = 0;
 
   const productspa = new Products();
   const mainclass = new MainClass();
@@ -28,34 +29,24 @@ document.addEventListener("DOMContentLoaded", () => {
   let thirdRowPA = document.querySelector(".third-row-PA");
   let totalCartItemsDisplay = document.querySelector(".cart");
 
+  let ssproducts = sessionStorage.getItem("products");
+  ssproducts = JSON.parse(ssproducts);
+
+  ssproducts.map((items) => {
+    totalCartItems += items.inCart;
+  });
+
+  let results = ssproducts.filter((el) => {
+    return el.inCart > 0;
+  });
+
+  //   console.log(results);
+  //   console.log(totalCartItems);
+
   if (totalCartItemsDisplay) {
-    let totalCartItems = sessionStorage.getItem("totalCartItems");
-    totalCartItems = JSON.parse(totalCartItems);
-
     totalCartItemsDisplay.innerHTML = `
-  ${totalCartItems}
-  `;
-  }
-
-  if (cartPage) {
-    console.log("SecondRowPA is working ***");
-    let ssproducts = sessionStorage.getItem("products");
-    ssproducts = JSON.parse(ssproducts);
-    let masterTotalCartAmount = sessionStorage.getItem("masterTotalCartAmount");
-    masterTotalCartAmount = JSON.parse(masterTotalCartAmount);
-
-    let results = ssproducts.filter((el) => {
-      return el.inCart > 0; // el means element and then.key
-      // which the key is "category"
-    });
-
-    let masterTotalItemCount = ssproducts.filter((el) => {
-      return el.inCart > 0; // el means element and then.key
-      // which the key is "category"
-    });
-
-    console.log(results);
-    console.log(masterTotalItemCount);
+      ${totalCartItems}
+      `;
 
     Object.values(results).map((items) => {
       console.log("Inside MAP ***", items, items.name);
