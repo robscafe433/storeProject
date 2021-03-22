@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
                                 
             <div class="col-3 second-row-PA">
-                <h4 class="delete-btn" data-id=${items.id} data-name=${items.name}><span class="iconify" data-icon="ion-close-circle-outline" data-inline="false" height="30"></span></h4>
+                <h4><span class="iconify delete-btn" data-id=${items.id} data-name=${items.name} data-icon="ion-close-circle-outline" data-inline="false" height="30"></span></h4>
             </div>
                                
             `;
