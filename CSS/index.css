@@ -1,101 +1,108 @@
 body {
-    padding-top: 70px;
-    height: 100%;
-    margin: 0;
+  padding-top: 70px;
+  height: 100%;
+  margin: 0;
 }
 #main {
-    min-height: calc(100vh - 140px);
+  min-height: calc(100vh - 140px);
 }
 
 .container .text-muted {
-    margin: 20px 0;
+  margin: 20px 0;
 }
 
 .blog-footer {
-    height: 70px;
-    padding: 1.5rem 0;
-    color: #999;
-    text-align: center;
-    background-color: #f9f9f9;
-    border-top: 0.05rem solid #e5e5e5;
-    width: 100%;
+  height: 70px;
+  padding: 1.5rem 0;
+  color: #999;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-top: 0.05rem solid #e5e5e5;
+  width: 100%;
 }
 .blog-footer p:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 .blog-footer #scrollup {
-    position: fixed;
-    display: none;
-    bottom: 80px;
-    right: 20px;
-    z-index: 99;
-    cursor: pointer;
-    -webkit-transition: color 0.5s;
-    transition: color 0.5s;
+  position: fixed;
+  display: none;
+  bottom: 80px;
+  right: 20px;
+  z-index: 99;
+  cursor: pointer;
+  -webkit-transition: color 0.5s;
+  transition: color 0.5s;
 }
 
 .blog-footer #scrollup:hover {
-    color: #343a40;
-    background-color: #fff;
-    border-color: #343a40;
+  color: #343a40;
+  background-color: #fff;
+  border-color: #343a40;
 }
 
 .darkText {
-    color: black;
-    margin: 0;
-    text-shadow: 2px 2px 16px #666;
-    font-family: robotobold, verdana, arial, helvetica, sans-serif;
+  color: black;
+  margin: 0;
+  text-shadow: 2px 2px 16px #666;
+  font-family: robotobold, verdana, arial, helvetica, sans-serif;
 }
 .banner h1 {
-    font-size: 4.5rem;
+  font-size: 4.5rem;
 }
 
 .card {
-    position: relative;
+  position: relative;
 }
 .card-hoverImg {
-    display: block;
-    width: 100%;
-    height: 250px;
+  display: block;
+  width: 100%;
+  height: 250px;
 }
 .image-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.5s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s;
 }
 .image-overlay:hover {
-    opacity: 1;
+  opacity: 1;
 }
 .card-hoverText {
-    font-size: 3rem;
-    font-weight: bold;
-    color: #dcdcdc;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #dcdcdc;
 }
 
 .priceText {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 /* between 401 and 900 px */
 @media screen and (min-width: 401px) and (max-width: 1024px) {
-    .card-text {
-        font-size: 2rem;
-    }
+  .card-text {
+    font-size: 2rem;
+  }
 }
 
 /* no bigger than 1024 px */
 @media screen and (max-width: 1024px) {
-    .image-overlay {
-        opacity: 1;
-        background: rgba(0, 0, 0, 0.4);
-    }
+  .image-overlay {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.4);
+  }
+}
+
+.blk {
+  background-color: rgb(230, 230, 230);
+}
+.white {
+  background-color: white;
 }
