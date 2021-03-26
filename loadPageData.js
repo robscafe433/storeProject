@@ -64,51 +64,63 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("Inside MAP ***", items, items.name);
             secondRowPA.innerHTML += `
             <div class="col-12 py-2">
-            <div class="row">
-                <div class="col-3 align-self-center second-row-PA">
-                    <img src="${items.image}" height="70px" />
-                </div>
-                <div class="col-3 align-self-center second-row-PA">
-                    <h4>${items.name}</h4>
-                </div>
-                <div class="col-3 align-self-center second-row-PA">
-                    <div class="input-group w-75 px-1 mb-1">
-                        <div class="input-group-prepend">
-                            <button
-                                class="btn btn-outline-secondary px-2"
-                                type="button"
-                            >
-                                -
-                            </button>
-                        </div>
-        
-                        <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Qty"
-                            value="${items.inCart}"
-                            aria-label="Quantity"
-                            aria-describedby="basic-addon1"
-                        />
-        
-                        <div class="input-group-prepend">
-                            <button
-                                class="btn btn-outline-secondary px-2"
-                                type="button"
-                            >
-                                +
-                            </button>
+                <div class="row">
+                    <div class="col-3 align-self-center second-row-PA">
+                        <img src="${items.image}" height="70px" />
+                    </div>
+                    <div class="col-3 align-self-center second-row-PA">
+                        <h4>${items.name}</h4>
+                    </div>
+                    <div class="col-3 align-self-center second-row-PA">
+                        <div class="input-group w-75 px-1 mb-1">
+                            <div class="input-group-prepend">
+                                <button
+                                    class="btn btn-outline-secondary px-2
+                                    subtract-btn"
+                                    data-id=${items.id} 
+                                    data-name=${items.name} 
+                                    type="button"
+                                >
+                                    -
+                                </button>
+                            </div>
+            
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Qty"
+                                value="${items.inCart}"
+                                aria-label="Quantity"
+                                aria-describedby="basic-addon1"
+                            />
+            
+                            <div class="input-group-prepend">
+                                <button
+                                    class="btn btn-outline-secondary px-2 add-btn"
+                                    type="button"
+                                    data-id="${items.id}"
+                                    data-name="${items.name}"
+                                    type="button"
+                                >
+                                    +
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-               <div class="col-2 align-self-center">
-                    <h5>$${items.price}</h5>
-                </div>
-                <div class="col-1 align-self-center second-row-PA">
-                    <button class="badge text-white bg-secondary rounded-pill">X</button>
+                    <div class="col-2 align-self-center">
+                        <h5>$${items.price}</h5>
+                    </div>
+                    <div class="col-1 align-self-center second-row-PA">
+                        <button
+                            class="delete-btn badge text-white bg-secondary rounded-pill"
+                            data-id="${items.id}"
+                            data-name="${items.name}"
+                        >
+                            X
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
         `;
         });
     }
