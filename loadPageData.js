@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let cartTotalPA = document.querySelector(".cart-totalPA");
   let secondRowPA = document.querySelector(".second-row-PA");
   let thirdRowPA = document.querySelector(".third-row-PA");
-  let totalCartItemsDisplay = document.querySelector(".cart");
+  let cartBtnUpperRightHand = document.querySelector(".cartBtnUpperRightHand");
 
   let ssproducts = sessionStorage.getItem("products");
   ssproducts = JSON.parse(ssproducts);
@@ -44,7 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
   //   console.log(totalCartItems);
 
   if (cartPage) {
-    totalCartItemsDisplay.innerHTML = `
+    cartBtnUpperRightHand.innerHTML = `
+    <ion-icon name="cart-outline"></ion-icon>
       ${totalCartItems}
       `;
 
@@ -80,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
     });
   } else {
-    totalCartItemsDisplay.innerHTML = `
+    cartBtnUpperRightHand.innerHTML = `
       ${totalCartItems}
       `;
   }
