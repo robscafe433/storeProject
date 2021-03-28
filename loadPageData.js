@@ -82,6 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   } else {
     cartBtnUpperRightHand.innerHTML = `
+    <ion-icon name="cart-outline"></ion-icon>
       ${totalCartItems}
       `;
   }
