@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //   console.log(results);
   //   console.log(totalCartItems);
 
-  if (totalCartItemsDisplay) {
+  if (cartPage) {
     totalCartItemsDisplay.innerHTML = `
       ${totalCartItems}
       `;
@@ -79,5 +79,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                
             `;
     });
+  } else {
+    totalCartItemsDisplay.innerHTML = `
+      ${totalCartItems}
+      `;
   }
 });
