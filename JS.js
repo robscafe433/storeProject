@@ -86,12 +86,12 @@ class MainClass {
             chosenItemsArray = JSON.parse(chosenItemsArray);
             chosenItemsArray = [...chosenItemsArray, cartItem];
 
-            this.setCartValues(chosenItemsArray);
+            // this.setCartValues(chosenItemsArray);
           } else {
             console.log("There is NOTHING in the Local Storage yet: 000");
 
             chosenItemsArray = [...chosenItemsArray, cartItem];
-            this.setCartValues(chosenItemsArray);
+            // this.setCartValues(chosenItemsArray);
           }
           location.reload();
         });
@@ -101,26 +101,26 @@ class MainClass {
 
   // The below function uses all objects in the global variable "chosenItemsArray" (an array which holds all the objects clicked on and uses all to calculate total items and total amount).
 
-  setCartValues(chosenItemsArray) {
-    let masterTotal = 0;
-    let totalCartItems = 0;
+  // setCartValues(chosenItemsArray) {
+  //   let masterTotal = 0;
+  //   let totalCartItems = 0;
 
-    console.log(chosenItemsArray);
+  //   console.log(chosenItemsArray);
 
-    chosenItemsArray.map((item) => {
-      masterTotal += item.price * item.inCart;
-      sessionStorage.setItem(
-        "masterTotalCartAmount",
-        JSON.stringify(masterTotal)
-      );
+  //   chosenItemsArray.map((item) => {
+  //     masterTotal += item.price * item.inCart;
+  //     sessionStorage.setItem(
+  //       "masterTotalCartAmount",
+  //       JSON.stringify(masterTotal)
+  //     );
 
-      totalCartItems += item.inCart;
-    });
+  //     totalCartItems += item.inCart;
+  //   });
 
-    sessionStorage.setItem("totalCartItems", JSON.stringify(totalCartItems));
+  //   sessionStorage.setItem("totalCartItems", JSON.stringify(totalCartItems));
 
-    Storage.itemsChosen(chosenItemsArray);
-  }
+  //   Storage.itemsChosen(chosenItemsArray);
+  // }
 
   deleteCartItem() {
     let products = JSON.parse(sessionStorage.getItem("products"));
@@ -149,9 +149,9 @@ class MainClass {
     const addItemBtn = [...document.querySelectorAll(".add-btn")];
 
     addItemBtn.forEach((button) => {
-      console.log(button);
+      
       let id = button.dataset.id;
-      console.log(id);
+      
       button.addEventListener("click", (e) => {
         console.log(id);
 
@@ -175,9 +175,9 @@ class MainClass {
     const subtractItemBtn = [...document.querySelectorAll(".subtract-btn")];
 
     subtractItemBtn.forEach((button) => {
-      console.log(button);
+      
       let id = button.dataset.id;
-      console.log(id);
+      
       button.addEventListener("click", (e) => {
         console.log(id);
 

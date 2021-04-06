@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let pageFile = path.split("/").pop();
   let pageName = pageFile.split(".")[0];
   let totalCartItems = 0;
+  let totalItemsAmount = 0;
 
   const productspa = new Products();
   const mainclass = new MainClass();
@@ -28,20 +29,33 @@ document.addEventListener("DOMContentLoaded", () => {
   let secondRowPA = document.querySelector(".second-row-PA");
   let thirdRowPA = document.querySelector(".third-row-PA");
   let cartBtnUpperRightHand = document.querySelector(".cartBtnUpperRightHand");
+  let totalItemsAmountDisplay = document.querySelector(
+    ".totalItemsAmountDisplay"
+  );
 
   let ssproducts = sessionStorage.getItem("products");
   ssproducts = JSON.parse(ssproducts);
 
   ssproducts.map((items) => {
     totalCartItems += items.inCart;
+    sessionStorage.setItem("totalCartItems", JSON.stringify(totalCartItems));
   });
 
   let results = ssproducts.filter((el) => {
     return el.inCart > 0;
   });
 
-  //   console.log(results);
-  //   console.log(totalCartItems);
+  console.log(results);
+
+  results.map((items) => {
+    totalItemsAmount += items.inCart * items.price;
+    console.log("iteration");
+    console.log(totalItemsAmount);
+    sessionStorage.setItem(
+      "totalItemsAmount",
+      JSON.stringify(totalItemsAmount)
+    );
+  });
 
   if (cartPage) {
     cartBtnUpperRightHand.innerHTML = `
@@ -49,8 +63,11 @@ document.addEventListener("DOMContentLoaded", () => {
       ${totalCartItems}
       `;
 
+    totalItemsAmountDisplay.innerHTML = `
+      $${totalItemsAmount}
+      `;
+
     Object.values(results).map((items) => {
-      console.log("Inside MAP ***", items, items.name);
       secondRowPA.innerHTML += ` 
             <div class="col-3 second-row-PA  ">
                 <img src="${items.image}" height="40">
