@@ -32,6 +32,13 @@ document.addEventListener("DOMContentLoaded", () => {
   let totalItemsAmountDisplay = document.querySelector(
     ".totalItemsAmountDisplay"
   );
+  let totalCartItemsDisplayLeftSide = document.querySelector(
+    ".totalCartItemsDisplayLeftSide"
+  );
+  let totalCartItemsDisplayRightSide = document.querySelector(
+    ".totalCartItemsDisplayRightSide"
+  );
+
 
   let ssproducts = sessionStorage.getItem("products");
   ssproducts = JSON.parse(ssproducts);
@@ -58,6 +65,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   if (cartPage) {
+    totalCartItemsDisplayLeftSide.innerHTML = `
+      Items ${totalCartItems}
+    `;
+
+    totalCartItemsDisplayRightSide.innerHTML = `
+      Items ${totalCartItems}
+    `;
+
     cartBtnUpperRightHand.innerHTML = `
     <ion-icon name="cart-outline"></ion-icon>
       ${totalCartItems}
