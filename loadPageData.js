@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
       mainclass.deleteCartItem();
       mainclass.addItemToCart();
       mainclass.subtractItemFromCart();
+      mainclass.grandTotalAmount();
     });
 
   let cartPage = document.querySelector(".cart-Page");
@@ -39,6 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
     ".totalCartItemsDisplayRightSide"
   );
 
+  let grandTotalAmountDisplay = document.querySelector(
+    ".grandTotalAmountDisplay"
+  );
 
   let ssproducts = sessionStorage.getItem("products");
   ssproducts = JSON.parse(ssproducts);
@@ -56,13 +60,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   results.map((items) => {
     totalItemsAmount += items.inCart * items.price;
+    if (sessionStorage.getItem("grandTotalAmount")) {
+      grandTotalAmount = JSON.parse(sessionStorage.getItem("grandTotalAmount"));
+      console.log("Grand total is here: ", totalItemsAmount + grandTotalAmount);
+      grandTotalAmountDisplay.innerHTML = `
+      $${totalItemsAmount + grandTotalAmount}
+      `;
+    }
     console.log("iteration");
     console.log(totalItemsAmount);
+    console.log(grandTotalAmount);
     sessionStorage.setItem(
       "totalItemsAmount",
       JSON.stringify(totalItemsAmount)
     );
   });
+
+  console.log("Here", grandTotalAmount);
 
   if (cartPage) {
     totalCartItemsDisplayLeftSide.innerHTML = `

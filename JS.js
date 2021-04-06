@@ -2,6 +2,7 @@ let chosenItemsArray = [];
 let buttonsDOM = [];
 let masterId = "";
 let tempProducts = "";
+let grandTotalAmount = "0";
 
 class Products {
   async getJsonData(pageName) {
@@ -122,6 +123,22 @@ class MainClass {
   //   Storage.itemsChosen(chosenItemsArray);
   // }
 
+  grandTotalAmount() {
+    document
+      .querySelector("#exampleFormControlSelect1")
+      .addEventListener("change", function () {
+        grandTotalAmount = document.querySelector("#exampleFormControlSelect1")
+          .value;
+        grandTotalAmount = parseFloat(grandTotalAmount);
+        console.log(grandTotalAmount);
+        sessionStorage.setItem(
+          "grandTotalAmount",
+          JSON.stringify(grandTotalAmount)
+        );
+        location.reload();
+      });
+  }
+
   deleteCartItem() {
     let products = JSON.parse(sessionStorage.getItem("products"));
     const deleteButtons = [...document.querySelectorAll(".delete-btn")];
@@ -149,9 +166,8 @@ class MainClass {
     const addItemBtn = [...document.querySelectorAll(".add-btn")];
 
     addItemBtn.forEach((button) => {
-      
       let id = button.dataset.id;
-      
+
       button.addEventListener("click", (e) => {
         console.log(id);
 
@@ -175,9 +191,8 @@ class MainClass {
     const subtractItemBtn = [...document.querySelectorAll(".subtract-btn")];
 
     subtractItemBtn.forEach((button) => {
-      
       let id = button.dataset.id;
-      
+
       button.addEventListener("click", (e) => {
         console.log(id);
 
