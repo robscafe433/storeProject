@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         </div>
                     </div>
                     <div class="col-2 align-self-center">
-                        <h5>$${items.price}</h5>
+                        <h5>$${((items.price * items.inCart) * 1)} </h5>
                     </div>
                     <div class="col-1 align-self-center second-row-PA">
                         <button
@@ -121,6 +121,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 </div>
             </div>
+        `;
+        cartTotalPA.innerHTML += `
+            ${(items.price * items.inCart).toFixed(
+                2
+            )}
         `;
         });
     }
