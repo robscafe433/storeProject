@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let pageName = pageFile.split(".")[0];
   let totalCartItems = 0;
   let totalItemsAmount = 0;
+  let cartPage = document.querySelector(".cart-Page");
 
   const productspa = new Products();
   const mainclass = new MainClass();
@@ -22,10 +23,12 @@ document.addEventListener("DOMContentLoaded", () => {
       mainclass.deleteCartItem();
       mainclass.addItemToCart();
       mainclass.subtractItemFromCart();
-      mainclass.grandTotalAmount();
+      if (cartPage) {
+        mainclass.grandTotalAmount();
+      }
     });
 
-  let cartPage = document.querySelector(".cart-Page");
+  
   let cartTotalPA = document.querySelector(".cart-totalPA");
   let secondRowPA = document.querySelector(".second-row-PA");
   let thirdRowPA = document.querySelector(".third-row-PA");
@@ -58,27 +61,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
   console.log(results);
 
-  results.map((items) => {
-    totalItemsAmount += items.inCart * items.price;
-    if (sessionStorage.getItem("grandTotalAmount")) {
-      grandTotalAmount = JSON.parse(sessionStorage.getItem("grandTotalAmount"));
-      console.log("Grand total is here: ", totalItemsAmount + grandTotalAmount);
-      grandTotalAmountDisplay.innerHTML = `
-      $${totalItemsAmount + grandTotalAmount}
-      `;
-    }
-    console.log("iteration");
-    console.log(totalItemsAmount);
-    console.log(grandTotalAmount);
-    sessionStorage.setItem(
-      "totalItemsAmount",
-      JSON.stringify(totalItemsAmount)
-    );
-  });
-
-  console.log("Here", grandTotalAmount);
+  // results.map((items) => {
+  //   totalItemsAmount += items.inCart * items.price;
+  //   if (sessionStorage.getItem("grandTotalAmount")) {
+  //     grandTotalAmount = JSON.parse(sessionStorage.getItem("grandTotalAmount"));
+  //     console.log("Grand total is here: ", totalItemsAmount + grandTotalAmount);
+  //     grandTotalAmountDisplay.innerHTML = `
+  //     $${totalItemsAmount + grandTotalAmount}
+  //     `;
+  //   }
+  //   console.log("iteration");
+  //   console.log(totalItemsAmount);
+  //   console.log(grandTotalAmount);
+  //   sessionStorage.setItem(
+  //     "totalItemsAmount",
+  //     JSON.stringify(totalItemsAmount)
+  //   );
+  // });
 
   if (cartPage) {
+    results.map((items) => {
+      totalItemsAmount += items.inCart * items.price;
+      if (sessionStorage.getItem("grandTotalAmount")) {
+        grandTotalAmount = JSON.parse(
+          sessionStorage.getItem("grandTotalAmount")
+        );
+        console.log(
+          "Grand total is here: ",
+          totalItemsAmount + grandTotalAmount
+        );
+        grandTotalAmountDisplay.innerHTML = `
+        $${totalItemsAmount + grandTotalAmount}
+        `;
+      }
+      console.log("iteration");
+      console.log(totalItemsAmount);
+      console.log(grandTotalAmount);
+      sessionStorage.setItem(
+        "totalItemsAmount",
+        JSON.stringify(totalItemsAmount)
+      );
+    });
+
     totalCartItemsDisplayLeftSide.innerHTML = `
       Items ${totalCartItems}
     `;
