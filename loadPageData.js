@@ -1,67 +1,127 @@
 document.addEventListener("DOMContentLoaded", () => {
-    let path = window.location.pathname;
-    let pageFile = path.split("/").pop();
-    let pageName = pageFile.split(".")[0];
+  let path = window.location.pathname;
+  let pageFile = path.split("/").pop();
+  let pageName = pageFile.split(".")[0];
+  let totalCartItems = 0;
+  let totalItemsAmount = 0;
+  let cartPage = document.querySelector(".cart-Page");
 
-    const productspa = new Products();
-    const mainclass = new MainClass();
+  const productspa = new Products();
+  const mainclass = new MainClass();
 
-    // below .getJsonData() function call returns filtered array, passes array to displayProducts() function.
+  // below .getJsonData() function call returns filtered array, passes array to displayProducts() function.
 
-    productspa
-        .getJsonData(pageName)
-        .then((products) => {
-            mainclass.displayProducts(products);
+  productspa
+    .getJsonData(pageName)
+    .then((products) => {
+      mainclass.displayProducts(products);
 
-            Storage.saveProducts(products);
-        })
-        .then(() => {
-            mainclass.getBagButtons();
-            mainclass.deleteCartItem();
-            mainclass.addItemToCart();
-            mainclass.subtractItemFromCart();
-        });
+      Storage.saveProducts(products);
+    })
+    .then(() => {
+      mainclass.getBagButtons();
+      mainclass.deleteCartItem();
+      mainclass.addItemToCart();
+      mainclass.subtractItemFromCart();
+      if (cartPage) {
+        mainclass.grandTotalAmount();
+      }
+    });
 
-    let cartPage = document.querySelector(".cart-Page");
-    let cartTotalPA = document.querySelector(".cart-totalPA");
-    let secondRowPA = document.querySelector(".second-row-PA");
-    let thirdRowPA = document.querySelector(".third-row-PA");
-    let totalCartItemsDisplay = document.querySelector(".cart");
+  
+  let cartTotalPA = document.querySelector(".cart-totalPA");
+  let secondRowPA = document.querySelector(".second-row-PA");
+  let thirdRowPA = document.querySelector(".third-row-PA");
+  let cartBtnUpperRightHand = document.querySelector(".cartBtnUpperRightHand");
+  let totalItemsAmountDisplay = document.querySelector(
+    ".totalItemsAmountDisplay"
+  );
+  let totalCartItemsDisplayLeftSide = document.querySelector(
+    ".totalCartItemsDisplayLeftSide"
+  );
+  let totalCartItemsDisplayRightSide = document.querySelector(
+    ".totalCartItemsDisplayRightSide"
+  );
 
-    if (totalCartItemsDisplay) {
-        let totalCartItems = sessionStorage.getItem("totalCartItems");
-        totalCartItems = JSON.parse(totalCartItems);
+  let grandTotalAmountDisplay = document.querySelector(
+    ".grandTotalAmountDisplay"
+  );
 
-        totalCartItemsDisplay.innerHTML = `
-  ${totalCartItems}
-  `;
-    }
+  let ssproducts = sessionStorage.getItem("products");
+  ssproducts = JSON.parse(ssproducts);
 
-    if (cartPage) {
-        console.log("SecondRowPA is working ***");
-        let ssproducts = sessionStorage.getItem("products");
-        ssproducts = JSON.parse(ssproducts);
-        let masterTotalCartAmount = sessionStorage.getItem(
-            "masterTotalCartAmount"
+  ssproducts.map((items) => {
+    totalCartItems += items.inCart;
+    sessionStorage.setItem("totalCartItems", JSON.stringify(totalCartItems));
+  });
+
+  let results = ssproducts.filter((el) => {
+    return el.inCart > 0;
+  });
+
+  console.log(results);
+
+  // results.map((items) => {
+  //   totalItemsAmount += items.inCart * items.price;
+  //   if (sessionStorage.getItem("grandTotalAmount")) {
+  //     grandTotalAmount = JSON.parse(sessionStorage.getItem("grandTotalAmount"));
+  //     console.log("Grand total is here: ", totalItemsAmount + grandTotalAmount);
+  //     grandTotalAmountDisplay.innerHTML = `
+  //     $${totalItemsAmount + grandTotalAmount}
+  //     `;
+  //   }
+  //   console.log("iteration");
+  //   console.log(totalItemsAmount);
+  //   console.log(grandTotalAmount);
+  //   sessionStorage.setItem(
+  //     "totalItemsAmount",
+  //     JSON.stringify(totalItemsAmount)
+  //   );
+  // });
+
+  if (cartPage) {
+    results.map((items) => {
+      totalItemsAmount += items.inCart * items.price;
+      if (sessionStorage.getItem("grandTotalAmount")) {
+        grandTotalAmount = JSON.parse(
+          sessionStorage.getItem("grandTotalAmount")
         );
-        masterTotalCartAmount = JSON.parse(masterTotalCartAmount);
+        console.log(
+          "Grand total is here: ",
+          totalItemsAmount + grandTotalAmount
+        );
+        grandTotalAmountDisplay.innerHTML = `
+        $${totalItemsAmount + grandTotalAmount}
+        `;
+      }
+      console.log("iteration");
+      console.log(totalItemsAmount);
+      console.log(grandTotalAmount);
+      sessionStorage.setItem(
+        "totalItemsAmount",
+        JSON.stringify(totalItemsAmount)
+      );
+    });
 
-        let results = ssproducts.filter((el) => {
-            return el.inCart > 0; // el means element and then.key
-            // which the key is "category"
-        });
+    totalCartItemsDisplayLeftSide.innerHTML = `
+      Items ${totalCartItems}
+    `;
 
-        let masterTotalItemCount = ssproducts.filter((el) => {
-            return el.inCart > 0; // el means element and then.key
-            // which the key is "category"
-        });
+    totalCartItemsDisplayRightSide.innerHTML = `
+      Items ${totalCartItems}
+    `;
 
-        console.log(results);
-        console.log(masterTotalItemCount);
+    cartBtnUpperRightHand.innerHTML = `
+    <ion-icon name="cart-outline"></ion-icon>
+      ${totalCartItems}
+      `;
 
-        Object.values(results).map((items) => {
-            console.log("Inside MAP ***", items, items.name);
-            secondRowPA.innerHTML += ` 
+    totalItemsAmountDisplay.innerHTML = `
+      $${totalItemsAmount}
+      `;
+
+    Object.values(results).map((items) => {
+      secondRowPA.innerHTML += ` 
             <div class="col-3 second-row-PA  ">
                 <img src="${items.image}" height="40">
             </div>
@@ -85,10 +145,15 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
                                 
             <div class="col-3 second-row-PA">
-                <h4 class="delete-btn" data-id=${items.id} data-name=${items.name}>X</h4>
+                <h4><span class="iconify delete-btn" data-id=${items.id} data-name=${items.name} data-icon="ion-close-circle-outline" data-inline="false" height="30"></span></h4>
             </div>
                                
             `;
-        });
-    }
+    });
+  } else {
+    cartBtnUpperRightHand.innerHTML = `
+    <ion-icon name="cart-outline"></ion-icon>
+      ${totalCartItems}
+      `;
+  }
 });
