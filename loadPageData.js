@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     let path = window.location.pathname;
     let pageFile = path.split("/").pop();
-
     let pageName = pageFile.split(".")[0];
+    let totalItemsAmount = 0;
 
     const productspa = new Products();
     const mainclass = new MainClass();
@@ -59,9 +59,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         console.log(results);
         console.log(masterTotalItemCount);
-
+        
         Object.values(results).map((items) => {
             console.log("Inside MAP ***", items, items.name);
+            totalItemsAmount += (items.price * items.inCart);
+            console.log(totalItemsAmount +"4fffffffffffsd444");
             secondRowPA.innerHTML += `
             <div class="col-12 py-2">
                 <div class="row">
@@ -122,11 +124,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             </div>
         `;
-        cartTotalPA.innerHTML += `
-            ${(items.price * items.inCart).toFixed(
-                2
-            )}
-        `;
+        
         });
+        cartTotalPA.innerHTML += `
+            ${totalItemsAmount.toFixed(2)}
+        `;
     }
 });
