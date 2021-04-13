@@ -28,9 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-  let cartTotalPA = document.querySelector(".cart-totalPA");
   let secondRowPA = document.querySelector(".second-row-PA");
-  let thirdRowPA = document.querySelector(".third-row-PA");
+
   let cartBtnUpperRightHand = document.querySelector(".cartBtnUpperRightHand");
   let totalItemsAmountDisplay = document.querySelector(
     ".totalItemsAmountDisplay"
@@ -60,26 +59,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   console.log(results);
 
-  // results.map((items) => {
-  //   totalItemsAmount += items.inCart * items.price;
-  //   if (sessionStorage.getItem("grandTotalAmount")) {
-  //     grandTotalAmount = JSON.parse(sessionStorage.getItem("grandTotalAmount"));
-  //     console.log("Grand total is here: ", totalItemsAmount + grandTotalAmount);
-  //     grandTotalAmountDisplay.innerHTML = `
-  //     $${totalItemsAmount + grandTotalAmount}
-  //     `;
-  //   }
-  //   console.log("iteration");
-  //   console.log(totalItemsAmount);
-  //   console.log(grandTotalAmount);
-  //   sessionStorage.setItem(
-  //     "totalItemsAmount",
-  //     JSON.stringify(totalItemsAmount)
-  //   );
-  // });
-
-  //adds shipping to total products and saves in local storage
-
   if (cartPage) {
     results.map((items) => {
       totalItemsAmount += items.inCart * items.price;
@@ -92,8 +71,8 @@ document.addEventListener("DOMContentLoaded", () => {
           totalItemsAmount + grandTotalAmount
         );
         grandTotalAmountDisplay.innerHTML = `
-        $${totalItemsAmount + grandTotalAmount}
-        `;
+          $${totalItemsAmount + grandTotalAmount}
+          `;
       }
       console.log("iteration");
       console.log(totalItemsAmount);
@@ -105,56 +84,56 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     totalCartItemsDisplayLeftSide.innerHTML = `
-      Items ${totalCartItems}
-    `;
+        Items ${totalCartItems}
+      `;
 
     totalCartItemsDisplayRightSide.innerHTML = `
-      Items ${totalCartItems}
-    `;
+        Items ${totalCartItems}
+      `;
 
     cartBtnUpperRightHand.innerHTML = `
-    <ion-icon name="cart-outline"></ion-icon>
-      ${totalCartItems}
-      `;
+      <ion-icon name="cart-outline"></ion-icon>
+        ${totalCartItems}
+        `;
 
     totalItemsAmountDisplay.innerHTML = `
-      $${totalItemsAmount}
-      `;
+        $${totalItemsAmount}
+        `;
 
     Object.values(results).map((items) => {
       secondRowPA.innerHTML += ` 
-            <div class="col-3 second-row-PA  ">
-                <img src="${items.image}" height="40">
-            </div>
-            <div class="col-3 second-row-PA ">
-                <h4>${items.name}</h4>
-            </div>
-            <div class="col-3 align-self-center second-row-PA ">
-                <div class="input-group w-75 px-1 mb-1">
-                    <div class="input-group-prepend">
-                        <button class="btn btn-outline-secondary px-2 subtract-btn" data-id=${items.id} data-name=${items.name} type="button">
-                            -
-                        </button>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Qty" value="${items.inCart}" aria-label="Quantity" aria-describedby="basic-addon1">
-                    <div class="input-group-prepend">
-                        <button class="btn btn-outline-secondary px-2 add-btn" data-id=${items.id} data-name=${items.name}type="button">
-                            +
-                        </button>
-                    </div>
-                </div>
-            </div>
-                                
-            <div class="col-3 second-row-PA">
-                <h4><span class="iconify delete-btn" data-id=${items.id} data-name=${items.name} data-icon="ion-close-circle-outline" data-inline="false" height="30"></span></h4>
-            </div>
-                               
-            `;
+              <div class="col-3 second-row-PA  ">
+                  <img src="${items.image}" height="40">
+              </div>
+              <div class="col-3 second-row-PA ">
+                  <h4>${items.name}</h4>
+              </div>
+              <div class="col-3 align-self-center second-row-PA ">
+                  <div class="input-group w-75 px-1 mb-1">
+                      <div class="input-group-prepend">
+                          <button class="btn btn-outline-secondary px-2 subtract-btn" data-id=${items.id} data-name=${items.name} type="button">
+                              -
+                          </button>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Qty" value="${items.inCart}" aria-label="Quantity" aria-describedby="basic-addon1">
+                      <div class="input-group-prepend">
+                          <button class="btn btn-outline-secondary px-2 add-btn" data-id=${items.id} data-name=${items.name}type="button">
+                              +
+                          </button>
+                      </div>
+                  </div>
+              </div>
+                                  
+              <div class="col-3 second-row-PA">
+                  <h4><span class="iconify delete-btn" data-id=${items.id} data-name=${items.name} data-icon="ion-close-circle-outline" data-inline="false" height="30"></span></h4>
+              </div>
+                                 
+              `;
     });
   } else {
     cartBtnUpperRightHand.innerHTML = `
-    <ion-icon name="cart-outline"></ion-icon>
-      ${totalCartItems}
-      `;
+      <ion-icon name="cart-outline"></ion-icon>
+        ${totalCartItems}
+        `;
   }
 });

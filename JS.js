@@ -124,6 +124,7 @@ class MainClass {
   // }
 
   grandTotalAmount() {
+    // calculates shipping amount and stores it to local storage
     document
       .querySelector("#exampleFormControlSelect1")
       .addEventListener("change", function () {
