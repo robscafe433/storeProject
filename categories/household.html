@@ -1,132 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- CSS only -->
-        <link
-            rel="stylesheet"
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-            crossorigin="anonymous"
-        />
-        <link rel="stylesheet" href="../CSS/index.css" />
-        <link rel="stylesheet" href="../CSS/categories.css" />
-        <link rel="stylesheet" href="../CSS/banner.css" />
-        <title>Robert's One Stop Shop | Groceries</title>
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS only -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../CSS/index.css" />
+    <link rel="stylesheet" href="../CSS/categories.css" />
+    <link rel="stylesheet" href="../CSS/banner.css" />
+    <title>Robert's One Stop Shop | Groceries</title>
+  </head>
 
-    <body>
-        <header>
-            <nav
-                class="navbar navbar-expand-lg navbar-light bg-light rounded fixed-top"
-            >
-                <a class="navbar-brand" href="../index.html"
-                    >Robert's One Stop Shop</a
-                >
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#navbarsExample09"
-                    aria-controls="navbarsExample09"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarsExample09">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="../index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./groceries.html"
-                                >Groceries</a
-                            >
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#"
-                                >Household<span class="sr-only"
-                                    >(current)</span
-                                ></a
-                            >
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./garden.html">Garden</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./cart.html">Cart</a>
-                        </li>
-                    </ul>
-                    <button
-                        onclick="document.location.href='./cart.html'"
-                        class="cart btn btn-outline-success my-2 my-sm-0"
-                        type="submit"
-                    >
-                        Cart<span>0</span>
-                    </button>
-                </div>
-            </nav>
-        </header>
-        <main id="main" class="container" role="main">
-            <div class="banner">
-                <!--
+  <body>
+    <header>
+      <nav
+        class="navbar navbar-expand-lg navbar-light bg-light rounded fixed-top"
+      >
+        <a class="navbar-brand" href="../index.html">Robert's One Stop Shop</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarsExample09"
+          aria-controls="navbarsExample09"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExample09">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./groceries.html">Groceries</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#"
+                >Household<span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./garden.html">Garden</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./cart.html">Cart</a>
+            </li>
+          </ul>
+          <button
+            onclick="document.location.href='./cart.html'"
+            class="cartBtnUpperRightHand btn btn-outline-success my-2 my-sm-0"
+            type="submit"
+          >
+            Cart<span>0</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main id="main" class="container" role="main">
+      <div class="banner">
+        <!--
               XL- 1450 * 720
               lg- 950 * 350
               md- 992 * 576
               sm- 768 * 576
                -->
-                <div class="banner-textWrapper">
-                    <h1 class="banner-title">Your one stop shop</h1>
-                    <h2>At a discount price</h2>
-                    <a href="/categories/all.html" class="btn btn-dark"
-                        >View All Items
-                        <i class="fal fa-chevron-right"></i>
-                    </a>
-                </div>
-            </div>
-            <!-- banner -->
+        <div class="banner-textWrapper">
+          <h1 class="banner-title">Your one stop shop</h1>
+          <h2>At a discount price</h2>
+          <a href="/categories/all.html" class="btn btn-dark"
+            >View All Items
+            <i class="fal fa-chevron-right"></i>
+          </a>
+        </div>
+      </div>
+      <!-- banner -->
 
-            <div class="album py-5 bg-light">
-                <div class="container">
-                    <div class="row gallery"></div>
-                    <!-- Populated by JS for now-->
-                </div>
-            </div>
-        </main>
-        <footer class="blog-footer">
-            <p>© 2020 Robert's one stop shop</p>
-            <button
-                type="button"
-                class="btn btn-dark"
-                onclick="topFunction()"
-                id="scrollup"
-                title="Go to top"
-            >
-                Back to top
-            </button>
-        </footer>
+      <div class="album py-5 bg-light">
+        <div class="container">
+          <div class="row gallery"></div>
+          <!-- Populated by JS for now-->
+        </div>
+      </div>
+    </main>
+    <footer class="blog-footer">
+      <p>© 2020 Robert's one stop shop</p>
+      <button
+        type="button"
+        class="btn btn-dark"
+        onclick="topFunction()"
+        id="scrollup"
+        title="Go to top"
+      >
+        Back to top
+      </button>
+    </footer>
 
-        <!-- JS, Popper.js, and jQuery -->
-        <script
-            src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-            crossorigin="anonymous"
-        ></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-            crossorigin="anonymous"
-        ></script>
-        <script
-            src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-            crossorigin="anonymous"
-        ></script>
+    <!-- JS, Popper.js, and jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
 
-        <script src="../JS.js"></script>
-        <script src="../UX.js"></script>
-        <script src="../loadPageData.js"></script>
-    </body>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+    <script src="../getProductsFromJSON.js"></script>
+    <script src="../storage.js"></script>
+    <script src="../categoriesPage.js"></script>
+    <script src="../UX.js"></script>
+  </body>
 </html>
