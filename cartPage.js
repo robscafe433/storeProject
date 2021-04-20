@@ -99,7 +99,7 @@ Object.values(results).map((items) => {
           </div>
                               
           <div class="col-3">
-              <h4> <ion-icon name="close-circle-outline" class="delete-btn" data-id=${items.id} data-name=${items.name}type="button"></ion-icon></h4>
+              <h4> <ion-icon size="large" name="close-circle-outline" class="delete-btn btn-outline-secondary" data-id=${items.id} data-name=${items.name}type="button"></ion-icon></h4>
           </div>
                              
           `;
