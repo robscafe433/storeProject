@@ -45,9 +45,10 @@ results.map((items) => {
   totalItemsAmount += items.inCart * items.price;
   if (sessionStorage.getItem("shippingAmount")) {
     shippingAmount = JSON.parse(sessionStorage.getItem("shippingAmount"));
+    let grandTotalWithShipping = totalItemsAmount + shippingAmount;
 
     grandTotalAmountDisplay.innerHTML = `
-      $${totalItemsAmount + shippingAmount}
+      $${grandTotalWithShipping.toFixed(2)}
       `;
   }
 
@@ -68,7 +69,7 @@ cartBtnUpperRightHand.innerHTML = `
     `;
 
 totalItemsAmountDisplay.innerHTML = `
-    $${totalItemsAmount}
+    $${totalItemsAmount.toFixed(2)}
     `;
 
 Object.values(results).map((items) => {
@@ -82,24 +83,32 @@ Object.values(results).map((items) => {
           <div class="col-4 align-self-center">
               <div class="input-group w-75 px-1 mb-1">
                   <div class="input-group-prepend">
-                      <button class="btn btn-outline-secondary px-2 subtract-btn" data-id=${items.id} data-name=${items.name} type="button">
+                      <button class="btn btn-outline-secondary px-2 subtract-btn" data-id=${
+                        items.id
+                      } data-name=${items.name} type="button">
                           -
                       </button>
                   </div>
-                  <input type="text" class="form-control" placeholder="Qty" value="${items.inCart}" aria-label="Quantity" aria-describedby="basic-addon1">
+                  <input type="text" class="form-control" placeholder="Qty" value="${
+                    items.inCart
+                  }" aria-label="Quantity" aria-describedby="basic-addon1">
                   <div class="input-group-prepend">
-                      <button class="btn btn-outline-secondary px-2 add-btn" data-id=${items.id} data-name=${items.name}type="button">
+                      <button class="btn btn-outline-secondary px-2 add-btn" data-id=${
+                        items.id
+                      } data-name=${items.name}type="button">
                           +
                       </button>
                   </div>
                   <div class="col-3">
-                  <h4> @${items.price}</h4>
+                  <h4> @${items.price.toFixed(2)}</h4>
               </div>
               </div>
           </div>
                               
           <div class="col-3">
-              <h4> <ion-icon size="large" name="close-circle-outline" class="delete-btn btn-outline-secondary" data-id=${items.id} data-name=${items.name}type="button"></ion-icon></h4>
+              <h4> <ion-icon size="large" name="close-circle-outline" class="delete-btn btn-outline-secondary" data-id=${
+                items.id
+              } data-name=${items.name}type="button"></ion-icon></h4>
           </div>
                              
           `;
