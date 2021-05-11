@@ -1,44 +1,48 @@
 .blog-footer-rs {
-    padding: 2.5rem 0;
-    color: #999;
-    text-align: center;
-    background-color: #f9f9f9;
-    border-top: 0.05rem solid #e5e5e5;
+  padding: 2.5rem 0;
+  color: #999;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-top: 0.05rem solid #e5e5e5;
 }
 
 .main-rs {
-    max-width: 1050px;
-    justify-content: space-around;
-    margin: 0 auto;
-    margin-top: 50px;
+  max-width: 1050px;
+  justify-content: space-around;
+  margin: 0 auto;
+  margin-top: 50px;
 }
 
 .row-products-rs {
-    max-width: 1050px;
-    justify-content: space-around;
-    margin: 0 auto;
-    margin-top: 10px;
+  max-width: 1050px;
+  justify-content: space-around;
+  margin: 0 auto;
+  margin-top: 10px;
 }
 
 .one-rs {
-    padding-top: 20px;
+  padding-top: 20px;
 }
 .font-size-rs {
-    font-size: x-large;
+  font-size: x-large;
 }
 
 #main-cart {
-    min-height: calc(100vh - 160px);
+  min-height: calc(100vh - 160px);
 }
 
 #cart-body {
-    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 1rem;
-    border: transparent;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 1rem;
+  border: transparent;
 }
 
 @media screen and (min-width: 1200px) {
-    #main-cart #cart-body {
-        max-width: 1500px;
-    }
+  #main-cart #cart-body {
+    max-width: 1500px;
+  }
+}
+
+ion-icon {
+  --ionicon-stroke-width: 16px;
 }
