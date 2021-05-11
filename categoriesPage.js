@@ -1,33 +1,33 @@
 document.addEventListener("DOMContentLoaded", () => {
-  let path = window.location.pathname;
-  let pageFile = path.split("/").pop();
-  let pageName = pageFile.split(".")[0];
+    let path = window.location.pathname;
+    let pageFile = path.split("/").pop();
+    let pageName = pageFile.split(".")[0];
 
-  const getJSONProductsClass = new GetJSONProductsClass();
-  const mainCategoriesPageClass = new MainCategoriesPageClass();
+    const getJSONProductsClass = new GetJSONProductsClass();
+    const mainCategoriesPageClass = new MainCategoriesPageClass();
 
-  getJSONProductsClass
-    .getJsonData(pageName)
-    .then((products) => {
-      mainCategoriesPageClass.displayProducts(products);
+    getJSONProductsClass
+        .getJsonData(pageName)
+        .then((products) => {
+            mainCategoriesPageClass.displayProducts(products);
 
-      Storage.saveProducts(products);
-    })
-    .then(() => {
-      mainCategoriesPageClass.clickPageProducts();
-    });
+            Storage.saveProducts(products);
+        })
+        .then(() => {
+            mainCategoriesPageClass.clickPageProducts();
+        });
 });
 
 let categoriesPageGalleryButtons = [];
 let chosenItemsArray = [];
 
 class MainCategoriesPageClass {
-  displayProducts(products) {
-    let results = "";
-    let cartPage = document.querySelector(".cart-Page");
+    displayProducts(products) {
+        let results = "";
+        let cartPage = document.querySelector(".cart-Page");
 
-    products.forEach((prod) => {
-      results += `
+        products.forEach((prod) => {
+            results += `
             <div class="card m-4 gallery-card">
                 <img class="card-img-top" src=${prod.image}>
                 <div class="card-body">
@@ -37,26 +37,43 @@ class MainCategoriesPageClass {
                 </div>
             </div>
             `;
-    });
+        });
 
-    let categoriesPageGalleryDisplay = document.querySelector(".gallery");
-    categoriesPageGalleryDisplay.innerHTML = results;
-  }
+        let categoriesPageGalleryDisplay = document.querySelector(".gallery");
+        categoriesPageGalleryDisplay.innerHTML = results;
+    }
 
-  clickPageProducts() {
-    const buttons = [...document.querySelectorAll(".add-cart")];
+    clickPageProducts() {
+        const buttons = [...document.querySelectorAll(".add-cart")];
 
-    categoriesPageGalleryButtons = buttons;
-    buttons.forEach((button) => {
-      let id = button.dataset.id;
+        categoriesPageGalleryButtons = buttons;
+        buttons.forEach((button) => {
+            let id = button.dataset.id;
 
-      button.addEventListener("click", (event) => {
-        event.target.innerText = "In Cart";
+            button.addEventListener("click", (event) => {
+                event.target.innerText = "In Cart";
 
-        Storage.addsOneToProductsInCart(id);
+                Storage.addsOneToProductsInCart(id);
 
-        location.reload();
-      });
-    });
-  }
+                location.reload();
+            });
+        });
+    }
 }
+
+let totalCartItems = 0;
+
+let cartBtnUpperRightHand = document.querySelector(".cartBtnUpperRightHand");
+
+let ssproducts = sessionStorage.getItem("products");
+ssproducts = JSON.parse(ssproducts);
+
+ssproducts.map((items) => {
+    totalCartItems += items.inCart;
+    sessionStorage.setItem("totalCartItems", JSON.stringify(totalCartItems));
+});
+
+cartBtnUpperRightHand.innerHTML = `
+  <ion-icon name="cart-outline"></ion-icon>
+    ${totalCartItems}
+    `;
