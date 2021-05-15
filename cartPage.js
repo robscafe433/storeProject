@@ -77,44 +77,46 @@ totalItemsAmountDisplay.innerHTML = `
 
 Object.values(results).map((items) => {
     cartItemsDisplay.innerHTML += ` 
-          <div class="col-2">
-              <img src="${items.image}" height="40">
-          </div>
-          <div class="col-2  ">
-              <h4>${items.name}</h4>
-          </div>
-          <div class="col-4 align-self-center">
-              <div class="input-group w-75 px-1 mb-1">
-                  <div class="input-group-prepend">
-                      <button class="btn btn-outline-secondary px-2 subtract-btn" data-id=${
-                          items.id
-                      } data-name=${items.name} type="button">
-                          -
-                      </button>
-                  </div>
-                  <input type="text" class="form-control" placeholder="Qty" value="${
-                      items.inCart
-                  }" aria-label="Quantity" aria-describedby="basic-addon1">
-                  <div class="input-group-prepend">
-                      <button class="btn btn-outline-secondary px-2 add-btn" data-id=${
-                          items.id
-                      } data-name=${items.name}type="button">
-                          +
-                      </button>
-                  </div>
-                  <div class="col-3">
-                  <h4> @${items.price.toFixed(2)}</h4>
-              </div>
-              </div>
-          </div>
-                              
-          <div class="col-3">
-              <h4> <ion-icon size="large" name="close-circle-outline" class="delete-btn btn-outline-secondary" data-id=${
-                  items.id
-              } data-name=${items.name}type="button"></ion-icon></h4>
-          </div>
-                             
-          `;
+            <div class="col-6 col-md-6 col-lg-1 ">
+                <img src="${items.image}" height="40">
+            </div>
+            <div class="col-6 col-md-6 col-lg-2 pt-4 pt-lg-0">
+                <h4>${items.name}</h4>
+            </div>
+            <div class="col-6 my-2 col-md-6 col-lg-4 pb-4 align-self-center">
+                <div class="input-group w-75 px-1 mt-n3">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary px-2 subtract-btn"   data-id=${
+                            items.id
+                        } data-name=${items.name} type="button">
+                            -
+                        </button>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Qty"     value="${
+                        items.inCart
+                    }" aria-label="Quantity" aria-describedby="basic-addon1">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary px-2 add-btn"    data-id=${
+                            items.id
+                        } data-name=${items.name}type="button">
+                            +
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 col-md-4 col-lg-2">
+                <h4> @${items.price.toFixed(2)}</h4>
+            </div>
+            </div>
+
+            <div class="col-2 col-md-2 col-lg-3">
+                <h4> <ion-icon size="large" name="close-circle-outline"   class="delete-btn btn-outline-secondary" data-id=${
+                    items.id
+                } data-name=${items.name}type="button"></ion-icon></h4>
+            </div>
+
+            `;
 });
 
 class MainCartPageClass {
