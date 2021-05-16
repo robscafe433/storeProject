@@ -108,7 +108,7 @@ Object.values(results).map((items) => {
             <div class="col-4 col-md-4 col-lg-2">
                 <h4> @${items.price.toFixed(2)}</h4>
             </div>
-            </div>
+            
 
             <div class="col-2 col-md-2 col-lg-3">
                 <h4> <ion-icon size="large" name="close-circle-outline"   class="delete-btn btn-outline-secondary" data-id=${
