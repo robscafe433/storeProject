@@ -81,7 +81,7 @@ Object.values(results).map((items) => {
                 <img src="${items.image}" height="40">
             </div>
             <div class="col-6 col-md-6 col-lg-2 pt-4 pt-lg-0">
-                <h4>${items.name}</h4>
+                <h4 class="mqSmall-robert">${items.name}</h4>
             </div>
             <div class="col-6 my-2 col-md-6 col-lg-4 pb-4 align-self-center">
                 <div class="input-group w-75 px-1 mt-n3">
@@ -106,7 +106,7 @@ Object.values(results).map((items) => {
             </div>
 
             <div class="col-4 col-md-4 col-lg-2">
-                <h4> @${items.price.toFixed(2)}</h4>
+                <h4 class="mqSmall-robert"> @${items.price.toFixed(2)}</h4>
             </div>
             
 

@@ -1,0 +1,6 @@
+/* below 767 px - phones */
+@media screen and (max-width: 767px) {
+    .mqSmall-robert {
+        font-size: 16px;
+    }
+}
