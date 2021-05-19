@@ -203,6 +203,7 @@ class MainCartPageClass {
   }
 }
 
+// Saving shipping value in storage  
 document.addEventListener("DOMContentLoaded", () => {
 let formSelection = document.getElementById(
   "exampleFormControlSelect1"
