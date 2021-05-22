@@ -76,7 +76,7 @@ totalItemsAmountDisplay.innerHTML = `
     `;
 
 Object.values(results).map((items) => {
-    cartItemsDisplay.innerHTML += ` 
+    cartItemsDisplay.innerHTML += `     
             <div class="col-6 col-md-6 col-lg-1 ">
                 <img src="${items.image}" height="40">
             </div>
