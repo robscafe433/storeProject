@@ -6,6 +6,12 @@ class GetJSONProductsClass {
       let data = await result.json();
       let products = data.items;
 
+      if(pageName === "all") {
+        return products.reduce((total, category) => {
+          return total.concat(category.products);
+        }, []);
+      }
+
       let selectedCategory = pageName;
       let results = products.filter((el) => {
         return el.category === selectedCategory;
