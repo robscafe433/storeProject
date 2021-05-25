@@ -10,12 +10,13 @@
 
     <!-- Bootstrap CSS V4.0-->
     <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+        crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../CSS/index.css" />
+    <link rel="stylesheet" href="../CSS/gallery.css" />
     <link rel="stylesheet" href="../CSS/banner.css" />
 
     <title>Robert's One Stop Shop</title>
@@ -95,105 +96,8 @@
       <!-- banner -->
       <div class="album py-5 bg-light">
         <div class="container">
-          <div class="row">
-            <!-- card s tart -->
-            <div class="col-12 col-md-6 col-lg-4 my-3 px-5 px-md-3 shadow-lg">
-              <div class="card booking-card">
-                <!-- Card image -->
-                <div class="view overlay shadow-lg">
-                  <img
-                    class="card-img-top w-100 shadow-lg"
-                    src="https://mdbootstrap.com/img/Photos/Horizontal/Food/8-col/img (5).jpg"
-                    alt="Card image cap"
-                  />
-                  <a href="">
-                    <div class=" "></div>
-                  </a>
-                </div>
-
-                <!-- Card content -->
-                <div class="card-body text-center">
-                  <!-- Title -->
-                  <h2 class="card-title font-weight-bold">
-                    <a id="card-title">"Title here"</a>
-                  </h2>
-                  <!-- Data -->
-                  <ul class="list-unstyled list-inline rating mb-0">
-                    <li class="list-inline-item">
-                      <p class="priceText">"price"</p>
-                    </li>
-                  </ul>
-                  <!-- Text -->
-                  <a class="add-cart" href="#">Add to Cart</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- card start -->
-            <div class="col-12 col-md-6 col-lg-4 my-3 px-5 px-md-3 shadow-lg">
-              <div class="card booking-card">
-                <!-- Card image -->
-                <div class="view overlay">
-                  <img
-                    class="card-img-top w-100"
-                    src="https://mdbootstrap.com/img/Photos/Horizontal/Food/8-col/img (5).jpg"
-                    alt="Card image cap"
-                  />
-                  <a href="">
-                    <div class=" "></div>
-                  </a>
-                </div>
-
-                <!-- Card content -->
-                <div class="card-body text-center">
-                  <!-- Title -->
-                  <h2 class="card-title font-weight-bold">
-                    <a id="card-title">"Title here"</a>
-                  </h2>
-                  <!-- Data -->
-                  <ul class="list-unstyled list-inline rating mb-0">
-                    <li class="list-inline-item">
-                      <p class="priceText">"price"</p>
-                    </li>
-                  </ul>
-                  <!-- Text -->
-                  <a class="add-cart" href="#">Add to Cart</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- card start -->
-            <div class="col-12 col-md-6 col-lg-4 my-3 px-5 px-md-3 shadow-lg">
-              <div class="card booking-card">
-                <!-- Card image -->
-                <div class="view overlay">
-                  <img
-                    class="card-img-top w-100"
-                    src="https://mdbootstrap.com/img/Photos/Horizontal/Food/8-col/img (5).jpg"
-                    alt="Card image cap"
-                  />
-                  <a href="">
-                    <div class=" "></div>
-                  </a>
-                </div>
-
-                <!-- Card content -->
-                <div class="card-body text-center">
-                  <!-- Title -->
-                  <h2 class="card-title font-weight-bold">
-                    <a id="card-title">"Title here"</a>
-                  </h2>
-                  <!-- Data -->
-                  <ul class="list-unstyled list-inline rating mb-0">
-                    <li class="list-inline-item">
-                      <p class="priceText">"price"</p>
-                    </li>
-                  </ul>
-                  <!-- Text -->
-                  <a class="add-cart" href="#">Add to Cart</a>
-                </div>
-              </div>
-            </div>
+          <div class="row gallery">
+            
           </div>
         </div>
       </div>
@@ -212,22 +116,27 @@
       </button>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="../JS.js"></script>
+    <!-- <script src="../JS.js"></script>
+    <script src="../UX.js"></script> -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"
+    ></script>
+    <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"
+    ></script>
+
+    <script src="../getProductsFromJSON.js"></script>
+    <script src="../storage.js"></script>
+    <script src="../categoriesPage.js"></script>
     <script src="../UX.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh2U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
   </body>
 </html>
