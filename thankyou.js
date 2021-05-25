@@ -25,24 +25,24 @@ console.log(weekday);
 
 if (weekday == 0) {
     // Sunday orders:
+    processingDays = 3; //processing Monday for shipping on Wednesday
     shipOutOnWeekDay = 3; // Wednesday
-    processingDays = 3;
     eta.innerHTML = `
         <h5>${weekdaysArray[shipOutOnWeekDay]}, 9AM - 11AM</h5>
         <h5>${month + 1}/${calendarNumericalDay + processingDays}</h5>
     `;
 } else if (weekday == 6) {
     // Saturday orders:
-    shipOutOnWeekDay = 3; // Wednesday
     processingDays = 4; //processing Monday for shipping on Wednesday
+    shipOutOnWeekDay = 3; // Wednesday
     eta.innerHTML = `
         <h5>${weekdaysArray[shipOutOnWeekDay]}, 9AM - 11AM</h5>
         <h5>${month + 1}/${calendarNumericalDay + processingDays}</h5>
     `;
 } else if (weekday == 4) {
     // Thursday orders:
-    shipOutOnWeekDay = 1; // Monday
     processingDays = 4; //processing Thursday for shipping on Monday
+    shipOutOnWeekDay = 1; // Monday
     eta.innerHTML = `
         <h5>${weekdaysArray[shipOutOnWeekDay]}, 9AM - 11AM</h5>
         <h5>${month + 1}/${calendarNumericalDay + processingDays}</h5>
