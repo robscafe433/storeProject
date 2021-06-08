@@ -94,10 +94,10 @@ Object.values(results).map((items) => {
                             items.inCart * items.price
                         ).toFixed(2)}</h4>
                     </div>
-                    <div class="col-4 col-md-12 col-lg-12">
-                        <h4 class="mqSmall-robert"> ${items.price.toFixed(
+                    <div class="col-4 col-md-12 col-lg-12 pb-4">
+                        <h5 class="small-bold-letters"> ${items.price.toFixed(
                             2
-                        )} / each</h4>
+                        )} / EACH</h5>
                     </div>
                 </div>
             </div>

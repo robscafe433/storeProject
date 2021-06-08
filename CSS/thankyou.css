@@ -4,8 +4,24 @@
     color: rgb(120, 122, 122);
 }
 
-.checkIcon{
+.checkIcon {
     font-size: 5em;
     color: rgb(44, 182, 55);
+}
+.icon-center {
     text-align: center;
+    margin: auto;
+}
+
+.parent-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.child-box-left {
+    justify-content: center;
+}
+
+.child-box-left {
+    flex-basis: 40%;
 }
