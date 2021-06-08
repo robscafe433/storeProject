@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const mainCartPageClass = new MainCartPageClass();
+    const mainCartPageClass = new MainCartPageClass();
 
-  mainCartPageClass.subtractItemFromCart();
-  mainCartPageClass.addItemToCart();
-  mainCartPageClass.deleteCartItem();
+    mainCartPageClass.subtractItemFromCart();
+    mainCartPageClass.addItemToCart();
+    mainCartPageClass.deleteCartItem();
 
-  mainCartPageClass.shippingAmount();
+    mainCartPageClass.shippingAmount();
 });
 
 let totalCartItems = 0;
@@ -16,43 +16,46 @@ let cartItemsDisplay = document.querySelector(".cart-Display");
 
 let cartBtnUpperRightHand = document.querySelector(".cartBtnUpperRightHand");
 let totalItemsAmountDisplay = document.querySelector(
-  ".totalItemsAmountDisplay"
+    ".totalItemsAmountDisplay"
 );
 let totalNumberItemsDisplayLeftSide = document.querySelector(
-  ".totalNumberItemsDisplayLeftSide"
+    ".totalNumberItemsDisplayLeftSide"
 );
 let totalNumberItemsDisplayRightSide = document.querySelector(
-  ".totalNumberItemsDisplayRightSide"
+    ".totalNumberItemsDisplayRightSide"
 );
 
 let grandTotalAmountDisplay = document.querySelector(
-  ".grandTotalAmountDisplay"
+    ".grandTotalAmountDisplay"
 );
 
 let ssproducts = sessionStorage.getItem("products");
 ssproducts = JSON.parse(ssproducts);
 
 ssproducts.map((items) => {
-  totalCartItems += items.inCart;
-  sessionStorage.setItem("totalCartItems", JSON.stringify(totalCartItems));
+    totalCartItems += items.inCart;
+    sessionStorage.setItem("totalCartItems", JSON.stringify(totalCartItems));
 });
 
 let results = ssproducts.filter((el) => {
-  return el.inCart > 0;
+    return el.inCart > 0;
 });
 
 results.map((items) => {
-  totalItemsAmount += items.inCart * items.price;
-  if (sessionStorage.getItem("shippingAmount")) {
-    shippingAmount = JSON.parse(sessionStorage.getItem("shippingAmount"));
-    let grandTotalWithShipping = totalItemsAmount + shippingAmount;
+    totalItemsAmount += items.inCart * items.price;
+    if (sessionStorage.getItem("shippingAmount")) {
+        shippingAmount = JSON.parse(sessionStorage.getItem("shippingAmount"));
+        let grandTotalWithShipping = totalItemsAmount + shippingAmount;
 
-    grandTotalAmountDisplay.innerHTML = `
+        grandTotalAmountDisplay.innerHTML = `
       $${grandTotalWithShipping.toFixed(2)}
       `;
-  }
+    }
 
-  sessionStorage.setItem("totalItemsAmount", JSON.stringify(totalItemsAmount));
+    sessionStorage.setItem(
+        "totalItemsAmount",
+        JSON.stringify(totalItemsAmount)
+    );
 });
 
 totalNumberItemsDisplayLeftSide.innerHTML = `
@@ -73,134 +76,137 @@ totalItemsAmountDisplay.innerHTML = `
     `;
 
 Object.values(results).map((items) => {
-  cartItemsDisplay.innerHTML += ` 
-          <div class="col-2">
-              <img src="${items.image}" height="40">
-          </div>
-          <div class="col-2  ">
-              <h4>${items.name}</h4>
-          </div>
-          <div class="col-4 align-self-center">
-              <div class="input-group w-75 px-1 mb-1">
-                  <div class="input-group-prepend">
-                      <button class="btn btn-outline-secondary px-2 subtract-btn" data-id=${
-                        items.id
-                      } data-name=${items.name} type="button">
-                          -
-                      </button>
-                  </div>
-                  <input type="text" class="form-control" placeholder="Qty" value="${
-                    items.inCart
-                  }" aria-label="Quantity" aria-describedby="basic-addon1">
-                  <div class="input-group-prepend">
-                      <button class="btn btn-outline-secondary px-2 add-btn" data-id=${
-                        items.id
-                      } data-name=${items.name}type="button">
-                          +
-                      </button>
-                  </div>
-                  <div class="col-3">
-                  <h4> @${items.price.toFixed(2)}</h4>
-              </div>
-              </div>
-          </div>
-                              
-          <div class="col-3">
-              <h4> <ion-icon size="large" name="close-circle-outline" class="delete-btn btn-outline-secondary" data-id=${
-                items.id
-              } data-name=${items.name}type="button"></ion-icon></h4>
-          </div>
-                             
-          `;
+    cartItemsDisplay.innerHTML += `     
+            <div class="col-6 col-md-6 col-lg-1 ">
+                <img src="${items.image}" height="40">
+            </div>
+            <div class="col-6 col-md-6 col-lg-2 pt-4 pt-lg-0">
+                <h4 class="mqSmall-robert">${items.name}</h4>
+            </div>
+            <div class="col-6 my-2 col-md-6 col-lg-4 pb-4 align-self-center">
+                <div class="input-group w-75 px-1 mt-n3">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary px-2 subtract-btn"   data-id=${
+                            items.id
+                        } data-name=${items.name} type="button">
+                            -
+                        </button>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Qty"     value="${
+                        items.inCart
+                    }" aria-label="Quantity" aria-describedby="basic-addon1">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary px-2 add-btn"    data-id=${
+                            items.id
+                        } data-name=${items.name}type="button">
+                            +
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 col-md-4 col-lg-2">
+                <h4 class="mqSmall-robert"> @${items.price.toFixed(2)}</h4>
+            </div>
+            
+
+            <div class="col-2 col-md-2 col-lg-3">
+                <h4> <ion-icon size="large" name="close-circle-outline"   class="delete-btn btn-outline-secondary" data-id=${
+                    items.id
+                } data-name=${items.name}type="button"></ion-icon></h4>
+            </div>
+
+            `;
 });
 
 class MainCartPageClass {
-  addItemToCart() {
-    let products = JSON.parse(sessionStorage.getItem("products"));
-    const addItemBtn = [...document.querySelectorAll(".add-btn")];
+    addItemToCart() {
+        let products = JSON.parse(sessionStorage.getItem("products"));
+        const addItemBtn = [...document.querySelectorAll(".add-btn")];
 
-    addItemBtn.forEach((button) => {
-      let id = button.dataset.id;
+        addItemBtn.forEach((button) => {
+            let id = button.dataset.id;
 
-      button.addEventListener("click", (e) => {
-        console.log(id);
+            button.addEventListener("click", (e) => {
+                console.log(id);
 
-        let specificFoundProduct = products.find(
-          (products) => products.id == id
-        );
+                let specificFoundProduct = products.find(
+                    (products) => products.id == id
+                );
 
-        console.log(specificFoundProduct);
-        specificFoundProduct.inCart += 1;
-        console.log(products);
+                console.log(specificFoundProduct);
+                specificFoundProduct.inCart += 1;
+                console.log(products);
 
-        sessionStorage.setItem("products", JSON.stringify(products));
+                sessionStorage.setItem("products", JSON.stringify(products));
 
-        location.reload();
-      });
-    });
-  }
+                location.reload();
+            });
+        });
+    }
 
-  subtractItemFromCart() {
-    let products = JSON.parse(sessionStorage.getItem("products"));
-    const subtractItemBtn = [...document.querySelectorAll(".subtract-btn")];
+    subtractItemFromCart() {
+        let products = JSON.parse(sessionStorage.getItem("products"));
+        const subtractItemBtn = [...document.querySelectorAll(".subtract-btn")];
 
-    subtractItemBtn.forEach((button) => {
-      let id = button.dataset.id;
+        subtractItemBtn.forEach((button) => {
+            let id = button.dataset.id;
 
-      button.addEventListener("click", (e) => {
-        console.log(id);
+            button.addEventListener("click", (e) => {
+                console.log(id);
 
-        let specificFoundProduct = products.find(
-          (products) => products.id == id
-        );
+                let specificFoundProduct = products.find(
+                    (products) => products.id == id
+                );
 
-        console.log(specificFoundProduct);
-        specificFoundProduct.inCart -= 1;
+                console.log(specificFoundProduct);
+                specificFoundProduct.inCart -= 1;
 
-        sessionStorage.setItem("products", JSON.stringify(products));
-        location.reload();
-      });
-    });
-  }
+                sessionStorage.setItem("products", JSON.stringify(products));
+                location.reload();
+            });
+        });
+    }
 
-  deleteCartItem() {
-    let products = JSON.parse(sessionStorage.getItem("products"));
-    const deleteButtons = [...document.querySelectorAll(".delete-btn")];
+    deleteCartItem() {
+        let products = JSON.parse(sessionStorage.getItem("products"));
+        const deleteButtons = [...document.querySelectorAll(".delete-btn")];
 
-    deleteButtons.forEach((button) => {
-      let id = button.dataset.id;
+        deleteButtons.forEach((button) => {
+            let id = button.dataset.id;
 
-      button.addEventListener("click", (e) => {
-        console.log("delete button has been clicked");
-        console.log(id);
-        let specificFoundProduct = products.find(
-          (products) => products.id == id
-        );
+            button.addEventListener("click", (e) => {
+                console.log("delete button has been clicked");
+                console.log(id);
+                let specificFoundProduct = products.find(
+                    (products) => products.id == id
+                );
 
-        specificFoundProduct.inCart = 0;
+                specificFoundProduct.inCart = 0;
 
-        sessionStorage.setItem("products", JSON.stringify(products));
-        location.reload();
-      });
-    });
-  }
+                sessionStorage.setItem("products", JSON.stringify(products));
+                location.reload();
+            });
+        });
+    }
 
-  shippingAmount() {
-    // calculates shipping amount and stores it to local storage
-    document
-      .querySelector("#exampleFormControlSelect1")
-      .addEventListener("change", function () {
-        shippingAmount = document.querySelector("#exampleFormControlSelect1")
-          .value;
-        shippingAmount = parseFloat(shippingAmount);
-        console.log(shippingAmount);
-        sessionStorage.setItem(
-          "shippingAmount",
-          JSON.stringify(shippingAmount)
-        );
-        location.reload();
-      });
-  }
+    shippingAmount() {
+        // calculates shipping amount and stores it to local storage
+        document
+            .querySelector("#exampleFormControlSelect1")
+            .addEventListener("change", function () {
+                shippingAmount = document.querySelector(
+                    "#exampleFormControlSelect1"
+                ).value;
+                shippingAmount = parseFloat(shippingAmount);
+                console.log(shippingAmount);
+                sessionStorage.setItem(
+                    "shippingAmount",
+                    JSON.stringify(shippingAmount)
+                );
+                location.reload();
+            });
+    }
 }
 
 // Saving shipping value in storage  
