@@ -1,3 +1,17 @@
+let totalItemsAmount = null;
+let shippingAmount = null;
+
+let grandTotalAmountDisplay = document.querySelector(
+    ".grandTotalAmountDisplay"
+);
+
+shippingAmount = JSON.parse(sessionStorage.getItem("shippingAmount"));
+totalItemsAmount = JSON.parse(sessionStorage.getItem("totalItemsAmount"));
+let grandTotalAmountWithShipping = shippingAmount + totalItemsAmount;
+
+grandTotalAmountDisplay.innerHTML = `<strong font-bold> $${grandTotalAmountWithShipping}</strong>`;
+// ---------------------------
+
 let date = new Date();
 
 let month = date.getMonth();
@@ -106,3 +120,15 @@ Object.values(results).map((items) => {
 
             `;
 });
+
+// ----------------------contact us -----------
+
+let contactUsTel = document.querySelector(".contact-us-tel");
+
+contactUsTel.innerHTML = `
+<a href="" onclick="myFunction()">contact us</a>
+`;
+
+function myFunction(params) {
+    alert("Please contact us at Tel# 999-999-9999  or  email to: @yahoo.com");
+}

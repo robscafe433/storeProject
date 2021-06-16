@@ -1,3 +1,11 @@
+.font-bold {
+    font-weight: 900;
+}
+
+.font-light {
+    font-weight: 400;
+}
+
 .blog-footer-rs {
     padding: 2.5rem 0;
     color: #999;
@@ -32,7 +40,7 @@
 }
 .box-shadow-class {
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    
+
     border: transparent;
 }
 
