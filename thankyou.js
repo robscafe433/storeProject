@@ -132,3 +132,16 @@ contactUsTel.innerHTML = `
 function myFunction(params) {
     alert("Please contact us at Tel# 999-999-9999  or  email to: @yahoo.com");
 }
+
+// ----------------- track delivery -------------
+
+let trackDelivery = document.querySelector(".track-delivery");
+
+trackDelivery.innerHTML = `
+<div onclick="myFunctionTrackDelivery()">Delivery Information</div>
+
+`;
+
+function myFunctionTrackDelivery(params) {
+    alert("Shipping Via FedEx Service: Tracking# 999-9999-999");
+}
