@@ -145,3 +145,7 @@ trackDelivery.innerHTML = `
 function myFunctionTrackDelivery(params) {
     alert("Shipping Via FedEx Service: Tracking# 999-9999-999");
 }
+
+// -------------------- button - virtual - gift -----------------
+
+let btnVirtualGift = document.querySelector(".btn-virtual-gift");
