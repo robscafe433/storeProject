@@ -9,7 +9,9 @@ shippingAmount = JSON.parse(sessionStorage.getItem("shippingAmount"));
 totalItemsAmount = JSON.parse(sessionStorage.getItem("totalItemsAmount"));
 let grandTotalAmountWithShipping = shippingAmount + totalItemsAmount;
 
-grandTotalAmountDisplay.innerHTML = `<strong font-bold> $${grandTotalAmountWithShipping}</strong>`;
+grandTotalAmountDisplay.innerHTML = `<strong font-bold> $${grandTotalAmountWithShipping.toFixed(
+    2
+)}</strong>`;
 // ---------------------------
 
 let date = new Date();

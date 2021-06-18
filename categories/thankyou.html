@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="../CSS/categories.css" />
         <link rel="stylesheet" href="../CSS/banner.css" />
         <link rel="stylesheet" href="../CSS/thankyou.css" />
+        <link rel="stylesheet" href="../CSS/animationCSS.css" />
         <title>Robert's One Stop Shop | Groceries</title>
     </head>
 
@@ -127,7 +128,7 @@
                             <div class="row cartItemsDisplayThankYouPage"></div>
                         </div>
                     </div>
-                    <div class="col-md-5 child-box-right">
+                    <div class="col-lg-5 child-box-right">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div
@@ -170,6 +171,7 @@
                                         assemble your goods and email you.
                                     </h6>
                                     <br />
+
                                     <button
                                         class="
                                             track-delivery
@@ -178,13 +180,19 @@
                                     >
                                         Track delivery
                                     </button>
+                                    <div class="svg hide" id="svg"></div>
                                     <br /><br />
                                     <h6>
                                         Have questions about your order?
                                         <span class="contact-us-tel"></span>
                                     </h6>
                                     <br /><br /><br />
-                                    <button class="btn-lg btn-primary btn-virtual-gift">
+                                    <button
+                                        class="
+                                            btn-lg btn-primary btn-virtual-gift
+                                        "
+                                        id="button1"
+                                    >
                                         Click for Virtual Gift
                                     </button>
                                 </div>
@@ -225,5 +233,32 @@
         ></script>
         <script src="../thankyou.js"></script>
         <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.11/lottie.min.js"
+            integrity="sha512-jbTBHn1aXqglu6As1bUWxdPYc9b1uMHtreBM30oW3HbNFDS/eO1n+f98l4qcmw2l7CAdjWSbu3wVjm9SKISOaw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <script>
+            const play = document.querySelector("#button1");
+
+            const svgContainer = document.getElementById("svg");
+            const animItem = bodymovin.loadAnimation({
+                wrapper: svgContainer,
+                animType: "svg",
+                loop: false,
+                autoplay: false,
+                path: "https://assets2.lottiefiles.com/packages/lf20_u4yrau.json",
+            });
+
+            play.addEventListener("click", () => {
+                svgContainer.classList.remove("hide");
+                animItem.goToAndPlay(0, true);
+            });
+
+            animItem.addEventListener("complete", () => {
+                svgContainer.classList.add("hide");
+            });
+        </script>
     </body>
 </html>

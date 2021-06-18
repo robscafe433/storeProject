@@ -1,0 +1,24 @@
+.animationContainer {
+  position: relative;
+  width: 60%;
+  margin: 0 auto;
+  background: #232323;
+  padding: 2em;
+}
+
+.animationContainer h1 {
+  margin: 0;
+}
+
+.animationContainer p {
+  color: gray;
+}
+
+.svg {
+  width: 200px;
+  position: absolute;
+  top: -40;
+  left: -30px;
+  pointer-events: none;
+}
+/*# sourceMappingURL=animationCSS.css.map */
