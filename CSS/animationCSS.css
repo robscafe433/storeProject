@@ -1,0 +1,16 @@
+.container {
+  position: relative;
+}
+
+.svg {
+  width: 400px;
+  position: absolute;
+  top: -40px;
+  left: -30px;
+  pointer-events: none;
+}
+
+.hide {
+  display: none;
+}
+/*# sourceMappingURL=animationCSS.css.map */

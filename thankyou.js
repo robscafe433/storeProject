@@ -1,3 +1,19 @@
+let totalItemsAmount = null;
+let shippingAmount = null;
+
+let grandTotalAmountDisplay = document.querySelector(
+    ".grandTotalAmountDisplay"
+);
+
+shippingAmount = JSON.parse(sessionStorage.getItem("shippingAmount"));
+totalItemsAmount = JSON.parse(sessionStorage.getItem("totalItemsAmount"));
+let grandTotalAmountWithShipping = shippingAmount + totalItemsAmount;
+
+grandTotalAmountDisplay.innerHTML = `<strong font-bold> $${grandTotalAmountWithShipping.toFixed(
+    2
+)}</strong>`;
+// ---------------------------
+
 let date = new Date();
 
 let month = date.getMonth();
@@ -106,3 +122,32 @@ Object.values(results).map((items) => {
 
             `;
 });
+
+// ----------------------contact us -----------
+
+let contactUsTel = document.querySelector(".contact-us-tel");
+
+contactUsTel.innerHTML = `
+<a href="" onclick="myFunction()">contact us</a>
+`;
+
+function myFunction(params) {
+    alert("Please contact us at Tel# 999-999-9999  or  email to: @yahoo.com");
+}
+
+// ----------------- track delivery -------------
+
+let trackDelivery = document.querySelector(".track-delivery");
+
+trackDelivery.innerHTML = `
+<div onclick="myFunctionTrackDelivery()">Delivery Information</div>
+
+`;
+
+function myFunctionTrackDelivery(params) {
+    alert("Shipping Via FedEx Service: Tracking# 999-9999-999");
+}
+
+// -------------------- button - virtual - gift -----------------
+
+let btnVirtualGift = document.querySelector(".btn-virtual-gift");
