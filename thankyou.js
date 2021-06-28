@@ -1,3 +1,10 @@
+//   ***Notice that below code will reset incart to zero automatically upon leaving page.
+// document.addEventListener("DOMContentLoaded", () => {
+//     let thankYouPageClass = new ThankYouPageClass();
+
+//     thankYouPageClass.resetCartItemsToZeroFinal();
+// });
+
 let totalItemsAmount = null;
 let shippingAmount = null;
 
@@ -151,3 +158,27 @@ function myFunctionTrackDelivery(params) {
 // -------------------- button - virtual - gift -----------------
 
 let btnVirtualGift = document.querySelector(".btn-virtual-gift");
+
+// -----Master reset button in Navigation ---------
+
+let resetCartItemsToZeroButton = document.querySelector(
+    ".resetCartItemsToZeroButton"
+);
+
+resetCartItemsToZeroButton.innerHTML = `
+<div onclick="resetCartItemsToZeroFunction()">Restart Order</div>
+
+
+`;
+
+function resetCartItemsToZeroFunction() {
+    let products = JSON.parse(sessionStorage.getItem("products"));
+    products.forEach((el) => {
+        el.inCart = 0;
+    });
+    sessionStorage.setItem("products", JSON.stringify(products));
+    location.reload();
+    document.location.href = "../index.html";
+
+    // console.log(products); // shows that products in cart are all zero
+}
