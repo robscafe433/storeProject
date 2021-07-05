@@ -11,12 +11,6 @@
 .icon-center {
     text-align: center;
     margin: auto;
-    
-}
-
-.parent-box {
-    display: flex;
-    justify-content: space-between;
 }
 
 .child-box-left {
