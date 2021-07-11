@@ -25,9 +25,8 @@ let date = new Date();
 
 let month = date.getMonth();
 let calendarNumericalDay = date.getDate();
-let weekday = date.getDay();
+
 let processingDays = "null";
-let shipOutOnWeekDay = "null";
 
 let weekdaysArray = [
     "Sunday",
@@ -39,54 +38,42 @@ let weekdaysArray = [
     "Saturday",
 ];
 
-let eta = document.querySelector(".eta");
+let mailOutOnDateBinding = document.querySelector(".mailOutOnDateBinding");
+
+// Adding processing days to calendar date.
 
 // Delivery Dates: -------------------------------------------------------
-console.log(weekday);
 
+processingDays = JSON.parse(sessionStorage.getItem("ShippingDays"));
+// Adding local storage "ShippingDays" to calender
+
+date.setDate(processingDays + calendarNumericalDay);
+//date.setDate(32); // for testing specific days
+console.log(date);
 //0-Sunday ... Saturday-6
 
-if (weekday == 0) {
-    // Sunday orders:
-    processingDays = 3; //processing Monday for shipping on Wednesday
-    shipOutOnWeekDay = 3; // Wednesday
-    eta.innerHTML = `
-        <h5>${weekdaysArray[shipOutOnWeekDay]}, 9AM - 11AM</h5>
-        <h5>${month + 1}/${calendarNumericalDay + processingDays}</h5>
-    `;
-} else if (weekday == 6) {
-    // Saturday orders:
-    processingDays = 4; //processing Monday for shipping on Wednesday
-    shipOutOnWeekDay = 3; // Wednesday
-    eta.innerHTML = `
-        <h5>${weekdaysArray[shipOutOnWeekDay]}, 9AM - 11AM</h5>
-        <h5>${month + 1}/${calendarNumericalDay + processingDays}</h5>
-    `;
-} else if (weekday == 4) {
-    // Thursday orders:
-    processingDays = 4; //processing Thursday for shipping on Monday
-    shipOutOnWeekDay = 1; // Monday
-    eta.innerHTML = `
-        <h5>${weekdaysArray[shipOutOnWeekDay]}, 9AM - 11AM</h5>
-        <h5>${month + 1}/${calendarNumericalDay + processingDays}</h5>
-    `;
-} else if (weekday == 5) {
-    // Friday orders:
-    processingDays = 4; //processing Friday for shipping on Tuesday
-    shipOutOnWeekDay = 2; // Tuesday
-    eta.innerHTML = `
-        <h5>${weekdaysArray[shipOutOnWeekDay]}, 9AM - 11AM</h5>
-        <h5>${month + 1}/${calendarNumericalDay + processingDays}</h5>
-    `;
+let mailOutOnDay = null;
+
+if (date.getDay() == 0) {
+    console.log("***This is Weekend (Sunday)");
+    date.setDate(date.getDate() + 1);
+    console.log("Will be mailed out on: ", date);
+} else if (date.getDay() == 6) {
+    console.log("***This is Weekend (Saturday)");
+    date.setDate(date.getDate() + 2);
+    console.log("Will be mailed out on: ", date);
 } else {
-    processingDays = 2;
-    shipOutOnWeekDay = weekday + processingDays;
-    eta.innerHTML = `
-        <h5>${weekdaysArray[shipOutOnWeekDay]}, 9AM - 11AM</h5>
-        <h5>${month + 1}/${calendarNumericalDay + processingDays}</h5>
-    `;
+    console.log("This is a week Day");
+    mailOutOnDay = date.getDate();
+    console.log("Will be mailed out on: ", date);
 }
 
+//
+
+mailOutOnDateBinding.innerHTML = `<h5>${
+    weekdaysArray[date.getDay()]
+}, 9AM - 11AM</h5>
+<h5>${date.getMonth() + 1}/${date.getDate()}</h5> `;
 // Cart Details: -----------------------------------------------------
 
 let ssproducts = sessionStorage.getItem("products");
