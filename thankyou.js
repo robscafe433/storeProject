@@ -152,10 +152,12 @@ let resetCartItemsToZeroButton = document.querySelector(
     ".resetCartItemsToZeroButton"
 );
 
+let exampleFormControlSelect1Binding = document.getElementById(
+    ".exampleFormControlSelect1"
+);
+
 resetCartItemsToZeroButton.innerHTML = `
 <div onclick="resetCartItemsToZeroFunction()">Restart Order</div>
-
-
 `;
 
 function resetCartItemsToZeroFunction() {
@@ -164,7 +166,10 @@ function resetCartItemsToZeroFunction() {
         el.inCart = 0;
     });
     sessionStorage.setItem("products", JSON.stringify(products));
-    location.reload();
+    if (sessionStorage["exampleFormControlSelect1"]) {
+        // if exampleFormControlSelect1 is set
+        sessionStorage["exampleFormControlSelect1"] = null; // set the value
+    }
     document.location.href = "../index.html";
 
     // console.log(products); // shows that products in cart are all zero
