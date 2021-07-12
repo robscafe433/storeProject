@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 let totalCartItems = 0;
 let totalItemsAmount = 0;
 let shippingAmount = 0;
+let shippingDays = 0;
 
 let cartItemsDisplay = document.querySelector(".cart-Display");
 
@@ -204,10 +205,38 @@ class MainCartPageClass {
                     "shippingAmount",
                     JSON.stringify(shippingAmount)
                 );
+                if (shippingAmount == 0) {
+                    //console.log("Six business days");
+                    sessionStorage.setItem("ShippingDays", 6);
+                } else if (shippingAmount == 13.98) {
+                    //console.log("Four business days");
+                    sessionStorage.setItem("ShippingDays", 4);
+                } else if (shippingAmount == 22.98) {
+                    //console.log("Two business days");
+                    sessionStorage.setItem("ShippingDays", 2);
+                } else if (shippingAmount == 32.98) {
+                    //console.log("One business days");
+                    sessionStorage.setItem("ShippingDays", 1);
+                }
+                //alert("Pause");
                 location.reload();
             });
     }
 }
+
+// Saving shipping value in storage
+document.addEventListener("DOMContentLoaded", () => {
+    let formSelection = document.getElementById("exampleFormControlSelect1");
+
+    if (sessionStorage["exampleFormControlSelect1"]) {
+        // if exampleFormControlSelect1 is set
+        formSelection.value = sessionStorage["exampleFormControlSelect1"]; // set the value
+    }
+
+    formSelection.onchange = function () {
+        sessionStorage["exampleFormControlSelect1"] = this.value; // change sessionStorage on change
+    };
+});
 
 
 // Saving shipping value in storage
@@ -229,4 +258,3 @@ document.addEventListener("DOMContentLoaded", () => {
         checkoutBtn.disabled = false;
     }
 });
-
