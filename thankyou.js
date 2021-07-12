@@ -1,3 +1,10 @@
+//   ***Notice that below code will reset incart to zero automatically upon leaving page.
+// document.addEventListener("DOMContentLoaded", () => {
+//     let thankYouPageClass = new ThankYouPageClass();
+
+//     thankYouPageClass.resetCartItemsToZeroFinal();
+// });
+
 let totalItemsAmount = null;
 let shippingAmount = null;
 
@@ -95,17 +102,17 @@ let cartItemsDisplayThankYou = document.querySelector(
 
 Object.values(results).map((items) => {
     cartItemsDisplayThankYou.innerHTML += `     
-            <div class="col-6 col-md-1 col-lg-1 ">
+            <div class="col-sm-4 col-md-2 col-lg-2">
                 <img src="${items.image}" height="40">
             </div>
-            <div class="col-6 col-md-5 col-lg-5 ">
+            <div class="col-sm-4 col-md-2 pl-5rem col-lg-4 ">
                 <h4 class="mqSmall-robert">${items.name}</h4>
             </div>
-            <div class="col-4 col-md-12 col-lg-2">
+            <div class="col-sm-4 col-md-2 col-lg-2">
                 <h4 class="mqSmall-robert"> ${items.inCart}</h4></div>
-            <div class="col-4 col-md-4 col-lg-4">
+            <div class="col-sm-12 col-md-6 col-lg-3">
                 <div class="row">
-                    <div class="col-4 col-md-12 col-lg-12">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
                         <h4 class="mqSmall-robert"> $${(
                             items.inCart * items.price
                         ).toFixed(2)}</h4>
@@ -151,3 +158,27 @@ function myFunctionTrackDelivery(params) {
 // -------------------- button - virtual - gift -----------------
 
 let btnVirtualGift = document.querySelector(".btn-virtual-gift");
+
+// -----Master reset button in Navigation ---------
+
+let resetCartItemsToZeroButton = document.querySelector(
+    ".resetCartItemsToZeroButton"
+);
+
+resetCartItemsToZeroButton.innerHTML = `
+<div onclick="resetCartItemsToZeroFunction()">Restart Order</div>
+
+
+`;
+
+function resetCartItemsToZeroFunction() {
+    let products = JSON.parse(sessionStorage.getItem("products"));
+    products.forEach((el) => {
+        el.inCart = 0;
+    });
+    sessionStorage.setItem("products", JSON.stringify(products));
+    location.reload();
+    document.location.href = "../index.html";
+
+    // console.log(products); // shows that products in cart are all zero
+}
