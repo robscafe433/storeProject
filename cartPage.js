@@ -237,3 +237,24 @@ document.addEventListener("DOMContentLoaded", () => {
         sessionStorage["exampleFormControlSelect1"] = this.value; // change sessionStorage on change
     };
 });
+
+
+// Saving shipping value in storage
+document.addEventListener("DOMContentLoaded", () => {
+    let formSelection = document.getElementById("exampleFormControlSelect1");
+    let checkoutBtn = document.getElementById("checkoutButton");
+    if (sessionStorage["exampleFormControlSelect1"]) {
+        // if exampleFormControlSelect1 is set
+        formSelection.value = sessionStorage["exampleFormControlSelect1"]; // set the value
+    }
+
+    formSelection.onchange = function () {
+        sessionStorage["exampleFormControlSelect1"] = this.value; // change sessionStorage on change
+    };
+    // enabling and disabling checkout button
+    if (formSelection.value === "null") {
+        checkoutBtn.disabled = true;
+    } else {
+        checkoutBtn.disabled = false;
+    }
+});
